@@ -5,31 +5,12 @@ const Writing = () => {
   const t = useT();
   const essays = (window.ESSAYS && window.ESSAYS.length) ? window.ESSAYS : [];
   const [openIdx, setOpenIdx] = React.useState(null);
-  const [essayFilter, setEssayFilter] = React.useState('all');
-  const essayCategories = ['all', 'biology', 'code', 'math', 'life'];
-  const essayTagMap = { 1: 'biology', 2: 'biology' };
-  const visibleEssays = essayFilter === 'all' ? essays : essays.filter(e => essayTagMap[e.num] === essayFilter);
+  const visibleEssays = essays;
 
   return (
     <section id="writing" style={{ padding: t.dense ? '40px 56px 40px 120px' : '64px 56px 56px 120px', position: 'relative' }}>
       <Reveal><H2 n="05">ESSAYS</H2></Reveal>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10, margin: '10px 0 20px', flexWrap: 'wrap' }}>
-        {essayCategories.map(cat => (
-          <button key={cat} onClick={() => setEssayFilter(cat)} style={{
-            fontFamily: MONO, fontSize: 11, letterSpacing: 1,
-            padding: '3px 12px', borderRadius: 3, cursor: 'pointer',
-            border: `1.5px solid ${essayFilter === cat ? t.accent : t.palette.rule}`,
-            background: essayFilter === cat ? t.accent : 'transparent',
-            color: essayFilter === cat ? '#fff' : t.palette.pencil,
-            transition: 'all .18s',
-          }}>{cat}</button>
-        ))}
-      </div>
-      {visibleEssays.length === 0 && (
-        <div style={{ fontFamily: MONO, fontSize: 13, color: t.palette.pencil, padding: '24px 0', letterSpacing: 1 }}>
-          // no essays in this category yet — more coming.
-        </div>
-      )}
+
       <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
         {visibleEssays.map((w, i) => {
           const open = openIdx === i;
@@ -229,6 +210,48 @@ const WorkingToward = () => {
   );
 };
 
+
+// ─── Changelog ───────────────────────────────────────────────────────
+const Changelog = () => {
+  const t = useT();
+  const log = [
+    { v: "v26", date: "25 May 2026", note: "Changelog added. Essay filter removed. Toward section updated. Footer improved." },
+    { v: "v25", date: "25 May 2026", note: "Shelf updated — Code Breaker now reading. Three books finished." },
+    { v: "v24", date: "25 May 2026", note: "Man Who Knew Infinity, Crime and Punishment, How to Solve It marked done." },
+    { v: "v23", date: "25 May 2026", note: "Quotes section renamed. Nav cleaned up." },
+    { v: "v21", date: "25 May 2026", note: "Date and page count made dynamic. arXiv header updated." },
+    { v: "v20", date: "25 May 2026", note: "Full codebase cleaned — dead files and components removed." },
+    { v: "v17", date: "24 May 2026", note: "Site launched on GitHub Pages." },
+    { v: "v15", date: "24 May 2026", note: "Working Toward section added. Reading notes on finished books." },
+    { v: "v12", date: "24 May 2026", note: "About section expanded. Right Now updated with Google Workshop." },
+    { v: "v10", date: "24 May 2026", note: "Blueprint margin drawings added. Dark mode colours fixed." },
+    { v: "v9",  date: "24 May 2026", note: "59 quotes added across 7 categories with filter." },
+    { v: "v8",  date: "24 May 2026", note: "Thinking rotator, essay filter, dark/light toggle, progress bar added." },
+    { v: "v1",  date: "23 May 2026", note: "First commit. Notebook site built from scratch." },
+  ];
+  return (
+    <section id="changelog" style={{ padding: t.dense ? '40px 56px 40px 120px' : '64px 56px 56px 120px', position: 'relative' }}>
+      <Reveal><H2 n="11">CHANGELOG</H2></Reveal>
+      <Reveal delay={80}>
+        <div style={{ fontFamily: MONO, fontSize: 12, color: t.palette.pencil, marginBottom: 20, letterSpacing: 0.5 }}>
+          // git log --oneline karthik.dev
+        </div>
+      </Reveal>
+      <div style={{ fontFamily: MONO, fontSize: 13, lineHeight: 1 }}>
+        {log.map((entry, i) => (
+          <Reveal key={i} delay={i * 40}>
+            <div style={{ display: 'grid', gridTemplateColumns: '52px 110px 1fr', gap: 16, padding: '10px 0', borderBottom: `1px dashed ${t.palette.rule}`, alignItems: 'baseline' }}>
+              <span style={{ color: t.accent, fontWeight: 600 }}>{entry.v}</span>
+              <span style={{ color: t.palette.pencil, fontSize: 11 }}>{entry.date}</span>
+              <span style={{ color: t.palette.ink, fontSize: 12, lineHeight: 1.5 }}>{entry.note}</span>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  );
+};
+
 // ─── Contact ──────────────────────────────────────────────────────────
 const Contact = () => {
   const t = useT(); const c = V2;
@@ -261,7 +284,7 @@ const Contact = () => {
       </Reveal>
       <Reveal delay={400}>
         <div style={{ marginTop: 80, fontFamily: MONO, fontSize: 10, color: t.palette.pencil, letterSpacing: 1, textTransform: 'uppercase' }}>
-          PAGE ∞ / ∞ · NOTEBOOK CLOSES · {V2.location.toUpperCase()} · MMXXVI
+          {`PAGE ∞ / ∞ · NOTEBOOK CLOSES · ${V2.location.toUpperCase()} · LAST UPDATED ${new Date().toLocaleDateString('en-GB', {day:'2-digit', month:'short', year:'numeric'}).toUpperCase()}`}
         </div>
       </Reveal>
     </section>
@@ -395,7 +418,7 @@ const CodingTimeline = () => {
   );
 };
 
-window.Writing = Writing; window.Reading = Reading;
+window.Writing = Writing; window.Reading = Reading; window.Changelog = Changelog;
 window.Now = Now; window.Resume = Resume; window.Contact = Contact;
 window.CodingTimeline = CodingTimeline; window.WorkingToward = WorkingToward;
 window.FermatNote = FermatNote;

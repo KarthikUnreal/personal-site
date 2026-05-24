@@ -13,7 +13,7 @@ const Nav = () => {
     ['about', 'about'], ['code', 'code'],
     ['quotes', 'quotes'], ['writing', 'writing'],
     ['shelf', 'shelf'], ['now', 'now'], ['cv', 'cv'],
-    ['toward', 'toward'], ['hello', 'hello'],
+    ['toward', 'toward'], ['changelog', 'log'], ['hello', 'hello'],
   ];
   return (
     <div style={{
@@ -130,7 +130,7 @@ const HeroEquation = ({ onPageClick }) => {
         <div onClick={onPageClick} style={{ fontFamily: t.fonts.hand, fontSize: 24, color: t.accent, cursor: 'pointer', userSelect: 'none' }}>page 1 / ∞</div>
       </div>
       <div style={{ marginTop: 6, fontFamily: MONO, fontSize: 11, color: dim, letterSpacing: 1.2 }}>
-        {`arXiv:2605.${String((c.age || 13)).padStart(2, '0')}142 [self.IDENT] · v21 · ${new Date().toLocaleDateString('en-GB', {day:'2-digit',month:'short',year:'numeric'}).toUpperCase()} · ${window.ESSAYS ? window.ESSAYS.length : 1} pages`}
+        {`arXiv:2605.${String((c.age || 13)).padStart(2, '0')}142 [self.IDENT] · v26 · ${new Date().toLocaleDateString('en-GB', {day:'2-digit',month:'short',year:'numeric'}).toUpperCase()} · ${window.ESSAYS ? window.ESSAYS.length : 1} pages`}
       </div>
       <div style={{ marginTop: 36, textAlign: 'center', maxWidth: 980, marginLeft: 'auto', marginRight: 'auto' }}>
         <div style={{ fontFamily: MONO, fontSize: 11, color: t.accent, letterSpacing: 3, textTransform: 'uppercase', marginBottom: 12 }}>
@@ -273,7 +273,7 @@ const About = () => {
             <div style={{ marginTop: 12 }}><span style={{ color: t.palette.pencil }}>// loves</span></div>
             <div>{c.loves.join(', ')}</div>
             <div style={{ marginTop: 12 }}><span style={{ color: t.palette.pencil }}>// fuel</span></div>
-            <div>problem sets, desire for success, desire for fame</div>
+            <div>problem sets, curiosity that compounds, the work itself</div>
           </div>
         </div>
       </Reveal>

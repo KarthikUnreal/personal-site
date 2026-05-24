@@ -78,6 +78,7 @@ function App() {
         <Now />
         <Resume />
         <WorkingToward />
+        <Changelog />
         <Contact />
         <FermatNote open={fermat} onClose={() => setFermat(false)} />
         {typeof MarginDrawings !== "undefined" && <MarginDrawings />}
