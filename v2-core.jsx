@@ -1,17 +1,6 @@
-// v2-app.jsx — Math Notebook, polished.
-// Single React app: nav, hero (3 variants), about, work, wins, quotes,
-// writing, photos, reading, now, résumé, contact, easter egg, Tweaks panel.
-
-// ──────────────────────────────────────────────────────────────────────
-// Extend v1 content with new sections needed for v2.
-// ──────────────────────────────────────────────────────────────────────
+// v2-core.jsx
 const V2 = {
   ...window.CONTENT,
-  wins: [
-    { year: "2026", title: "Maths Olympiad qualifier", note: "School round · top of class" },
-    { year: "2018 — 26", title: "Volksfiesta · winner", note: "Inter-school · 1st place" },
-    { year: "2025", title: "100% in Class 8 mathematics", note: "School finals" },
-  ],
   quotes: [
     { text: "Biology is the next silicon.", attrib: "me · 2026", tag: "self" },
     { text: "Compounding curiosity beats raw IQ.", attrib: "me", tag: "self" },
@@ -109,14 +98,6 @@ const V2 = {
     "What it means to understand something vs. being able to solve it.",
     "If the universe is a simulation, does it run on cells or silicon?",
   ],
-  photos: [
-    { id: "ph1", caption: "the desk · 11:42pm", rot: -2.4 },
-    { id: "ph2", caption: "notebook, page 88", rot: 1.6 },
-    { id: "ph3", caption: "first engine win", rot: -1.1 },
-    { id: "ph4", caption: "K&R, dog-eared", rot: 2.2 },
-    { id: "ph5", caption: "olympiad pin", rot: -1.8 },
-    { id: "ph6", caption: "mango tree, monsoon", rot: 0.9 },
-  ],
   resume: [
     { when: "14 Oct 2012", what: "Born", where: "Gurgaon, India", tag: "school" },
     { when: "2026 — now", what: "Class 9, CBSE", where: "DPS Sector 45 · Gurgaon", tag: "school" },
@@ -164,9 +145,6 @@ const FONT_PAIRS = {
 };
 const MONO = '"Maple Mono", "JetBrains Mono", "IBM Plex Mono", monospace';
 
-// ──────────────────────────────────────────────────────────────────────
-// Tweak defaults (HOST EDITS THIS BLOCK)
-// ──────────────────────────────────────────────────────────────────────
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "theme": "paper",
   "accent": "red",
@@ -175,9 +153,6 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "hero": "equation"
 }/*EDITMODE-END*/;
 
-// ──────────────────────────────────────────────────────────────────────
-// Theme context + hooks
-// ──────────────────────────────────────────────────────────────────────
 const ThemeCtx = React.createContext(null);
 const useT = () => React.useContext(ThemeCtx);
 
@@ -208,9 +183,6 @@ const Reveal = ({ children, delay = 0, y = 18, style }) => {
   );
 };
 
-// ──────────────────────────────────────────────────────────────────────
-// Page chrome: margin line, binder holes
-// ──────────────────────────────────────────────────────────────────────
 const PageChrome = ({ height }) => {
   const t = useT();
   const holes = [];
@@ -273,10 +245,6 @@ const Tape = ({ rot = -3, style }) => {
   );
 };
 
-// ──────────────────────────────────────────────────────────────────────
-// Age substitution helper — replaces {age}, {ageWord}, {year} in strings
-// so essay copy stays accurate as Karthik's birthday rolls over.
-// ──────────────────────────────────────────────────────────────────────
 const NUM_WORDS = {
   10: "ten", 11: "eleven", 12: "twelve", 13: "thirteen", 14: "fourteen",
   15: "fifteen", 16: "sixteen", 17: "seventeen", 18: "eighteen", 19: "nineteen",

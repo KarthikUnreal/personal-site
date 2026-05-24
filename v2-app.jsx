@@ -1,25 +1,25 @@
-// v2-app.jsx — root App: composes theme from tweaks, renders all sections, mounts.
+// v2-app.jsx
 
 function App() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
 
-  // Expose theme toggle globally for the Nav button
   React.useEffect(() => {
     window.__toggleTheme = () => setTweak('theme', t.theme === 'paper' ? 'chalkboard' : 'paper');
     return () => { window.__toggleTheme = null; };
   }, [t.theme]);
+
   const [fermat, setFermat] = React.useState(false);
 
-  // build full theme object from raw tweak values
   const palette = PALETTES[t.theme] || PALETTES.paper;
-  const accentName = t.accent;
-  const accent = palette.accents[accentName] || palette.accents.red;
+  const accent = palette.accents[t.accent] || palette.accents.red;
   const fonts = FONT_PAIRS[t.fontPair] || FONT_PAIRS['radon+caveat'];
-  const dense = t.density === 'compact';
-  const dark = t.theme === 'chalkboard';
-  const theme = { palette, accent, accentName, fonts, dense, dark, themeKey: t.theme };
+  const theme = {
+    palette, accent, accentName: t.accent, fonts,
+    dense: t.density === 'compact',
+    dark: t.theme === 'chalkboard',
+    themeKey: t.theme,
+  };
 
-  // keyboard easter egg: press 'f' to open
   React.useEffect(() => {
     const onKey = (e) => {
       if (e.key === 'f' && !e.target.matches('input,textarea,[contenteditable]')) setFermat(true);
@@ -29,7 +29,6 @@ function App() {
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
-  // page chrome height — measure document body so binder holes go all the way
   const [chromeH, setChromeH] = React.useState(8000);
   React.useEffect(() => {
     const update = () => setChromeH(Math.max(document.documentElement.scrollHeight, window.innerHeight));
@@ -39,25 +38,6 @@ function App() {
     return () => ro.disconnect();
   }, [t.theme, t.density, t.hero, t.fontPair]);
 
-  const Hero = t.hero === 'equation' ? HeroEquation : t.hero === 'minimal' ? HeroMinimal : HeroClassic;
-
-  // The grid lines are a page-wide background. Build the bg via CSS gradient
-  // built from palette.grid and gridAlpha.
-  const gridColor = palette.grid;
-  const pageBg = {
-    background: `
-      linear-gradient(to right, ${gridColor} 1px, transparent 1px) 0 0/40px 40px,
-      linear-gradient(to bottom, ${gridColor} 1px, transparent 1px) 0 0/40px 40px,
-      ${palette.bg}
-    `,
-    color: palette.ink,
-    minHeight: '100vh',
-    position: 'relative',
-    fontFamily: fonts.serif,
-    transition: 'background-color .4s ease',
-  };
-
-  // Inject animation CSS once
   React.useEffect(() => {
     if (document.getElementById('karthik-anim-css')) return;
     const style = document.createElement('style');
@@ -68,6 +48,21 @@ function App() {
     `;
     document.head.appendChild(style);
   }, []);
+
+  const Hero = t.hero === 'equation' ? HeroEquation : t.hero === 'minimal' ? HeroMinimal : HeroClassic;
+
+  const pageBg = {
+    background: `
+      linear-gradient(to right, ${palette.grid} 1px, transparent 1px) 0 0/40px 40px,
+      linear-gradient(to bottom, ${palette.grid} 1px, transparent 1px) 0 0/40px 40px,
+      ${palette.bg}
+    `,
+    color: palette.ink,
+    minHeight: '100vh',
+    position: 'relative',
+    fontFamily: fonts.serif,
+    transition: 'background-color .4s ease',
+  };
 
   return (
     <ThemeCtx.Provider value={theme}>
@@ -84,10 +79,8 @@ function App() {
         <Resume />
         <WorkingToward />
         <Contact />
-
         <FermatNote open={fermat} onClose={() => setFermat(false)} />
         {typeof MarginDrawings !== "undefined" && <MarginDrawings />}
-
         <TweaksPanel>
           <TweakSection label="Theme" />
           <TweakRadio label="Mode" value={t.theme} options={['paper', 'chalkboard']}
@@ -98,18 +91,15 @@ function App() {
               const name = Object.keys(palette.accents).find(k => palette.accents[k] === v);
               if (name) setTweak('accent', name);
             }} />
-
           <TweakSection label="Typography" />
           <TweakSelect label="Font pair" value={t.fontPair}
             options={Object.entries(FONT_PAIRS).map(([k, v]) => ({ value: k, label: v.label }))}
             onChange={(v) => setTweak('fontPair', v)} />
-
           <TweakSection label="Layout" />
           <TweakRadio label="Density" value={t.density} options={['compact', 'regular']}
             onChange={(v) => setTweak('density', v)} />
           <TweakRadio label="Hero" value={t.hero} options={['classic', 'equation', 'minimal']}
             onChange={(v) => setTweak('hero', v)} />
-
           <TweakSection label="Easter egg" />
           <TweakButton label="press F or click page 1/∞" onClick={() => setFermat(true)}>open it</TweakButton>
         </TweaksPanel>

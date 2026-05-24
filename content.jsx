@@ -1,7 +1,4 @@
-// Shared content for all 10 direction artboards.
-// Put on window so all babel scripts can read it.
-
-const __KARTHIK_BDAY = new Date(2012, 9, 14); // 14 Oct 2012 (month is 0-indexed)
+const __KARTHIK_BDAY = new Date(2012, 9, 14);
 const __computeAge = () => {
   const now = new Date();
   let a = now.getFullYear() - __KARTHIK_BDAY.getFullYear();
@@ -20,24 +17,10 @@ window.CONTENT = {
   birthday: "14 Oct 2012",
   age: __computeAge(),
   grade: "Class 9 · CBSE",
-  thesis: "Biology is the next silicon.",
   email: "karthikbkollabathula@gmail.com",
   github: "KarthikUnreal",
   stack: ["C", "C++", "Python", "HTML", "CSS"],
   loves: ["Mathematics", "Physics", "Computer Science", "Biotechnology"],
-
-  projects: [
-    { name: "Sieve", year: "2026", lang: "C++", blurb: "A prime-number sieve visualizer. Watch composites get crossed out in real time, then race the Sieve of Atkin." },
-    { name: "Chesswright", year: "2026", lang: "C++", blurb: "A tiny chess engine. ~600 lines. Beats me. Doesn't beat my dad. Yet." },
-    { name: "Fractal Garden", year: "2025", lang: "Python", blurb: "Mandelbrot + Julia explorer with deep-zoom and palette presets. Made because the textbook one was ugly." },
-    { name: "Newton's Toybox", year: "2025", lang: "Python", blurb: "Drop balls, pendulums and springs into a canvas. The physics is correct. The chaos isn't." },
-    { name: "K&R Notes", year: "2024", lang: "HTML/CSS", blurb: "Every K&R exercise, solved, annotated, and laid out like a textbook. Hard mode: zero JS." },
-  ],
-
-  writing: [
-    { title: "Biology is the next silicon", date: "draft", read: "6 min" },
-    { title: "Reading War and Peace at 14", date: "draft", read: "4 min" },
-  ],
 
   now: [
     "Tearing through The Man Who Knew Infinity.",
@@ -49,8 +32,9 @@ window.CONTENT = {
   ],
 
   reading: [
-    { title: "War and Peace", author: "Leo Tolstoy", state: "queued" },
+    { title: "The Man Who Knew Infinity", author: "Robert Kanigel", state: "reading" },
 
+    { title: "War and Peace", author: "Leo Tolstoy", state: "queued" },
     { title: "The Brothers Karamazov", author: "Fyodor Dostoevsky", state: "queued" },
     { title: "Crime and Punishment", author: "Fyodor Dostoevsky", state: "queued" },
     { title: "The Feynman Lectures on Physics", author: "Richard Feynman", state: "queued" },
@@ -61,7 +45,6 @@ window.CONTENT = {
     { title: "The Selfish Gene", author: "Richard Dawkins", state: "queued" },
     { title: "Gödel, Escher, Bach", author: "Douglas Hofstadter", state: "queued" },
     { title: "The Three-Body Problem", author: "Liu Cixin", state: "queued" },
-    { title: "The Man Who Knew Infinity", author: "Robert Kanigel", state: "reading" },
     { title: "How to Solve It", author: "George Pólya", state: "queued" },
 
     { title: "A Mathematician's Apology", author: "G. H. Hardy", state: "done", note: "Made me want to do something real, not just clever." },
@@ -81,13 +64,4 @@ window.CONTENT = {
       "Finish Future Human",
     ]
   },
-
-  photos: [
-    "desk · 11:42pm",
-    "notebook page 88",
-    "mango tree, monsoon",
-    "first chess engine win",
-    "math olympiad pin",
-    "K&R, dog-eared",
-  ],
 };
