@@ -297,7 +297,7 @@ const Quotes = () => {
   const visible = qFilter === 'all' ? V2.quotes : V2.quotes.filter(q => q.tag === qFilter);
   return (
     <section id="quotes" style={{ padding: t.dense ? '40px 56px 40px 120px' : '64px 56px 56px 120px', position: 'relative' }}>
-      <Reveal><H2 n="04">THINGS I BELIEVE</H2></Reveal>
+      <Reveal><H2 n="04">NICE QUOTES</H2></Reveal>
       <div style={{ display: 'flex', gap: 10, margin: '10px 0 24px', flexWrap: 'wrap' }}>
         {qTags.map(({ key, label }) => (
           <button key={key} onClick={() => setQFilter(key)} style={{

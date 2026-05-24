@@ -114,7 +114,7 @@ const Reading = () => {
                     <div style={{ width: 90, height: 5, background: 'rgba(26,58,92,0.12)', borderRadius: 3, overflow: 'hidden' }}>
                       <div style={{ width: '20%', height: '100%', background: t.accent, borderRadius: 3 }} />
                     </div>
-                    <span style={{ fontFamily: MONO, fontSize: 10, color: t.palette.pencil }}>~80/392p</span>
+                    <span style={{ fontFamily: MONO, fontSize: 10, color: t.palette.pencil }}>~120/490p</span>
                   </div>
                 )}
                 {r.state === 'done' && r.note && (

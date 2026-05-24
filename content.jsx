@@ -23,7 +23,7 @@ window.CONTENT = {
   loves: ["Mathematics", "Physics", "Computer Science", "Biotechnology"],
 
   now: [
-    "Tearing through The Man Who Knew Infinity.",
+    "Tearing through The Code Breaker.",
     "Teaching myself the basics of molecular biology.",
     "Google Workshop starts tomorrow. Already taking notes.",
     "Still figuring out Gurgaon. Two months in. Getting there.",
@@ -32,20 +32,20 @@ window.CONTENT = {
   ],
 
   reading: [
-    { title: "The Man Who Knew Infinity", author: "Robert Kanigel", state: "reading" },
+    { title: "The Man Who Knew Infinity", author: "Robert Kanigel", state: "done", note: "Ramanujan is proof that mathematics doesn't care where you're from." },
 
     { title: "War and Peace", author: "Leo Tolstoy", state: "queued" },
     { title: "The Brothers Karamazov", author: "Fyodor Dostoevsky", state: "queued" },
-    { title: "Crime and Punishment", author: "Fyodor Dostoevsky", state: "queued" },
+    { title: "Crime and Punishment", author: "Fyodor Dostoevsky", state: "done", note: "A systems failure story. Raskolnikov's bug was in his axioms, not his logic." },
     { title: "The Feynman Lectures on Physics", author: "Richard Feynman", state: "queued" },
     { title: "Regenesis", author: "George Church", state: "queued" },
     { title: "The Genesis Machine", author: "Amy Webb & Andrew Hessel", state: "queued" },
-    { title: "The Code Breaker", author: "Walter Isaacson", state: "queued" },
+    { title: "The Code Breaker", author: "Walter Isaacson", state: "reading" },
     { title: "The Vital Question", author: "Nick Lane", state: "queued" },
     { title: "The Selfish Gene", author: "Richard Dawkins", state: "queued" },
     { title: "Gödel, Escher, Bach", author: "Douglas Hofstadter", state: "queued" },
     { title: "The Three-Body Problem", author: "Liu Cixin", state: "queued" },
-    { title: "How to Solve It", author: "George Pólya", state: "queued" },
+    { title: "How to Solve It", author: "George Pólya", state: "done", note: "The best book on thinking I've read." },
 
     { title: "A Mathematician's Apology", author: "G. H. Hardy", state: "done", note: "Made me want to do something real, not just clever." },
     { title: "Project Hail Mary", author: "Andy Weir", state: "done", note: "The best argument for cross-disciplinary thinking I've read in fiction." },
