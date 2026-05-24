@@ -59,7 +59,7 @@ const HeroClassic = ({ onPageClick }) => {
         <div onClick={onPageClick} style={{ fontFamily: t.fonts.hand, fontSize: 24, color: t.accent, cursor: 'pointer', userSelect: 'none' }} title="click me">page 1 / ∞</div>
       </div>
       <div style={{ marginTop: 6, fontFamily: MONO, fontSize: 11, color: t.palette.pencil, letterSpacing: 1 }}>
-        {`SUBJECT: SELF · DATE: ${new Date().toLocaleDateString('en-GB').split('/').join('.')} · BETTING ON BIOTECH`}
+        {`SUBJECT: SELF · DATE: ${new Date().toLocaleDateString('en-IN', { timeZone: 'Asia/Kolkata' }).split('/').join('.')} · BETTING ON BIOTECH`}
       </div>
       <h1 style={{ fontFamily: t.fonts.hand, fontSize: 200, lineHeight: 0.96, margin: '40px 0 0', fontWeight: 700, color: t.palette.ink, letterSpacing: -2 }}>
         Hi, I'm <u style={{ textDecorationColor: t.accent, textDecorationThickness: 5, textUnderlineOffset: 10 }}>Karthik</u>.
@@ -130,7 +130,7 @@ const HeroEquation = ({ onPageClick }) => {
         <div onClick={onPageClick} style={{ fontFamily: t.fonts.hand, fontSize: 24, color: t.accent, cursor: 'pointer', userSelect: 'none' }}>page 1 / ∞</div>
       </div>
       <div style={{ marginTop: 6, fontFamily: MONO, fontSize: 11, color: dim, letterSpacing: 1.2 }}>
-        {`arXiv:2605.${String((c.age || 13)).padStart(2, '0')}142 [self.IDENT] · v27 · ${new Date().toLocaleDateString('en-GB', {day:'2-digit',month:'short',year:'numeric'}).toUpperCase()} · ${window.ESSAYS ? window.ESSAYS.length : 1} pages`}
+        {`arXiv:2605.${String((c.age || 13)).padStart(2, '0')}142 [self.IDENT] · v30 · ${new Date().toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata', day:'2-digit', month:'short', year:'numeric' }).toUpperCase()} · ${window.ESSAYS ? window.ESSAYS.length : 1} pages`}
       </div>
       <div style={{ marginTop: 36, textAlign: 'center', maxWidth: 980, marginLeft: 'auto', marginRight: 'auto' }}>
         <div style={{ fontFamily: MONO, fontSize: 11, color: t.accent, letterSpacing: 3, textTransform: 'uppercase', marginBottom: 12 }}>
@@ -243,7 +243,7 @@ const HeroMinimal = ({ onPageClick }) => {
           — a personal notebook by Karthik
         </div>
         <div style={{ fontFamily: MONO, fontSize: 12, color: t.palette.pencil, marginTop: 16, letterSpacing: 2 }}>
-          {new Date().toLocaleDateString('en-GB').split('/').join(' · ')} · {V2.location.toUpperCase()}
+          {new Date().toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata' }).split('/').join(' · ')} · {V2.location.toUpperCase()}
         </div>
         <div style={{ fontFamily: t.fonts.hand, fontSize: 28, color: t.accent, marginTop: 56 }}>~ open at any page ~</div>
       </div>

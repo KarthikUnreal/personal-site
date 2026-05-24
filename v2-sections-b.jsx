@@ -59,6 +59,26 @@ const Writing = () => {
                           border: `1.5px solid ${t.accent}`, padding: '4px 14px', cursor: 'pointer', borderRadius: 3,
                         }}>close ↑</button>
                       </div>
+                      {visibleEssays.filter((_, j) => j !== i).length > 0 && (
+                        <div style={{ marginTop: 24, paddingTop: 16, borderTop: `1px dashed ${t.palette.rule}` }}>
+                          <div style={{ fontFamily: MONO, fontSize: 11, color: t.palette.pencil, letterSpacing: 1, marginBottom: 12 }}>// READ NEXT</div>
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                            {visibleEssays.filter((_, j) => j !== i).map((related, k) => (
+                              <div key={k}
+                                onClick={(e) => { e.stopPropagation(); setOpenIdx(visibleEssays.indexOf(related)); }}
+                                style={{ display: 'flex', alignItems: 'baseline', gap: 12, cursor: 'pointer' }}>
+                                <span style={{ fontFamily: t.fonts.hand, color: t.accent, fontSize: 20 }}>→</span>
+                                <span style={{ fontFamily: t.fonts.serif, fontStyle: 'italic', fontSize: 18, color: t.palette.ink, borderBottom: `1px solid transparent`, transition: 'border-color .15s' }}
+                                  onMouseEnter={(e) => e.target.style.borderColor = t.accent}
+                                  onMouseLeave={(e) => e.target.style.borderColor = 'transparent'}>
+                                  {related.title}
+                                </span>
+                                <span style={{ fontFamily: MONO, fontSize: 11, color: t.palette.pencil }}>{related.read}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 )}
@@ -215,18 +235,20 @@ const WorkingToward = () => {
 const Changelog = () => {
   const t = useT();
   const log = [
-    { v: "v26", date: "25 May 2026", note: "Changelog added. Essay filter removed. Toward section updated. Footer improved." },
+    { v: "v29", date: "25 May 2026", note: "Related essays added. Changelog updated to v29." },
+    { v: "v27", date: "25 May 2026", note: "Essay #2 published — The Biological Copy-Paste: CRISPR." },
+    { v: "v26", date: "25 May 2026", note: "Changelog added. Toward section updated. Footer improved. Fuel updated." },
     { v: "v25", date: "25 May 2026", note: "Shelf updated — Code Breaker now reading. Three books finished." },
     { v: "v24", date: "25 May 2026", note: "Man Who Knew Infinity, Crime and Punishment, How to Solve It marked done." },
-    { v: "v23", date: "25 May 2026", note: "Quotes section renamed. Nav cleaned up." },
+    { v: "v23", date: "25 May 2026", note: "Quotes section renamed to Nice Quotes." },
     { v: "v21", date: "25 May 2026", note: "Date and page count made dynamic. arXiv header updated." },
     { v: "v20", date: "25 May 2026", note: "Full codebase cleaned — dead files and components removed." },
     { v: "v17", date: "24 May 2026", note: "Site launched on GitHub Pages." },
     { v: "v15", date: "24 May 2026", note: "Working Toward section added. Reading notes on finished books." },
-    { v: "v12", date: "24 May 2026", note: "About section expanded. Right Now updated with Google Workshop." },
+    { v: "v12", date: "24 May 2026", note: "About section expanded. Right Now updated." },
     { v: "v10", date: "24 May 2026", note: "Blueprint margin drawings added. Dark mode colours fixed." },
     { v: "v9",  date: "24 May 2026", note: "59 quotes added across 7 categories with filter." },
-    { v: "v8",  date: "24 May 2026", note: "Thinking rotator, essay filter, dark/light toggle, progress bar added." },
+    { v: "v8",  date: "24 May 2026", note: "Thinking rotator, dark/light toggle, progress bar added." },
     { v: "v1",  date: "23 May 2026", note: "First commit. Notebook site built from scratch." },
   ];
   return (
@@ -284,7 +306,7 @@ const Contact = () => {
       </Reveal>
       <Reveal delay={400}>
         <div style={{ marginTop: 80, fontFamily: MONO, fontSize: 10, color: t.palette.pencil, letterSpacing: 1, textTransform: 'uppercase' }}>
-          {`PAGE ∞ / ∞ · NOTEBOOK CLOSES · ${V2.location.toUpperCase()} · LAST UPDATED ${new Date().toLocaleDateString('en-GB', {day:'2-digit', month:'short', year:'numeric'}).toUpperCase()}`}
+          {`PAGE ∞ / ∞ · NOTEBOOK CLOSES · ${V2.location.toUpperCase()} · LAST UPDATED ${new Date().toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata', day:'2-digit', month:'short', year:'numeric' }).toUpperCase()}`}
         </div>
       </Reveal>
     </section>
