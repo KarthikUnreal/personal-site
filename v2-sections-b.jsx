@@ -235,7 +235,9 @@ const WorkingToward = () => {
 const Changelog = () => {
   const t = useT();
   const log = [
-    { v: "v29", date: "25 May 2026", note: "Related essays added. Changelog updated to v29." },
+    { v: "v31", date: "25 May 2026", note: "Right Now updated. Essay #2 → #3 in progress." },
+    { v: "v30", date: "25 May 2026", note: "All dates switched to Indian Standard Time." },
+    { v: "v29", date: "25 May 2026", note: "Related essays added. Changelog updated." },
     { v: "v27", date: "25 May 2026", note: "Essay #2 published — The Biological Copy-Paste: CRISPR." },
     { v: "v26", date: "25 May 2026", note: "Changelog added. Toward section updated. Footer improved. Fuel updated." },
     { v: "v25", date: "25 May 2026", note: "Shelf updated — Code Breaker now reading. Three books finished." },

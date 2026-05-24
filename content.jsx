@@ -27,7 +27,7 @@ window.CONTENT = {
     "Teaching myself the basics of molecular biology.",
     "Google Workshop starts tomorrow. Already taking notes.",
     "Still figuring out Gurgaon. Two months in. Getting there.",
-    "Writing essay #2. CRISPR. Harder than it looks.",
+    "Writing essay #3. Already have the outline.",
     "Avoiding social media. Mostly winning.",
   ],
 
