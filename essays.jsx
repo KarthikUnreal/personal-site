@@ -21,4 +21,27 @@ Physics helped humanity understand the universe. Chemistry helped humanity manip
 
 It is not just the study of life. It is the study of us — what we are, why we exist, and what we may eventually become. And I believe, without hesitation, that it is our future.`,
   },
+  {
+    num: 2,
+    title: "The Biological Copy-Paste: CRISPR",
+    date: "25 May 2026",
+    read: "5 min",
+    body: `The greatest inventions in history were not always built from scratch like the Wheel and the Engine. Some were found in a lab by curious scientists, unaware of what they would discover.
+
+CRISPR was not invented by someone trying to edit genes. It was discovered in bacteria as a fighting mechanism against their greatest enemies — the bacteriophages. Bacteria literally developed their own biological program to survive, and we found it and fine-tuned it into gene editing, the discovery of the decade.
+
+Francisco Mojica, a Spanish scientist, was studying salt-tolerant bacteria in the early 1990s when he noticed something strange in their DNA — repeated sequences separated by short spacers. These were a brand-new discovery, unseen before. Years of work led him to a hypothesis: these spacers were memories. More specifically, fragments of viral DNA stored by the bacterium after surviving an attack.
+
+When a bacteriophage attacks and the bacterium survives, it cuts out a piece of the virus's DNA and stores it. The next time that phage shows up, the bacterium recognises it, deploys a protein called Cas9, and cuts the viral DNA apart. It is an immune system with memory, built entirely out of the power of evolution.
+
+Jennifer Doudna and Emmanuelle Charpentier saw something in this new discovery. If Cas9 could be guided to cut any sequence of DNA — not just viral DNA, but any DNA — then it could be used as a programmable editor. They worked on this and demonstrated it in 2012. This power was now with humanity.
+
+What this means is not small. Diseases written into DNA — such as sickle cell, cancer, hereditary conditions — are no longer necessarily permanent. We are seeing the earliest effects of this technology. This can be either our greatest triumph or our undoing.
+
+CRISPR does not distinguish between a disease and a trait someone decided they did not like. The same tool that could eliminate a genetic disorder could also be used to engineer something else entirely.
+
+Biology has always carried this weight. The discovery of how cells divide gave us chemotherapy and, in other hands, could have given us worse. The problem is never the science. It is the unjust element of humanity.
+
+CRISPR was found in bacteria fighting for survival. It became a tool for editing the genome. What it becomes next depends on what we use it for.`,
+  },
 ];
