@@ -130,7 +130,7 @@ const HeroEquation = ({ onPageClick }) => {
         <div onClick={onPageClick} style={{ fontFamily: t.fonts.hand, fontSize: 24, color: t.accent, cursor: 'pointer', userSelect: 'none' }}>page 1 / ∞</div>
       </div>
       <div style={{ marginTop: 6, fontFamily: MONO, fontSize: 11, color: dim, letterSpacing: 1.2 }}>
-        arXiv:2605.{String((c.age || 13)).padStart(2, '0')}142 [self.IDENT] · v1 · 23 MAY 2026 · 6 pages
+        {`arXiv:2605.${String((c.age || 13)).padStart(2, '0')}142 [self.IDENT] · v21 · ${new Date().toLocaleDateString('en-GB', {day:'2-digit',month:'short',year:'numeric'}).toUpperCase()} · ${window.ESSAYS ? window.ESSAYS.length : 1} pages`}
       </div>
       <div style={{ marginTop: 36, textAlign: 'center', maxWidth: 980, marginLeft: 'auto', marginRight: 'auto' }}>
         <div style={{ fontFamily: MONO, fontSize: 11, color: t.accent, letterSpacing: 3, textTransform: 'uppercase', marginBottom: 12 }}>
