@@ -55,7 +55,6 @@ const Doodle = ({ top, left, right, width = 180, rotate = 0, opacity = 0.55, par
       zIndex: 0,
       transform: `rotate(${rotate}deg) translateY(${offset}px)`,
       transformOrigin: 'center center',
-      willChange: 'transform',
     }}>
       {children}
     </div>
