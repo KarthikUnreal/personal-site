@@ -35,9 +35,15 @@ const BP = '#1a3a5c';
 const RD = '#c0392b';
 const DEFS = makeDefs(false).DEFS;
 
-// Wrapper: large, rotated, scattered
-const Doodle = ({ top, left, right, width = 180, rotate = 0, opacity = 0.55, children }) => {
+// Wrapper: large, rotated, scattered, with subtle parallax
+const Doodle = ({ top, left, right, width = 180, rotate = 0, opacity = 0.55, parallax = 0.05, children }) => {
   const side = right != null ? { right } : { left };
+  const [offset, setOffset] = React.useState(0);
+  React.useEffect(() => {
+    const on = () => setOffset(window.scrollY * parallax);
+    window.addEventListener('scroll', on, { passive: true });
+    return () => window.removeEventListener('scroll', on);
+  }, [parallax]);
   return (
     <div style={{
       position: 'absolute',
@@ -47,8 +53,9 @@ const Doodle = ({ top, left, right, width = 180, rotate = 0, opacity = 0.55, chi
       opacity,
       pointerEvents: 'none',
       zIndex: 0,
-      transform: `rotate(${rotate}deg)`,
+      transform: `rotate(${rotate}deg) translateY(${offset}px)`,
       transformOrigin: 'center center',
+      willChange: 'transform',
     }}>
       {children}
     </div>

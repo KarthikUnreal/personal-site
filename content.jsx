@@ -17,6 +17,7 @@ window.CONTENT = {
   birthday: "14 Oct 2012",
   age: __computeAge(),
   grade: "Class 9 · CBSE",
+  gurgaonSince: "2026-03-25",
   email: "karthikbkollabathula@gmail.com",
   github: "KarthikUnreal",
   stack: ["C", "C++", "Python", "HTML", "CSS"],
@@ -51,6 +52,11 @@ window.CONTENT = {
     { title: "Project Hail Mary", author: "Andy Weir", state: "done", note: "The best argument for cross-disciplinary thinking I've read in fiction." },
     { title: "Surely You're Joking, Mr. Feynman!", author: "Richard Feynman", state: "done", note: "Read the man, not the textbook. This is why." },
     { title: "The C Programming Language", author: "Kernighan & Ritchie", state: "done", note: "Every page felt like someone finally explaining how things actually work." },
+    { title: "The Double Helix", author: "James Watson", state: "queued" },
+    { title: "What Is Life?", author: "Erwin Schrödinger", state: "queued" },
+    { title: "The Pragmatic Programmer", author: "Hunt & Thomas", state: "queued" },
+    { title: "Zero to One", author: "Peter Thiel", state: "queued" },
+    { title: "The Emperor of All Maladies", author: "Siddhartha Mukherjee", state: "queued" },
   ],
 
   workingToward: {

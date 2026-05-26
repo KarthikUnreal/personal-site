@@ -87,6 +87,10 @@ const V2 = {
 
     { text: "Debugging is twice as hard as writing the code in the first place.", attrib: "Brian Kernighan", tag: "cscience" },
     { text: "Programs must be written for people to read, and only incidentally for machines to execute.", attrib: "Kernighan & Ritchie", tag: "cscience" },
+    { text: "The ability to reduce everything to simple fundamental laws does not imply the ability to start from those laws and reconstruct the universe.", attrib: "Philip Anderson", tag: "physics" },
+    { text: "Life is the most complex chemical reaction in the universe.", attrib: "Nick Lane", tag: "biology" },
+    { text: "We are at the very beginning of time for the human race.", attrib: "Richard Feynman", tag: "feynman" },
+    { text: "The greatest shortcoming of the human race is our inability to understand the exponential function.", attrib: "Albert Bartlett", tag: "maths" },
   ],
   thinking: [
     "Why does evolution converge on the same solutions independently?",
@@ -97,6 +101,9 @@ const V2 = {
     "Why the cell membrane is the most underrated structure in science.",
     "What it means to understand something vs. being able to solve it.",
     "If the universe is a simulation, does it run on cells or silicon?",
+    "What a Google engineer actually thinks about all day.",
+    "Whether the best scientists are also the best explainers.",
+    "What it would take to sequence a genome on a budget.",
   ],
   resume: [
     { when: "14 Oct 2012", what: "Born", where: "Gurgaon, India", tag: "school" },

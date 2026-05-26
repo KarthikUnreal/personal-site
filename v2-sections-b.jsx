@@ -24,7 +24,7 @@ const Writing = () => {
                   <span style={{ position: 'absolute', left: 0, top: 22, fontFamily: t.fonts.hand, fontSize: 22, color: t.accent, width: 36, textAlign: 'right', paddingRight: 6 }}>{i + 1})</span>
                   <div>
                     <div style={{ fontFamily: t.fonts.serif, fontStyle: 'italic', fontSize: 26, color: t.palette.ink }}>{subAge(w.title)}</div>
-                    <div style={{ fontFamily: MONO, fontSize: 11, color: t.palette.pencil, marginTop: 4, letterSpacing: 1 }}>{(w.date || '').toUpperCase()} · {w.read}</div>
+                    <div style={{ fontFamily: MONO, fontSize: 11, color: t.palette.pencil, marginTop: 4, letterSpacing: 1 }}>{(w.date || '').toUpperCase()} · {w.body ? `${Math.max(1, Math.round(w.body.split(' ').length / 200))} min` : w.read}</div>
                   </div>
                   <span style={{
                     fontFamily: t.fonts.hand, fontSize: 32, color: t.accent,
@@ -88,6 +88,37 @@ const Writing = () => {
         })}
       </ul>
     </section>
+  );
+};
+
+
+// ─── Quote Card ───────────────────────────────────────────────────────
+const QuoteCard = ({ q, i, t }) => {
+  const [copied, setCopied] = React.useState(false);
+  const copy = (e) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText(`"${q.text}" — ${q.attrib}`).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    });
+  };
+  return (
+    <div
+      onMouseEnter={(e) => { e.currentTarget.style.transform = `rotate(${i % 2 === 0 ? -1.5 : 1.5}deg)`; e.currentTarget.querySelector('.copy-btn').style.opacity = '1'; }}
+      onMouseLeave={(e) => { e.currentTarget.style.transform = 'rotate(0deg)'; e.currentTarget.querySelector('.copy-btn').style.opacity = '0'; }}
+      style={{ transition: 'transform .25s', position: 'relative', paddingLeft: 32, paddingRight: 12 }}>
+      <span style={{ position: 'absolute', left: 0, top: -16, fontFamily: t.fonts.serif, fontSize: 80, color: t.accent, fontStyle: 'italic', lineHeight: 1 }}>"</span>
+      <div style={{ fontFamily: t.fonts.hand, fontSize: 30, lineHeight: 1.25, color: t.palette.ink }}>{q.text}</div>
+      <div style={{ marginTop: 8, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ fontFamily: t.fonts.serif, fontStyle: 'italic', fontSize: 14, color: t.palette.pencil }}>— {q.attrib}</div>
+        <button className="copy-btn" onClick={copy} style={{
+          opacity: 0, transition: 'opacity .2s',
+          fontFamily: MONO, fontSize: 10, letterSpacing: 1,
+          color: copied ? t.palette.accents.forest : t.palette.pencil,
+          background: 'transparent', border: 'none', cursor: 'pointer', padding: '2px 6px',
+        }}>{copied ? '✓ copied' : 'copy'}</button>
+      </div>
+    </div>
   );
 };
 
@@ -235,7 +266,10 @@ const WorkingToward = () => {
 const Changelog = () => {
   const t = useT();
   const log = [
-    { v: "v31", date: "25 May 2026", note: "Right Now updated. Essay #2 → #3 in progress." },
+    { v: "v34", date: "26 May 2026", note: "5 books added. Copy quote button. Back to top. Auto reading time. Parallax drawings. README updated." },
+    { v: "v33", date: "26 May 2026", note: "5 thinking items. Gurgaon auto-date. 4 new quotes. Share button." },
+    { v: "v32", date: "26 May 2026", note: "Share button added to footer." },
+    { v: "v31", date: "25 May 2026", note: "Right Now updated. Essay #3 in progress." },
     { v: "v30", date: "25 May 2026", note: "All dates switched to Indian Standard Time." },
     { v: "v29", date: "25 May 2026", note: "Related essays added. Changelog updated." },
     { v: "v27", date: "25 May 2026", note: "Essay #2 published — The Biological Copy-Paste: CRISPR." },
@@ -276,6 +310,37 @@ const Changelog = () => {
   );
 };
 
+
+// ─── Share Button ─────────────────────────────────────────────────────
+const ShareButton = ({ t }) => {
+  const [copied, setCopied] = React.useState(false);
+  const share = () => {
+    const url = window.location.href;
+    if (navigator.share) {
+      navigator.share({ title: 'karthik · personal notebook', url });
+    } else {
+      navigator.clipboard.writeText(url).then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      });
+    }
+  };
+  return (
+    <button onClick={share} style={{
+      fontFamily: t.fonts.hand, fontSize: 24,
+      color: copied ? t.palette.pencil : t.accent,
+      background: 'transparent',
+      border: `2px solid ${copied ? t.palette.rule : t.accent}`,
+      padding: '8px 28px', cursor: 'pointer', borderRadius: 3,
+      transform: 'rotate(-1deg)',
+      transition: 'all .2s',
+      display: 'flex', alignItems: 'center', gap: 12,
+    }}>
+      <span>{copied ? '✓ copied' : '↗ share this site'}</span>
+    </button>
+  );
+};
+
 // ─── Contact ──────────────────────────────────────────────────────────
 const Contact = () => {
   const t = useT(); const c = V2;
@@ -306,8 +371,13 @@ const Contact = () => {
           p.s. tell me what you're building.
         </div>
       </Reveal>
+      <Reveal delay={350}>
+        <div style={{ marginTop: 48 }}>
+          <ShareButton t={t} />
+        </div>
+      </Reveal>
       <Reveal delay={400}>
-        <div style={{ marginTop: 80, fontFamily: MONO, fontSize: 10, color: t.palette.pencil, letterSpacing: 1, textTransform: 'uppercase' }}>
+        <div style={{ marginTop: 40, fontFamily: MONO, fontSize: 10, color: t.palette.pencil, letterSpacing: 1, textTransform: 'uppercase' }}>
           {`PAGE ∞ / ∞ · NOTEBOOK CLOSES · ${V2.location.toUpperCase()} · LAST UPDATED ${new Date().toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata', day:'2-digit', month:'short', year:'numeric' }).toUpperCase()}`}
         </div>
       </Reveal>
@@ -442,7 +512,33 @@ const CodingTimeline = () => {
   );
 };
 
-window.Writing = Writing; window.Reading = Reading; window.Changelog = Changelog;
+
+// ─── Back to Top ──────────────────────────────────────────────────────
+const BackToTop = () => {
+  const t = useT();
+  const [visible, setVisible] = React.useState(false);
+  React.useEffect(() => {
+    const on = () => setVisible(window.scrollY > 600);
+    window.addEventListener('scroll', on, { passive: true });
+    return () => window.removeEventListener('scroll', on);
+  }, []);
+  if (!visible) return null;
+  return (
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      style={{
+        position: 'fixed', bottom: 32, right: 32, zIndex: 100,
+        fontFamily: t.fonts.hand, fontSize: 20, color: t.accent,
+        background: t.palette.bg, border: `1.5px solid ${t.accent}`,
+        borderRadius: 3, padding: '6px 16px', cursor: 'pointer',
+        boxShadow: `2px 2px 0 ${t.palette.cardShadow}`,
+        transform: 'rotate(-2deg)', transition: 'opacity .3s',
+        opacity: visible ? 1 : 0,
+      }}>↑ top</button>
+  );
+};
+
+window.Writing = Writing; window.Reading = Reading; window.BackToTop = BackToTop; window.QuoteCard = QuoteCard; window.Changelog = Changelog;
 window.Now = Now; window.Resume = Resume; window.Contact = Contact;
 window.CodingTimeline = CodingTimeline; window.WorkingToward = WorkingToward;
 window.FermatNote = FermatNote;

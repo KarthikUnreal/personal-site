@@ -75,7 +75,7 @@ const HeroClassic = ({ onPageClick }) => {
             age &nbsp;&nbsp;&nbsp;: {c.age}<br />
             school : {c.school}<br />
             grade &nbsp;: {c.grade}<br />
-            thesis : <span style={{ color: t.accent }}>biology is the next silicon</span><br />
+            bet &nbsp;&nbsp;&nbsp;: <span style={{ color: t.accent }}>biology is the next silicon</span><br />
             where &nbsp;: {c.location}<br />
             stack &nbsp;: {c.stack.join(', ')}
           </div>
@@ -130,7 +130,7 @@ const HeroEquation = ({ onPageClick }) => {
         <div onClick={onPageClick} style={{ fontFamily: t.fonts.hand, fontSize: 24, color: t.accent, cursor: 'pointer', userSelect: 'none' }}>page 1 / ∞</div>
       </div>
       <div style={{ marginTop: 6, fontFamily: MONO, fontSize: 11, color: dim, letterSpacing: 1.2 }}>
-        {`arXiv:2605.${String((c.age || 13)).padStart(2, '0')}142 [self.IDENT] · v31 · ${new Date().toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata', day:'2-digit', month:'short', year:'numeric' }).toUpperCase()} · ${window.ESSAYS ? window.ESSAYS.length : 1} pages`}
+        {`arXiv:2605.${String((c.age || 13)).padStart(2, '0')}142 [self.IDENT] · v34 · ${new Date().toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata', day:'2-digit', month:'short', year:'numeric' }).toUpperCase()} · ${window.ESSAYS ? window.ESSAYS.length : 1} pages`}
       </div>
       <div style={{ marginTop: 36, textAlign: 'center', maxWidth: 980, marginLeft: 'auto', marginRight: 'auto' }}>
         <div style={{ fontFamily: MONO, fontSize: 11, color: t.accent, letterSpacing: 3, textTransform: 'uppercase', marginBottom: 12 }}>
@@ -263,7 +263,7 @@ const About = () => {
           <div style={{ fontFamily: t.fonts.serif, fontSize: 22, lineHeight: 1.55, color: t.palette.ink }}>
             <p style={{ margin: '0 0 18px' }}>I split my time between problem sets and weird little programs. Math gives me the rules; code lets me break them, fast.</p>
             <p style={{ margin: '0 0 18px' }}>The thing I actually care about: <u style={{ textDecorationColor: t.accent, textDecorationThickness: 2, textUnderlineOffset: 4 }}>biotech</u>. The last century was engineered in silicon — the next one will be engineered in <i>cells</i>, and I want to be in the room when it happens.</p>
-            <p style={{ margin: '0 0 18px' }}>I grew up in Bengaluru for eight years. Two months ago I moved to Gurgaon. Still finding my footing, but the curiosity came with me.</p>
+            <p style={{ margin: '0 0 18px' }}>I grew up in Bengaluru for eight years. {(() => { const since = new Date(V2.gurgaonSince || '2026-03-25'); const months = Math.round((new Date() - since) / (1000 * 60 * 60 * 24 * 30.5)); return months <= 1 ? 'A month ago' : `${months} months ago`; })()} I moved to Gurgaon. Still finding my footing, but the curiosity came with me.</p>
             <p style={{ margin: '0 0 18px' }}>I write villains who aren't wrong — I'm not sure that's intentional. I keep a notebook. By 20, I'd like to be at IISc. That's the plan, anyway.</p>
             <p style={{ margin: 0 }}>The novel is called <i>Future Human</i>. The villain makes a point I haven't been able to argue with yet.</p>
           </div>

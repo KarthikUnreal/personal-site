@@ -81,6 +81,7 @@ function App() {
         <Changelog />
         <Contact />
         <FermatNote open={fermat} onClose={() => setFermat(false)} />
+        <BackToTop />
         {typeof MarginDrawings !== "undefined" && <MarginDrawings />}
         <TweaksPanel>
           <TweakSection label="Theme" />
