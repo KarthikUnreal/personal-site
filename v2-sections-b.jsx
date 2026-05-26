@@ -42,6 +42,9 @@ const Writing = () => {
   return (
     <section id="writing" style={{ padding: t.dense ? '40px 56px 40px 120px' : '64px 56px 56px 120px', position: 'relative' }}>
       <Reveal><H2 n="05">ESSAYS</H2></Reveal>
+      <div style={{ fontFamily: MONO, fontSize: 11, color: t.palette.pencil, letterSpacing: 1, marginTop: 8, marginBottom: 16, opacity: 0.7 }}>
+        // shortcuts &nbsp;·&nbsp; <span style={{ color: t.accent }}>j</span> next &nbsp;·&nbsp; <span style={{ color: t.accent }}>k</span> prev &nbsp;·&nbsp; <span style={{ color: t.accent }}>q</span> close &nbsp;·&nbsp; <span style={{ color: t.accent }}>f</span> ?
+      </div>
 
       <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
         {visibleEssays.map((w, i) => {
@@ -330,7 +333,8 @@ const ChangelogList = ({ log, t }) => {
 const Changelog = () => {
   const t = useT();
   const log = [
-    { v: "v39", date: "27 May 2026", note: "Essay #3 tagged as code in filter. Hint bar f ? mystery." },
+    { v: "v40", date: "27 May 2026", note: "Full sync — hint bar, essay filter, all features confirmed present." },
+    { v: "v39", date: "27 May 2026", note: "Essay #3 tagged as code. Hint bar f ? mystery." },
     { v: "v38", date: "26 May 2026", note: "Essay #3 published — C Takes You Literally." },
     { v: "v37", date: "26 May 2026", note: "Shortcut hint bar. Parallax improved. README updated every version." },
     { v: "v36", date: "26 May 2026", note: "Keyboard shortcuts (j/k/q). Changelog show older toggle." },
