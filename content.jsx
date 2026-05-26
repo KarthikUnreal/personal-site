@@ -26,7 +26,7 @@ window.CONTENT = {
   now: [
     "Tearing through The Code Breaker.",
     "Teaching myself the basics of molecular biology.",
-    "Google Workshop starts tomorrow. Already taking notes.",
+    "Google Workshop is on. Came up with a banger seedfund idea.",
     "Still figuring out Gurgaon. Two months in. Getting there.",
     "Writing essay #3. Already have the outline.",
     "Avoiding social media. Mostly winning.",

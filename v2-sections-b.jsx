@@ -348,7 +348,9 @@ const Changelog = () => {
   const t = useT();
   const log = [
     { v: "v40", date: "27 May 2026", note: "Full sync — hint bar, essay filter, all features confirmed present." },
-    { v: "v40", date: "27 May 2026", note: "Essay filter properly added. Stray pills removed from Now." },
+    { v: "v42", date: "27 May 2026", note: "Now updated — seedfund idea." },
+    { v: "v41", date: "27 May 2026", note: "Workshop started. .bak removed." },
+    { v: "v40", date: "27 May 2026", note: "Essay filter properly added." },
     { v: "v39", date: "27 May 2026", note: "Essay #3 tagged as code. Hint bar f ? mystery." },
     { v: "v38", date: "26 May 2026", note: "Essay #3 published — C Takes You Literally." },
     { v: "v37", date: "26 May 2026", note: "Shortcut hint bar. Parallax improved. README updated every version." },
