@@ -48,7 +48,6 @@ const Writing = () => {
         // shortcuts &nbsp;·&nbsp; <span style={{ color: t.accent }}>j</span> next &nbsp;·&nbsp; <span style={{ color: t.accent }}>k</span> prev &nbsp;·&nbsp; <span style={{ color: t.accent }}>q</span> close &nbsp;·&nbsp; <span style={{ color: t.accent }}>f</span> ?
       </div>
 
-      <div style={{ display: "flex", gap: 10, margin: "10px 0 20px", flexWrap: "wrap" }}>{["all","biology","code","math","life"].map(cat => (<button key={cat} onClick={() => setEssayFilter(cat)} style={{ fontFamily: MONO, fontSize: 11, padding: "3px 12px", borderRadius: 3, cursor: "pointer", border: "1.5px solid " + (essayFilter === cat ? t.accent : t.palette.rule), background: essayFilter === cat ? t.accent : "transparent", color: essayFilter === cat ? "#fff" : t.palette.pencil }}>{cat}</button>))}</div>
       <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
         {visibleEssays.map((w, i) => {
           const open = openIdx === i;
@@ -167,7 +166,6 @@ const Reading = () => {
   return (
     <section id="shelf" style={{ padding: t.dense ? '40px 56px 40px 120px' : '64px 56px 56px 120px', position: 'relative' }}>
       <Reveal><H2 n="07">THE SHELF</H2></Reveal>
-      <div style={{ display: "flex", gap: 10, margin: "10px 0 20px", flexWrap: "wrap" }}>{["all","biology","code","math","life"].map(cat => (<button key={cat} onClick={() => setEssayFilter(cat)} style={{ fontFamily: MONO, fontSize: 11, padding: "3px 12px", borderRadius: 3, cursor: "pointer", border: "1.5px solid " + (essayFilter === cat ? t.accent : t.palette.rule), background: essayFilter === cat ? t.accent : "transparent", color: essayFilter === cat ? "#fff" : t.palette.pencil }}>{cat}</button>))}</div>
       <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 48px' }}>
         {c.reading.map((r, i) => (
           <Reveal key={i} delay={i * 50}>
@@ -228,8 +226,7 @@ const Now = () => {
       <Reveal delay={100}>
         <div style={{ marginTop: 4, padding: 28, border: `2px dashed ${t.palette.pencil}`, background: t.palette.cardBg, position: 'relative' }}>
           <div style={{ position: 'absolute', top: -14, left: 24, background: t.palette.bg, padding: '0 10px', fontFamily: MONO, fontSize: 11, color: t.palette.pencil, letterSpacing: 1 }}>{`// status.txt — week of ${new Date().toLocaleDateString('en-GB')}`}</div>
-          <div style={{ display: "flex", gap: 10, margin: "10px 0 20px", flexWrap: "wrap" }}>{["all","biology","code","math","life"].map(cat => (<button key={cat} onClick={() => setEssayFilter(cat)} style={{ fontFamily: MONO, fontSize: 11, padding: "3px 12px", borderRadius: 3, cursor: "pointer", border: "1.5px solid " + (essayFilter === cat ? t.accent : t.palette.rule), background: essayFilter === cat ? t.accent : "transparent", color: essayFilter === cat ? "#fff" : t.palette.pencil }}>{cat}</button>))}</div>
-      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
             {c.now.map((n, i) => (
               <li key={i} style={{ fontFamily: t.fonts.serif, fontSize: 20, lineHeight: 1.55, marginBottom: 10, paddingLeft: 32, position: 'relative', color: t.palette.ink }}>
                 <span style={{ position: 'absolute', left: 0, fontFamily: t.fonts.hand, color: t.accent, fontSize: 24 }}>→</span>{n}
