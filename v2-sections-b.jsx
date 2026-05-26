@@ -37,7 +37,9 @@ const Writing = () => {
   const essays = (window.ESSAYS && window.ESSAYS.length) ? window.ESSAYS : [];
   const [openIdx, setOpenIdx] = React.useState(null);
   React.useEffect(() => { window.__setEssayIdx = setOpenIdx; return () => { window.__setEssayIdx = null; }; }, [setOpenIdx]);
-  const visibleEssays = essays;
+  const essayTagMap = { 1: "biology", 2: "biology", 3: "code" };
+  const [essayFilter, setEssayFilter] = React.useState("all");
+  const visibleEssays = essayFilter === "all" ? essays : essays.filter(e => essayTagMap[e.num] === essayFilter);
 
   return (
     <section id="writing" style={{ padding: t.dense ? '40px 56px 40px 120px' : '64px 56px 56px 120px', position: 'relative' }}>
