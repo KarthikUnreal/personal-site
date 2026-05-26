@@ -330,6 +330,7 @@ const ChangelogList = ({ log, t }) => {
 const Changelog = () => {
   const t = useT();
   const log = [
+    { v: "v39", date: "27 May 2026", note: "Essay #3 tagged as code in filter. Hint bar f ? mystery." },
     { v: "v38", date: "26 May 2026", note: "Essay #3 published — C Takes You Literally." },
     { v: "v37", date: "26 May 2026", note: "Shortcut hint bar. Parallax improved. README updated every version." },
     { v: "v36", date: "26 May 2026", note: "Keyboard shortcuts (j/k/q). Changelog show older toggle." },
