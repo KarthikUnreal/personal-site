@@ -37,29 +37,12 @@ const Writing = () => {
   const essays = (window.ESSAYS && window.ESSAYS.length) ? window.ESSAYS : [];
   const [openIdx, setOpenIdx] = React.useState(null);
   React.useEffect(() => { window.__setEssayIdx = setOpenIdx; return () => { window.__setEssayIdx = null; }; }, [setOpenIdx]);
-  const [essayFilter, setEssayFilter] = React.useState('all');
-  const essayTagMap = { 1: 'biology', 2: 'biology', 3: 'code' };
-  const visibleEssays = essayFilter === 'all' ? essays : essays.filter(e => essayTagMap[e.num] === essayFilter);
+  const visibleEssays = essays;
 
   return (
     <section id="writing" style={{ padding: t.dense ? '40px 56px 40px 120px' : '64px 56px 56px 120px', position: 'relative' }}>
       <Reveal><H2 n="05">ESSAYS</H2></Reveal>
-      <div style={{ fontFamily: MONO, fontSize: 11, color: t.palette.pencil, letterSpacing: 1, marginTop: 8, marginBottom: 16, opacity: 0.7 }}>
-        // shortcuts &nbsp;·&nbsp; <span style={{ color: t.accent }}>j</span> next &nbsp;·&nbsp; <span style={{ color: t.accent }}>k</span> prev &nbsp;·&nbsp; <span style={{ color: t.accent }}>q</span> close &nbsp;·&nbsp; <span style={{ color: t.accent }}>f</span> ?
-      </div>
 
-      <div style={{ display: 'flex', gap: 10, margin: '10px 0 20px', flexWrap: 'wrap' }}>
-        {['all', 'biology', 'code', 'math', 'life'].map(cat => (
-          <button key={cat} onClick={() => setEssayFilter(cat)} style={{
-            fontFamily: MONO, fontSize: 11, letterSpacing: 1,
-            padding: '3px 12px', borderRadius: 3, cursor: 'pointer',
-            border: `1.5px solid ${essayFilter === cat ? t.accent : t.palette.rule}`,
-            background: essayFilter === cat ? t.accent : 'transparent',
-            color: essayFilter === cat ? '#fff' : t.palette.pencil,
-            transition: 'all .18s',
-          }}>{cat}</button>
-        ))}
-      </div>
       <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
         {visibleEssays.map((w, i) => {
           const open = openIdx === i;
@@ -238,19 +221,7 @@ const Now = () => {
       <Reveal delay={100}>
         <div style={{ marginTop: 4, padding: 28, border: `2px dashed ${t.palette.pencil}`, background: t.palette.cardBg, position: 'relative' }}>
           <div style={{ position: 'absolute', top: -14, left: 24, background: t.palette.bg, padding: '0 10px', fontFamily: MONO, fontSize: 11, color: t.palette.pencil, letterSpacing: 1 }}>{`// status.txt — week of ${new Date().toLocaleDateString('en-GB')}`}</div>
-          <div style={{ display: 'flex', gap: 10, margin: '10px 0 20px', flexWrap: 'wrap' }}>
-        {['all', 'biology', 'code', 'math', 'life'].map(cat => (
-          <button key={cat} onClick={() => setEssayFilter(cat)} style={{
-            fontFamily: MONO, fontSize: 11, letterSpacing: 1,
-            padding: '3px 12px', borderRadius: 3, cursor: 'pointer',
-            border: `1.5px solid ${essayFilter === cat ? t.accent : t.palette.rule}`,
-            background: essayFilter === cat ? t.accent : 'transparent',
-            color: essayFilter === cat ? '#fff' : t.palette.pencil,
-            transition: 'all .18s',
-          }}>{cat}</button>
-        ))}
-      </div>
-      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
             {c.now.map((n, i) => (
               <li key={i} style={{ fontFamily: t.fonts.serif, fontSize: 20, lineHeight: 1.55, marginBottom: 10, paddingLeft: 32, position: 'relative', color: t.palette.ink }}>
                 <span style={{ position: 'absolute', left: 0, fontFamily: t.fonts.hand, color: t.accent, fontSize: 24 }}>→</span>{n}
@@ -359,8 +330,7 @@ const ChangelogList = ({ log, t }) => {
 const Changelog = () => {
   const t = useT();
   const log = [
-    { v: "v40", date: "27 May 2026", note: "Full sync — hint bar, essay filter, all features confirmed present." },
-    { v: "v39", date: "27 May 2026", note: "Essay #3 tagged as code. Hint bar f ? mystery." },
+    { v: "v39", date: "27 May 2026", note: "Essay #3 tagged as code in filter. Hint bar f ? mystery." },
     { v: "v38", date: "26 May 2026", note: "Essay #3 published — C Takes You Literally." },
     { v: "v37", date: "26 May 2026", note: "Shortcut hint bar. Parallax improved. README updated every version." },
     { v: "v36", date: "26 May 2026", note: "Keyboard shortcuts (j/k/q). Changelog show older toggle." },

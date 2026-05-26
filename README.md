@@ -53,4 +53,4 @@ git push
 
 ---
 
-*Version 40. I don't know how it got here either.*
+*Version 39. I don't know how it got here either.*
