@@ -130,7 +130,7 @@ const HeroEquation = ({ onPageClick }) => {
         <div onClick={onPageClick} style={{ fontFamily: t.fonts.hand, fontSize: 24, color: t.accent, cursor: 'pointer', userSelect: 'none' }}>page 1 / ∞</div>
       </div>
       <div style={{ marginTop: 6, fontFamily: MONO, fontSize: 11, color: dim, letterSpacing: 1.2 }}>
-        {`arXiv:2605.${String((c.age || 13)).padStart(2, '0')}142 [self.IDENT] · v42 · ${new Date().toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata', day:'2-digit', month:'short', year:'numeric' }).toUpperCase()} · ${window.ESSAYS ? window.ESSAYS.length : 1} pages`}
+        {`arXiv:2605.${String((c.age || 13)).padStart(2, '0')}142 [self.IDENT] · v43 · ${new Date().toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata', day:'2-digit', month:'short', year:'numeric' }).toUpperCase()} · ${window.ESSAYS ? window.ESSAYS.length : 1} pages`}
       </div>
       <div style={{ marginTop: 36, textAlign: 'center', maxWidth: 980, marginLeft: 'auto', marginRight: 'auto' }}>
         <div style={{ fontFamily: MONO, fontSize: 11, color: t.accent, letterSpacing: 3, textTransform: 'uppercase', marginBottom: 12 }}>
@@ -285,6 +285,7 @@ const About = () => {
 const Quotes = () => {
   const t = useT();
   const [qFilter, setQFilter] = React.useState('all');
+  const [qSearch, setQSearch] = React.useState('');
   const qTags = [
     { key: 'all',       label: 'All'       },
     { key: 'self',      label: 'Self'      },
@@ -294,7 +295,11 @@ const Quotes = () => {
     { key: 'chemistry', label: 'Chemistry' },
     { key: 'cscience',  label: 'C.Science' },
   ];
-  const visible = qFilter === 'all' ? V2.quotes : V2.quotes.filter(q => q.tag === qFilter);
+  const byTag = qFilter === 'all' ? V2.quotes : V2.quotes.filter(q => q.tag === qFilter);
+  const visible = qSearch.trim() === '' ? byTag : byTag.filter(q =>
+    q.text.toLowerCase().includes(qSearch.toLowerCase()) ||
+    q.attrib.toLowerCase().includes(qSearch.toLowerCase())
+  );
   return (
     <section id="quotes" style={{ padding: t.dense ? '40px 56px 40px 120px' : '64px 56px 56px 120px', position: 'relative' }}>
       <Reveal><H2 n="04">NICE QUOTES</H2></Reveal>
@@ -310,6 +315,26 @@ const Quotes = () => {
           }}>{label}</button>
         ))}
       </div>
+      <input
+        type="text"
+        placeholder="search quotes..."
+        value={qSearch}
+        onChange={e => setQSearch(e.target.value)}
+        style={{
+          fontFamily: MONO, fontSize: 12, letterSpacing: 0.5,
+          padding: '7px 14px', marginBottom: 20, width: '100%',
+          background: 'transparent',
+          border: `1px solid ${t.palette.rule}`,
+          borderBottom: `2px solid ${t.accent}`,
+          color: t.palette.ink, outline: 'none',
+          boxSizing: 'border-box',
+        }}
+      />
+      {visible.length === 0 && (
+        <div style={{ fontFamily: MONO, fontSize: 12, color: t.palette.pencil, padding: '16px 0', letterSpacing: 1 }}>
+          // no quotes match "{qSearch}"
+        </div>
+      )}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32, rowGap: 28 }}>
         {visible.map((q, i) => (
           <div key={q.text}

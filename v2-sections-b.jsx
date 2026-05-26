@@ -348,6 +348,7 @@ const Changelog = () => {
   const t = useT();
   const log = [
     { v: "v40", date: "27 May 2026", note: "Full sync — hint bar, essay filter, all features confirmed present." },
+    { v: "v43", date: "27 May 2026", note: "Quote search bar added." },
     { v: "v42", date: "27 May 2026", note: "Now updated — seedfund idea." },
     { v: "v41", date: "27 May 2026", note: "Workshop started. .bak removed." },
     { v: "v40", date: "27 May 2026", note: "Essay filter properly added." },
