@@ -266,7 +266,8 @@ const WorkingToward = () => {
 const Changelog = () => {
   const t = useT();
   const log = [
-    { v: "v34", date: "26 May 2026", note: "5 books added. Copy quote button. Back to top. Auto reading time. Parallax drawings. README updated." },
+    { v: "v35", date: "26 May 2026", note: "Thinking rotator updated with real questions." },
+    { v: "v34", date: "26 May 2026", note: "5 books added. Copy quote. Back to top. Auto reading time. Parallax drawings." },
     { v: "v33", date: "26 May 2026", note: "5 thinking items. Gurgaon auto-date. 4 new quotes. Share button." },
     { v: "v32", date: "26 May 2026", note: "Share button added to footer." },
     { v: "v31", date: "25 May 2026", note: "Right Now updated. Essay #3 in progress." },
