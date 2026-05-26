@@ -44,4 +44,23 @@ Biology has always carried this weight. The discovery of how cells divide gave u
 
 CRISPR was found in bacteria fighting for survival. It became a tool for editing the genome. What it becomes next depends on what we use it for.`,
   },
+  {
+    num: 3,
+    title: "C Takes You Literally",
+    date: "26 May 2026",
+    read: "4 min",
+    body: `Most programming languages are, well, forgiving. They'll assume that you made a silly little mistake, then fix it quietly, and move on. Python will manage your memory, JavaScript will coerce your types, and Java will catch your exceptions before they do harm. They are designed to protect you from yourself.
+
+C takes you literally. And I mean literally. If you tell it to allocate 10 bytes, it allocates exactly 10 bytes. If you write past the end of that array, it writes past the end. If you forget to free memory, it stays allocated. If you dereference a null pointer, it crashes. No warning, correction or any hope of a second chance. Exactly what you asked for.
+
+When I started learning C, the first thing I noticed — or that anyone would notice who isn't a vibecoder, but vibecoders aren't exactly C-lovers either — was that thinking and common sense became part of the requirements. Not that it troubled me to think carefully — it made the job more fun. Every variable has a type and a size. Every pointer points to some place specific. The machine doesn't try to guess if you're correct or wrong, or if you meant to do something. It takes you to be a genius who does nothing wrong, a prodigy, and gives you full reins.
+
+This might be uncomfortable for some, but it is a very interesting affair to sort out your own problems without the help of an AI — no longer really applicable when Copilot and Claude are present even in VS Code. Some say that C error statements are cryptic, but I never found any problem with them. What's the harm in opening a search engine and typing out 'What does this mean'?
+
+Other languages hide the actual machine from you. C, being pretty low-level compared to its rivals, is a learning experience in what things actually are. You learn that a string is just a char array with a null terminator at the end. You learn that memory is just addresses. None of this is magic like some people would believe. The real magic, according to me, is how the first programmers actually managed to make computers work with their resources.
+
+Most tools try to be convenient, which is good for beginners. C was never recommended for beginners — whoever said that is slightly off the mark. It trusts you to know what you are doing, and if you do not know yet, it teaches you — painfully.
+
+The literalness of C is why I like it. It gives you full reins.`,
+  },
 ];
