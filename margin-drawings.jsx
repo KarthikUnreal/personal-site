@@ -36,7 +36,7 @@ const RD = '#c0392b';
 const DEFS = makeDefs(false).DEFS;
 
 // Wrapper: large, rotated, scattered, with subtle parallax
-const Doodle = ({ top, left, right, width = 180, rotate = 0, opacity = 0.55, parallax = 0.05, children }) => {
+const Doodle = ({ top, left, right, width = 180, rotate = 0, opacity = 0.55, parallax = 0.15, children }) => {
   const side = right != null ? { right } : { left };
   const [offset, setOffset] = React.useState(0);
   React.useEffect(() => {
