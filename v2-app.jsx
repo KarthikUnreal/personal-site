@@ -82,6 +82,7 @@ function App() {
         <Contact />
         <FermatNote open={fermat} onClose={() => setFermat(false)} />
         <BackToTop />
+        <KeyboardShortcuts />
         {typeof MarginDrawings !== "undefined" && <MarginDrawings />}
         <TweaksPanel>
           <TweakSection label="Theme" />

@@ -1,10 +1,42 @@
 // v2-sections-b.jsx
 
+
+// ─── Keyboard Shortcuts ───────────────────────────────────────────────
+const KeyboardShortcuts = () => {
+  const t = useT();
+  React.useEffect(() => {
+    const essays = window.ESSAYS || [];
+    let openIdx = null;
+    const setOpen = (i) => {
+      openIdx = i;
+      window.__setEssayIdx && window.__setEssayIdx(i);
+    };
+    const onKey = (e) => {
+      if (e.target.matches('input,textarea,[contenteditable]')) return;
+      if (e.key === 'q' || e.key === 'Q') { setOpen(null); }
+      if (e.key === 'j' || e.key === 'J') {
+        const next = openIdx === null ? 0 : Math.min(openIdx + 1, essays.length - 1);
+        setOpen(next);
+        document.getElementById('writing')?.scrollIntoView({ behavior: 'smooth' });
+      }
+      if (e.key === 'k' || e.key === 'K') {
+        const prev = openIdx === null ? essays.length - 1 : Math.max(openIdx - 1, 0);
+        setOpen(prev);
+        document.getElementById('writing')?.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+  return null;
+};
+
 // ─── Writing ─────────────────────────────────────────────────────────
 const Writing = () => {
   const t = useT();
   const essays = (window.ESSAYS && window.ESSAYS.length) ? window.ESSAYS : [];
   const [openIdx, setOpenIdx] = React.useState(null);
+  React.useEffect(() => { window.__setEssayIdx = setOpenIdx; return () => { window.__setEssayIdx = null; }; }, [setOpenIdx]);
   const visibleEssays = essays;
 
   return (
@@ -262,10 +294,43 @@ const WorkingToward = () => {
 };
 
 
+
+// ─── Changelog List ───────────────────────────────────────────────────
+const ChangelogList = ({ log, t }) => {
+  const [showAll, setShowAll] = React.useState(false);
+  const visible = showAll ? log : log.slice(0, 5);
+  return (
+    <div style={{ fontFamily: MONO, fontSize: 13, lineHeight: 1 }}>
+      {visible.map((entry, i) => (
+        <Reveal key={i} delay={i * 40}>
+          <div style={{ display: 'grid', gridTemplateColumns: '52px 110px 1fr', gap: 16, padding: '10px 0', borderBottom: `1px dashed ${t.palette.rule}`, alignItems: 'baseline' }}>
+            <span style={{ color: t.accent, fontWeight: 600 }}>{entry.v}</span>
+            <span style={{ color: t.palette.pencil, fontSize: 11 }}>{entry.date}</span>
+            <span style={{ color: t.palette.ink, fontSize: 12, lineHeight: 1.5 }}>{entry.note}</span>
+          </div>
+        </Reveal>
+      ))}
+      {log.length > 5 && (
+        <div style={{ marginTop: 14 }}>
+          <button onClick={() => setShowAll(v => !v)} style={{
+            fontFamily: MONO, fontSize: 11, letterSpacing: 1,
+            color: t.accent, background: 'transparent',
+            border: `1px solid ${t.palette.rule}`, padding: '4px 14px',
+            cursor: 'pointer', borderRadius: 3,
+          }}>
+            {showAll ? '↑ show less' : `↓ show ${log.length - 5} older entries`}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
+
 // ─── Changelog ───────────────────────────────────────────────────────
 const Changelog = () => {
   const t = useT();
   const log = [
+    { v: "v36", date: "26 May 2026", note: "Keyboard shortcuts (j/k/q). Changelog show older toggle." },
     { v: "v35", date: "26 May 2026", note: "Thinking rotator updated with real questions." },
     { v: "v34", date: "26 May 2026", note: "5 books added. Copy quote. Back to top. Auto reading time. Parallax drawings." },
     { v: "v33", date: "26 May 2026", note: "5 thinking items. Gurgaon auto-date. 4 new quotes. Share button." },
@@ -296,17 +361,7 @@ const Changelog = () => {
           // git log --oneline karthik.dev
         </div>
       </Reveal>
-      <div style={{ fontFamily: MONO, fontSize: 13, lineHeight: 1 }}>
-        {log.map((entry, i) => (
-          <Reveal key={i} delay={i * 40}>
-            <div style={{ display: 'grid', gridTemplateColumns: '52px 110px 1fr', gap: 16, padding: '10px 0', borderBottom: `1px dashed ${t.palette.rule}`, alignItems: 'baseline' }}>
-              <span style={{ color: t.accent, fontWeight: 600 }}>{entry.v}</span>
-              <span style={{ color: t.palette.pencil, fontSize: 11 }}>{entry.date}</span>
-              <span style={{ color: t.palette.ink, fontSize: 12, lineHeight: 1.5 }}>{entry.note}</span>
-            </div>
-          </Reveal>
-        ))}
-      </div>
+      <ChangelogList log={log} t={t} />
     </section>
   );
 };
