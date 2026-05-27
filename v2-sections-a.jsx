@@ -51,41 +51,6 @@ const Nav = () => {
 };
 
 // HERO VARIANTS
-const HeroClassic = ({ onPageClick }) => {
-  const t = useT(); const c = V2;
-  return (
-    <section style={{ padding: t.dense ? '40px 56px 40px 120px' : '64px 56px 56px 120px', position: 'relative' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-        <div onClick={onPageClick} style={{ fontFamily: t.fonts.hand, fontSize: 24, color: t.accent, cursor: 'pointer', userSelect: 'none' }} title="click me">page 1 / ∞</div>
-      </div>
-      <div style={{ marginTop: 6, fontFamily: MONO, fontSize: 11, color: t.palette.pencil, letterSpacing: 1 }}>
-        {`SUBJECT: SELF · DATE: ${new Date().toLocaleDateString('en-IN', { timeZone: 'Asia/Kolkata' }).split('/').join('.')} · BETTING ON BIOTECH`}
-      </div>
-      <h1 style={{ fontFamily: t.fonts.hand, fontSize: 200, lineHeight: 0.96, margin: '40px 0 0', fontWeight: 700, color: t.palette.ink, letterSpacing: -2 }}>
-        Hi, I'm <u style={{ textDecorationColor: t.accent, textDecorationThickness: 5, textUnderlineOffset: 10 }}>Karthik</u>.
-      </h1>
-      <div style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr', gap: 56, marginTop: 40 }}>
-        <p style={{ fontFamily: t.fonts.serif, fontSize: t.dense ? 22 : 26, lineHeight: 1.5, margin: 0, color: t.palette.ink }}>{c.taglineLong}</p>
-        <div style={{ border: `2px solid ${t.palette.ink}`, padding: 18, background: t.palette.cardBg, transform: 'rotate(1.6deg)', boxShadow: `4px 4px 0 ${t.palette.cardShadow}`, position: 'relative' }}>
-          <Tape rot={-4} style={{ top: -14, left: 20 }} />
-          <div style={{ fontFamily: t.fonts.hand, fontSize: 24, color: t.accent, marginBottom: 8 }}>∴ identity card</div>
-          <div style={{ fontFamily: MONO, fontSize: 12, lineHeight: 2, color: t.palette.ink }}>
-            name &nbsp;&nbsp;: {c.name}<br />
-            born &nbsp;&nbsp;: {c.birthday}<br />
-            age &nbsp;&nbsp;&nbsp;: {c.age}<br />
-            school : {c.school}<br />
-            grade &nbsp;: {c.grade}<br />
-            bet &nbsp;&nbsp;&nbsp;: <span style={{ color: t.accent }}>biology is the next silicon</span><br />
-            where &nbsp;: {c.location}<br />
-            stack &nbsp;: {c.stack.join(', ')}
-          </div>
-        </div>
-      </div>
-      <MarginEq top={260} color={t.accent}>∫₀<sup>∞</sup> curiosity · dt</MarginEq>
-    </section>
-  );
-};
-
 const HeroEquation = ({ onPageClick }) => {
   const t = useT(); const c = V2;
   const I = (s) => <i style={{ fontFamily: t.fonts.serif }}>{s}</i>;
@@ -130,7 +95,7 @@ const HeroEquation = ({ onPageClick }) => {
         <div onClick={onPageClick} style={{ fontFamily: t.fonts.hand, fontSize: 24, color: t.accent, cursor: 'pointer', userSelect: 'none' }}>page 1 / ∞</div>
       </div>
       <div style={{ marginTop: 6, fontFamily: MONO, fontSize: 11, color: dim, letterSpacing: 1.2 }}>
-        {`arXiv:2605.${String((c.age || 13)).padStart(2, '0')}142 [self.IDENT] · v45 · ${new Date().toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata', day:'2-digit', month:'short', year:'numeric' }).toUpperCase()} · ${window.ESSAYS ? window.ESSAYS.length : 1} pages`}
+        {`arXiv:2605.${String((c.age || 13)).padStart(2, '0')}142 [self.IDENT] · v46 · ${new Date().toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata', day:'2-digit', month:'short', year:'numeric' }).toUpperCase()} · ${window.ESSAYS ? window.ESSAYS.length : 1} pages`}
       </div>
       <div style={{ marginTop: 36, textAlign: 'center', maxWidth: 980, marginLeft: 'auto', marginRight: 'auto' }}>
         <div style={{ fontFamily: MONO, fontSize: 11, color: t.accent, letterSpacing: 3, textTransform: 'uppercase', marginBottom: 12 }}>
@@ -228,30 +193,6 @@ const HeroEquation = ({ onPageClick }) => {
   );
 };
 
-const HeroMinimal = ({ onPageClick }) => {
-  const t = useT();
-  return (
-    <section style={{ padding: '120px 56px 80px 120px', position: 'relative', minHeight: 720 }}>
-      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <div onClick={onPageClick} style={{ fontFamily: t.fonts.hand, fontSize: 24, color: t.accent, cursor: 'pointer', userSelect: 'none' }}>page 1 / ∞</div>
-      </div>
-      <div style={{ textAlign: 'center', marginTop: 100 }}>
-        <div style={{ fontFamily: t.fonts.hand, fontSize: 360, lineHeight: 0.9, color: t.palette.ink, fontWeight: 700 }}>
-          K<span style={{ color: t.accent }}>.</span>
-        </div>
-        <div style={{ fontFamily: t.fonts.serif, fontStyle: 'italic', fontSize: 26, color: t.palette.pencil, marginTop: 32 }}>
-          — a personal notebook by Karthik
-        </div>
-        <div style={{ fontFamily: MONO, fontSize: 12, color: t.palette.pencil, marginTop: 16, letterSpacing: 2 }}>
-          {new Date().toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata' }).split('/').join(' · ')} · {V2.location.toUpperCase()}
-        </div>
-        <div style={{ fontFamily: t.fonts.hand, fontSize: 28, color: t.accent, marginTop: 56 }}>~ open at any page ~</div>
-      </div>
-      <MarginEq top={400} color={t.accent}>scratch<br />paper<br />ahead.</MarginEq>
-    </section>
-  );
-};
-
 // About 
 const About = () => {
   const t = useT(); const c = V2;
@@ -264,8 +205,7 @@ const About = () => {
             <p style={{ margin: '0 0 18px' }}>I split my time between problem sets and weird little programs. Math gives me the rules; code lets me break them, fast.</p>
             <p style={{ margin: '0 0 18px' }}>The thing I actually care about: <u style={{ textDecorationColor: t.accent, textDecorationThickness: 2, textUnderlineOffset: 4 }}>biotech</u>. The last century was engineered in silicon — the next one will be engineered in <i>cells</i>, and I want to be in the room when it happens.</p>
             <p style={{ margin: '0 0 18px' }}>I grew up in Bengaluru for eight years. {(() => { const since = new Date(V2.gurgaonSince || '2026-03-25'); const months = Math.round((new Date() - since) / (1000 * 60 * 60 * 24 * 30.5)); return months <= 1 ? 'A month ago' : `${months} months ago`; })()} I moved to Gurgaon. Still finding my footing, but the curiosity came with me.</p>
-            <p style={{ margin: '0 0 18px' }}>I write villains who aren't wrong — I'm not sure that's intentional. I keep a notebook. By 20, I'd like to be at IISc. That's the plan, anyway.</p>
-            <p style={{ margin: 0 }}>The novel is called <i>Future Human</i>. The villain makes a point I haven't been able to argue with yet.</p>
+            <p style={{ margin: 0 }}>I write villains who aren't wrong — I'm not sure that's intentional. I keep a notebook. By 20, I'd like to be at IISc. That's the plan, anyway.</p>
           </div>
           <div style={{ fontFamily: MONO, fontSize: 13, lineHeight: 2, color: t.palette.ink, paddingTop: 4 }}>
             <div><span style={{ color: t.palette.pencil }}>// stack</span></div>
@@ -355,9 +295,9 @@ const Quotes = () => {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32, rowGap: 28 }}>
         {visible.map((q, i) => (
           <div key={q.text}
-            onMouseEnter={(e) => e.currentTarget.style.transform = `rotate(${i % 2 === 0 ? -1.5 : 1.5}deg)`}
-            onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(0deg)'}
-            style={{ transition: 'transform .25s', position: 'relative', paddingLeft: 32, paddingRight: 12 }}>
+            onMouseEnter={(e) => { e.currentTarget.style.transform = `rotate(${i % 2 === 0 ? -1.5 : 1.5}deg)`; e.currentTarget.style.boxShadow = `0 6px 24px -6px rgba(0,0,0,0.18)`; }}
+            onMouseLeave={(e) => { e.currentTarget.style.transform = 'rotate(0deg)'; e.currentTarget.style.boxShadow = 'none'; }}
+            style={{ transition: 'transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s ease', position: 'relative', paddingLeft: 32, paddingRight: 12, borderRadius: 4 }}>
             <span style={{ position: 'absolute', left: 0, top: -16, fontFamily: t.fonts.serif, fontSize: 80, color: t.accent, fontStyle: 'italic', lineHeight: 1 }}>"</span>
             <div style={{ fontFamily: t.fonts.hand, fontSize: 30, lineHeight: 1.25, color: t.palette.ink }}>{q.text}</div>
             <div style={{ marginTop: 8, fontFamily: t.fonts.serif, fontStyle: 'italic', fontSize: 14, color: t.palette.pencil }}>— {q.attrib}</div>
@@ -369,5 +309,5 @@ const Quotes = () => {
 };
 
 window.Nav = Nav;
-window.HeroClassic = HeroClassic; window.HeroEquation = HeroEquation; window.HeroMinimal = HeroMinimal;
+window.HeroEquation = HeroEquation;
 window.About = About; window.Quotes = Quotes;

@@ -353,6 +353,7 @@ const ChangelogList = ({ log, t }) => {
 const Changelog = () => {
   const t = useT();
   const log = [
+    { v: "v46", date: "27 May 2026", note: "Removed Classic and Minimal hero variants. Quote hover improved. Future Human and essay goal removed. Load order documented." },
     { v: "v45", date: "27 May 2026", note: "Quote of the day. Save essay. Typos fixed. handle removed." },
     { v: "v44", date: "27 May 2026", note: "Personal edits — now, resume, abstract, changelog rewritten." },
     { v: "v40", date: "27 May 2026", note: "Troubleshoot success, site working." },

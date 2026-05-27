@@ -1,4 +1,4 @@
-const __KARTHIK_BDAY = new Date(2012, 9, 14);
+const __KARTHIK_BDAY = new Date(2012, 9, 14); // month is 0-indexed: 9 = October
 const __computeAge = () => {
   const now = new Date();
   let a = now.getFullYear() - __KARTHIK_BDAY.getFullYear();
@@ -62,8 +62,6 @@ window.CONTENT = {
     why: "I spent eight years in Bengaluru. IISc was always on the horizon — the place where the kind of work I want to do actually happens. Computational biology, systems thinking, the intersection of math and life. That's the plan. Class 9 is where it starts.",
     by: "2030",
     steps: [
-      "Write and publish 10 essays before end of 2026",
-      "Finish Future Human Vol. 2 before Class 10",
       "Work through Campbell Biology cover to cover",
       "Apply to IISc BSc Research — 2030",
     ]

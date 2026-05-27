@@ -51,7 +51,7 @@ function App() {
     document.head.appendChild(style);
   }, []);
 
-  const Hero = t.hero === 'equation' ? HeroEquation : t.hero === 'minimal' ? HeroMinimal : HeroClassic;
+  const Hero = HeroEquation; // only hero variant
 
   const pageBg = {
     background: `
@@ -103,8 +103,7 @@ function App() {
           <TweakSection label="Layout" />
           <TweakRadio label="Density" value={t.density} options={['compact', 'regular']}
             onChange={(v) => setTweak('density', v)} />
-          <TweakRadio label="Hero" value={t.hero} options={['classic', 'equation', 'minimal']}
-            onChange={(v) => setTweak('hero', v)} />
+
           <TweakSection label="Easter egg" />
           <TweakButton label="press F or click page 1/∞" onClick={() => setFermat(true)}>open it</TweakButton>
         </TweaksPanel>
