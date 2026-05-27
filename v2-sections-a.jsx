@@ -130,7 +130,7 @@ const HeroEquation = ({ onPageClick }) => {
         <div onClick={onPageClick} style={{ fontFamily: t.fonts.hand, fontSize: 24, color: t.accent, cursor: 'pointer', userSelect: 'none' }}>page 1 / ∞</div>
       </div>
       <div style={{ marginTop: 6, fontFamily: MONO, fontSize: 11, color: dim, letterSpacing: 1.2 }}>
-        {`arXiv:2605.${String((c.age || 13)).padStart(2, '0')}142 [self.IDENT] · v44 · ${new Date().toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata', day:'2-digit', month:'short', year:'numeric' }).toUpperCase()} · ${window.ESSAYS ? window.ESSAYS.length : 1} pages`}
+        {`arXiv:2605.${String((c.age || 13)).padStart(2, '0')}142 [self.IDENT] · v45 · ${new Date().toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata', day:'2-digit', month:'short', year:'numeric' }).toUpperCase()} · ${window.ESSAYS ? window.ESSAYS.length : 1} pages`}
       </div>
       <div style={{ marginTop: 36, textAlign: 'center', maxWidth: 980, marginLeft: 'auto', marginRight: 'auto' }}>
         <div style={{ fontFamily: MONO, fontSize: 11, color: t.accent, letterSpacing: 3, textTransform: 'uppercase', marginBottom: 12 }}>
@@ -303,6 +303,23 @@ const Quotes = () => {
   return (
     <section id="quotes" style={{ padding: t.dense ? '40px 56px 40px 120px' : '64px 56px 56px 120px', position: 'relative' }}>
       <Reveal><H2 n="04">NICE QUOTES</H2></Reveal>
+      {/* Quote of the day */}
+      {(() => {
+        const seed = new Date().toDateString();
+        const idx = seed.split('').reduce((a, c) => a + c.charCodeAt(0), 0) % V2.quotes.length;
+        const q = V2.quotes[idx];
+        return (
+          <div style={{
+            margin: '12px 0 24px', padding: '16px 24px',
+            borderLeft: `4px solid ${t.accent}`,
+            background: t.dark ? 'rgba(240,235,216,0.04)' : 'rgba(192,57,43,0.04)',
+          }}>
+            <div style={{ fontFamily: MONO, fontSize: 10, color: t.accent, letterSpacing: 2, marginBottom: 8 }}>// QUOTE OF THE DAY</div>
+            <div style={{ fontFamily: t.fonts.hand, fontSize: 26, color: t.palette.ink, lineHeight: 1.3 }}>{q.text}</div>
+            <div style={{ marginTop: 8, fontFamily: t.fonts.serif, fontStyle: 'italic', fontSize: 14, color: t.palette.pencil }}>— {q.attrib}</div>
+          </div>
+        );
+      })()}
       <div style={{ display: 'flex', gap: 10, margin: '10px 0 24px', flexWrap: 'wrap' }}>
         {qTags.map(({ key, label }) => (
           <button key={key} onClick={() => setQFilter(key)} style={{

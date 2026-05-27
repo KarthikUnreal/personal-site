@@ -9,7 +9,6 @@ const __computeAge = () => {
 
 window.CONTENT = {
   name: "Karthik",
-  handle: "karthikunreal",
   tagline: "Class 9. Curious about everything. Betting on biology.",
   taglineLong: "I write C++ for fun, fall asleep reading Feynman, and I think biology is where the most interesting problems are — not because it's fashionable, but because the cell is the most complicated thing anyone has ever tried to understand.",
   location: "Gurgaon, India",

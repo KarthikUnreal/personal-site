@@ -1,7 +1,9 @@
 // v2-app.jsx
 
 function App() {
-  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  const saved = (() => { try { const v = localStorage.getItem('ktheme'); return v ? JSON.parse(v) : null; } catch(e) { return null; } })();
+  const [t, setTweak] = useTweaks({ ...TWEAK_DEFAULTS, ...(saved || {}) });
+  React.useEffect(() => { try { localStorage.setItem('ktheme', JSON.stringify({ theme: t.theme, accent: t.accent })); } catch(e) {} }, [t.theme, t.accent]);
 
   React.useEffect(() => {
     window.__toggleTheme = () => setTweak('theme', t.theme === 'paper' ? 'chalkboard' : 'paper');

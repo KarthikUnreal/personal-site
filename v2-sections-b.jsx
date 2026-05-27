@@ -103,10 +103,16 @@ const Writing = () => {
                       ))}
                       <div style={{ marginTop: 24, paddingTop: 16, borderTop: `1px dashed ${t.palette.rule}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <div style={{ fontFamily: MONO, fontSize: 11, color: t.palette.pencil, letterSpacing: 1 }}>END · ESSAY {String(w.num || (i + 1)).padStart(2, '0')} · {(w.date || '').toUpperCase()}</div>
-                        <button onClick={(e) => { e.stopPropagation(); setOpenIdx(null); }} style={{
-                          fontFamily: t.fonts.hand, fontSize: 20, color: t.accent, background: 'transparent',
-                          border: `1.5px solid ${t.accent}`, padding: '4px 14px', cursor: 'pointer', borderRadius: 3,
-                        }}>close ↑</button>
+                        <div style={{ display: 'flex', gap: 10 }}>
+                          <button onClick={(e) => { e.stopPropagation(); const d = document.createElement('a'); d.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(w.title + '\n\n' + w.body); d.download = w.title.replace(/[^a-z0-9]/gi,'_') + '.txt'; d.click(); }} style={{
+                            fontFamily: t.fonts.hand, fontSize: 20, color: t.palette.pencil, background: 'transparent',
+                            border: `1.5px solid ${t.palette.rule}`, padding: '4px 14px', cursor: 'pointer', borderRadius: 3,
+                          }}>save ↓</button>
+                          <button onClick={(e) => { e.stopPropagation(); setOpenIdx(null); }} style={{
+                            fontFamily: t.fonts.hand, fontSize: 20, color: t.accent, background: 'transparent',
+                            border: `1.5px solid ${t.accent}`, padding: '4px 14px', cursor: 'pointer', borderRadius: 3,
+                          }}>close ↑</button>
+                        </div>
                       </div>
                       {visibleEssays.filter((_, j) => j !== i).length > 0 && (
                         <div style={{ marginTop: 24, paddingTop: 16, borderTop: `1px dashed ${t.palette.rule}` }}>
@@ -347,7 +353,9 @@ const ChangelogList = ({ log, t }) => {
 const Changelog = () => {
   const t = useT();
   const log = [
-    { v: "v40", date: "27 May 2026", note: "Troubleshoot success, Site working." },
+    { v: "v45", date: "27 May 2026", note: "Quote of the day. Save essay. Typos fixed. handle removed." },
+    { v: "v44", date: "27 May 2026", note: "Personal edits — now, resume, abstract, changelog rewritten." },
+    { v: "v40", date: "27 May 2026", note: "Troubleshoot success, site working." },
     { v: "v43", date: "27 May 2026", note: "Quote search bar added." },
     { v: "v42", date: "27 May 2026", note: "Random Additions 4." },
     { v: "v41", date: "27 May 2026", note: "Random Additions 3." },
