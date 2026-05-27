@@ -24,11 +24,10 @@ window.CONTENT = {
   loves: ["Mathematics", "Physics", "Computer Science", "Biotechnology"],
 
   now: [
-    "Tearing through The Code Breaker.",
     "Teaching myself the basics of molecular biology.",
-    "Google Workshop is on. Came up with a banger seedfund idea.",
+    "Attending Orahi Workshop.",
     "Still figuring out Gurgaon. Two months in. Getting there.",
-    "Writing essay #3. Already have the outline.",
+    "Thinking on Calculus.",
     "Avoiding social media. Mostly winning.",
   ],
 
@@ -37,7 +36,7 @@ window.CONTENT = {
 
     { title: "War and Peace", author: "Leo Tolstoy", state: "queued" },
     { title: "The Brothers Karamazov", author: "Fyodor Dostoevsky", state: "queued" },
-    { title: "Crime and Punishment", author: "Fyodor Dostoevsky", state: "done", note: "A systems failure story. Raskolnikov's bug was in his axioms, not his logic." },
+    { title: "Crime and Punishment", author: "Fyodor Dostoevsky", state: "done", note: "A magnificent exploration of the human psyche." },
     { title: "The Feynman Lectures on Physics", author: "Richard Feynman", state: "queued" },
     { title: "Regenesis", author: "George Church", state: "queued" },
     { title: "The Genesis Machine", author: "Amy Webb & Andrew Hessel", state: "queued" },
@@ -48,10 +47,10 @@ window.CONTENT = {
     { title: "The Three-Body Problem", author: "Liu Cixin", state: "queued" },
     { title: "How to Solve It", author: "George Pólya", state: "done", note: "The best book on thinking I've read." },
 
-    { title: "A Mathematician's Apology", author: "G. H. Hardy", state: "done", note: "Made me want to do something real, not just clever." },
-    { title: "Project Hail Mary", author: "Andy Weir", state: "done", note: "The best argument for cross-disciplinary thinking I've read in fiction." },
-    { title: "Surely You're Joking, Mr. Feynman!", author: "Richard Feynman", state: "done", note: "Read the man, not the textbook. This is why." },
-    { title: "The C Programming Language", author: "Kernighan & Ritchie", state: "done", note: "Every page felt like someone finally explaining how things actually work." },
+    { title: "A Mathematician's Apology", author: "G. H. Hardy", state: "done", note: "An Interesting take." },
+    { title: "Project Hail Mary", author: "Andy Weir", state: "done", note: "Rocky steals the show." },
+    { title: "Surely You're Joking, Mr. Feynman!", author: "Richard Feynman", state: "done", note: "Funny." },
+    { title: "The C Programming Language", author: "Kernighan & Ritchie", state: "done", note: "The Original and Best C tutorial." },
     { title: "The Double Helix", author: "James Watson", state: "queued" },
     { title: "What Is Life?", author: "Erwin Schrödinger", state: "queued" },
     { title: "The Pragmatic Programmer", author: "Hunt & Thomas", state: "queued" },

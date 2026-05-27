@@ -2,10 +2,7 @@
 const V2 = {
   ...window.CONTENT,
   quotes: [
-    { text: "Biology is the next silicon.", attrib: "me · 2026", tag: "self" },
-    { text: "Compounding curiosity beats raw IQ.", attrib: "me", tag: "self" },
-    { text: "Read the man, not the textbook.", attrib: "me", tag: "self" },
-    { text: "Math gives you the rules. Code lets you break them, fast.", attrib: "me", tag: "self" },
+    { text: "Biology is the next silicon.", attrib: "Your's Truly", tag: "self" },
 
     { text: "What I cannot create, I do not understand.", attrib: "Richard Feynman", tag: "physics" },
     { text: "If you can't draw it, you don't understand it.", attrib: "Richard Feynman", tag: "physics" },
@@ -103,10 +100,13 @@ const V2 = {
     "Why doctor's have such bad handwriting.",
   ],
   resume: [
-    { when: "14 Oct 2012", what: "Born", where: "Gurgaon, India", tag: "school" },
+    { when: "14 Oct 2012", what: "Born", where: "Bengaluru, India", tag: "birth" },
     { when: "2026 — now", what: "Class 9, CBSE", where: "DPS Sector 45 · Gurgaon", tag: "school" },
-    { when: "2024 — now", what: "Self-teaching C, C++, Python", where: "K&R, nights, weekends", tag: "study" },
-    { when: "future", what: "PhD-track in computational biology", where: "TBD · betting on it", tag: "plan" },
+    { when: "2024 - now", what: "Unreal4Life", where: "YouTube", tag: "work" },
+    { when: "2025", what: "Volksfiesta", where: "Deens Guntur", tag: "school" },
+    { when: "2025 — now", what: "Learning C, C++, Python", where: "freeCodeCamp, K&R, YouTube", tag: "study" },
+    { when: "2026", what: "Random stuff all the Time", where: "Everywhere", tag: "other" },
+    { when: "Hopeful Future", what: "PhD-track in computational biology", where: "TBDt", tag: "plan" },
   ],
 };
 

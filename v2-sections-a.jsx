@@ -1,6 +1,6 @@
 // v2-sections-a.jsx
 
-// ─── Sticky nav ──────────────────────────────────────────────────────
+// Sticky nav 
 const Nav = () => {
   const t = useT();
   const [scrolled, setScrolled] = React.useState(false);
@@ -50,7 +50,7 @@ const Nav = () => {
   );
 };
 
-// ─── HERO VARIANTS ───────────────────────────────────────────────────
+// HERO VARIANTS
 const HeroClassic = ({ onPageClick }) => {
   const t = useT(); const c = V2;
   return (
@@ -130,14 +130,14 @@ const HeroEquation = ({ onPageClick }) => {
         <div onClick={onPageClick} style={{ fontFamily: t.fonts.hand, fontSize: 24, color: t.accent, cursor: 'pointer', userSelect: 'none' }}>page 1 / ∞</div>
       </div>
       <div style={{ marginTop: 6, fontFamily: MONO, fontSize: 11, color: dim, letterSpacing: 1.2 }}>
-        {`arXiv:2605.${String((c.age || 13)).padStart(2, '0')}142 [self.IDENT] · v43 · ${new Date().toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata', day:'2-digit', month:'short', year:'numeric' }).toUpperCase()} · ${window.ESSAYS ? window.ESSAYS.length : 1} pages`}
+        {`arXiv:2605.${String((c.age || 13)).padStart(2, '0')}142 [self.IDENT] · v44 · ${new Date().toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata', day:'2-digit', month:'short', year:'numeric' }).toUpperCase()} · ${window.ESSAYS ? window.ESSAYS.length : 1} pages`}
       </div>
       <div style={{ marginTop: 36, textAlign: 'center', maxWidth: 980, marginLeft: 'auto', marginRight: 'auto' }}>
         <div style={{ fontFamily: MONO, fontSize: 11, color: t.accent, letterSpacing: 3, textTransform: 'uppercase', marginBottom: 12 }}>
           A note on identity, in three sections
         </div>
         <h1 style={{ fontFamily: t.fonts.serif, fontSize: 52, fontWeight: 600, margin: 0, color: ink, letterSpacing: -0.3, lineHeight: 1.05 }}>
-          On the existence of <span style={{ fontStyle: 'italic', color: t.accent }}>Myself</span>:<br />
+          To prove the existence of <span style={{ fontStyle: 'italic', color: t.accent }}>Myself</span>:<br />
           A constructive proof in three substrates.
         </h1>
         <div style={{ marginTop: 18, fontFamily: t.fonts.serif, fontSize: 17, color: soft, fontStyle: 'italic' }}>
@@ -150,8 +150,8 @@ const HeroEquation = ({ onPageClick }) => {
       <div style={{ marginTop: 36, padding: '20px 28px', border: `1px solid ${t.palette.rule}`, background: t.palette.cardBg, maxWidth: 900, marginLeft: 'auto', marginRight: 'auto' }}>
         <div style={{ fontFamily: MONO, fontSize: 10, letterSpacing: 2, color: t.accent, fontWeight: 600, textTransform: 'uppercase', marginBottom: 8 }}>Abstract.</div>
         <div style={{ fontFamily: t.fonts.serif, fontSize: 17, color: ink, lineHeight: 1.55 }}>
-          We define a Class-9 student {I("K")}({I("t")}) ∈ <i>ℳ</i> and prove that {I("K")} is non-trivial. A constructive characterization (Thm. 2.1) shows {I("K")}({I("t")}) admits a decomposition as the time-integral of three orthogonal substrates: {' '}
-          <span style={{ color: t.accent, fontStyle: 'italic' }}>math, code, cells</span>. We further conjecture that lim<sub>{I("t")}→∞</sub> {I("K")}({I("t")})/{I("t")} = ∞ (Conj. 2.4). The proof is sketched in §3; counter-examples have not been found at time of writing.
+          We thus define a Class-9 student {I("K")}({I("t")}) ∈ <i>ℳ</i> and prove that {I("K")} is non-trivial. A constructive characterization (Thm. 2.1) shows {I("K")}({I("t")}) admits a decomposition as the time-integral of three orthogonal substrates, supposedly: {' '}
+          <span style={{ color: t.accent, fontStyle: 'italic' }}>code, mountain dew, cells</span>. We further conjecture that lim<sub>{I("t")}→∞</sub> {I("K")}({I("t")})/{I("t")} = ∞ (Conj. 2.4). The proof is sketched in §3; counter-examples have not been submitted at time of writing.
         </div>
         <div style={{ marginTop: 10, fontFamily: MONO, fontSize: 11, color: dim, letterSpacing: 0.5 }}>
           <b style={{ color: ink }}>Keywords —</b> identity; biotech; OS theory; integration over curiosity; CBSE.
@@ -167,7 +167,7 @@ const HeroEquation = ({ onPageClick }) => {
       <Stmt kind="Axiom" n="1.1" color={navy}>(Existence.) &nbsp; ∃ {I("K")} such that {I("K")} ≡ {I("K")}. &nbsp; <i>(trivial.)</i></Stmt>
       <Stmt kind="Lemma" n="1.2" color={navy}>(Non-triviality.) &nbsp; ∀ε &gt; 0, &nbsp;∃ <i>idea</i> ∈ {I("K")} &nbsp; with &nbsp; ‖<i>idea</i>‖ &gt; ε.</Stmt>
       <div style={{ fontFamily: t.fonts.serif, fontSize: 16, fontStyle: 'italic', color: soft, marginLeft: 24, marginBottom: 10, lineHeight: 1.55 }}>
-        <span style={{ fontStyle: 'normal', fontWeight: 600, color: ink }}>Proof.</span> Take ε = 0. Then any non-zero idea suffices. By inspection of the author's notebook, such ideas exist. <span style={{ color: ink }}>∎</span>
+        <span style={{ fontStyle: 'normal', fontWeight: 600, color: ink }}>Proof.</span> Take ε = 0. Then any non-zero idea suffices. By inspection of the author's brain, such ideas might exist. <span style={{ color: ink }}>∎</span>
       </div>
       <Sec n="2">Main result</Sec>
       <Stmt kind="Theorem" n="2.1" color={t.accent}>(Main.) &nbsp;For all {I("t")} ≥ 0,</Stmt>
@@ -180,7 +180,7 @@ const HeroEquation = ({ onPageClick }) => {
         </span>
         &nbsp;<i>dτ</i>
       </Eq>
-      <Where>where &nbsp;<i style={{ color: navy }}>m</i>(<i>t</i>), <i style={{ color: forest }}>c</i>(<i>t</i>), <i style={{ color: plum }}>b</i>(<i>t</i>) are the <b style={{ color: navy }}>math</b>, <b style={{ color: forest }}>code</b>, and <b style={{ color: plum }}>cells</b> rates respectively,</Where>
+      <Where>where &nbsp;<i style={{ color: navy }}>m</i>(<i>t</i>), <i style={{ color: forest }}>c</i>(<i>t</i>), <i style={{ color: plum }}>b</i>(<i>t</i>) are the <b style={{ color: navy }}>math</b>, <b style={{ color: forest }}>mountain dew</b>, and <b style={{ color: plum }}>cells</b> rates respectively,</Where>
       <Where>and &nbsp;⊕ : ℳ × ℳ → ℳ &nbsp;is the non-commutative <i>idea-sum</i>; {I("t")} ∈ [0, ∞); ℳ is a complete metric space of identities.</Where>
       <Stmt kind="Corollary" n="2.2" color={t.accent}>Differentiating (2.1) with respect to {I("t")},</Stmt>
       <Eq n="(2.2)">
@@ -208,7 +208,7 @@ const HeroEquation = ({ onPageClick }) => {
       <Ref n="2">Church, G. M., Regis, E. (2012). <i>Regenesis: How Synthetic Biology Will Reinvent Nature and Ourselves</i>. Basic Books.</Ref>
       <Ref n="3">Pólya, G. (1945). <i>How to Solve It</i>. Princeton University Press.</Ref>
       <Ref n="4">Hardy, G. H. (1940). <i>A Mathematician's Apology</i>. Cambridge University Press.</Ref>
-      <Ref n="5">Karthik (in prep.). <i>Future Human</i>. Self-published, Gurgaon.</Ref>
+      <Ref n="5">Karthik (ignc bro). <i>Intellectual Activities</i>. Possibly on the Earth.</Ref>
       <Ref n="6">Tolstoy, L. (1869). <i>War and Peace</i>. Read in margin during proof of (2.1).</Ref>
       <div style={{ marginTop: 32, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16, borderTop: `1px solid ${t.palette.rule}`, paddingTop: 18 }}>
         <div style={{ fontFamily: MONO, fontSize: 11, color: dim, letterSpacing: 1 }}>
@@ -252,7 +252,7 @@ const HeroMinimal = ({ onPageClick }) => {
   );
 };
 
-// ─── About ───────────────────────────────────────────────────────────
+// About 
 const About = () => {
   const t = useT(); const c = V2;
   return (
@@ -281,7 +281,7 @@ const About = () => {
   );
 };
 
-// ─── Quotes ──────────────────────────────────────────────────────────
+// Quotes
 const Quotes = () => {
   const t = useT();
   const [qFilter, setQFilter] = React.useState('all');

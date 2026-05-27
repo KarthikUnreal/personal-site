@@ -1,7 +1,7 @@
 // v2-sections-b.jsx
 
 
-// ─── Keyboard Shortcuts ───────────────────────────────────────────────
+// Keyboard Shortcuts
 const KeyboardShortcuts = () => {
   const t = useT();
   React.useEffect(() => {
@@ -31,7 +31,7 @@ const KeyboardShortcuts = () => {
   return null;
 };
 
-// ─── Writing ─────────────────────────────────────────────────────────
+// Writing
 const Writing = () => {
   const t = useT();
   const essays = (window.ESSAYS && window.ESSAYS.length) ? window.ESSAYS : [];
@@ -141,7 +141,7 @@ const Writing = () => {
 };
 
 
-// ─── Quote Card ───────────────────────────────────────────────────────
+// Quote Card 
 const QuoteCard = ({ q, i, t }) => {
   const [copied, setCopied] = React.useState(false);
   const copy = (e) => {
@@ -171,7 +171,7 @@ const QuoteCard = ({ q, i, t }) => {
   );
 };
 
-// ─── Reading / Shelf ─────────────────────────────────────────────────
+// Shelf 
 const Reading = () => {
   const t = useT(); const c = V2;
   const stateLabel = (s) => ({ reading: '☞ now', done: '✓ done', queued: '○ queued', 're-reading': '↺ again' }[s] || s);
@@ -212,7 +212,7 @@ const Reading = () => {
   );
 };
 
-// ─── Now ─────────────────────────────────────────────────────────────
+// Now
 const Now = () => {
   const t = useT(); const c = V2;
   const thoughts = V2.thinking || [];
@@ -251,7 +251,7 @@ const Now = () => {
   );
 };
 
-// ─── Résumé / CV ─────────────────────────────────────────────────────
+// CV 
 const Resume = () => {
   const t = useT();
   const tagColor = { study: t.accent, build: t.palette.accents.forest, school: t.palette.accents.navy, win: t.palette.accents.plum, plan: t.palette.accents.plum };
@@ -281,7 +281,7 @@ const Resume = () => {
   );
 };
 
-// ─── Working Toward ───────────────────────────────────────────────────
+// Working Toward
 const WorkingToward = () => {
   const t = useT(); const c = V2;
   const w = c.workingToward;
@@ -312,7 +312,7 @@ const WorkingToward = () => {
 
 
 
-// ─── Changelog List ───────────────────────────────────────────────────
+// Changelog List 
 const ChangelogList = ({ log, t }) => {
   const [showAll, setShowAll] = React.useState(false);
   const visible = showAll ? log : log.slice(0, 5);
@@ -343,40 +343,40 @@ const ChangelogList = ({ log, t }) => {
   );
 };
 
-// ─── Changelog ───────────────────────────────────────────────────────
+// Changelog
 const Changelog = () => {
   const t = useT();
   const log = [
-    { v: "v40", date: "27 May 2026", note: "Full sync — hint bar, essay filter, all features confirmed present." },
+    { v: "v40", date: "27 May 2026", note: "Troubleshoot success, Site working." },
     { v: "v43", date: "27 May 2026", note: "Quote search bar added." },
-    { v: "v42", date: "27 May 2026", note: "Now updated — seedfund idea." },
-    { v: "v41", date: "27 May 2026", note: "Workshop started. .bak removed." },
-    { v: "v40", date: "27 May 2026", note: "Essay filter properly added." },
-    { v: "v39", date: "27 May 2026", note: "Essay #3 tagged as code. Hint bar f ? mystery." },
-    { v: "v38", date: "26 May 2026", note: "Essay #3 published — C Takes You Literally." },
-    { v: "v37", date: "26 May 2026", note: "Shortcut hint bar. Parallax improved. README updated every version." },
-    { v: "v36", date: "26 May 2026", note: "Keyboard shortcuts (j/k/q). Changelog show older toggle." },
-    { v: "v35", date: "26 May 2026", note: "Thinking rotator updated with real questions." },
-    { v: "v34", date: "26 May 2026", note: "5 books added. Copy quote. Back to top. Auto reading time. Parallax drawings." },
-    { v: "v33", date: "26 May 2026", note: "5 thinking items. Gurgaon auto-date. 4 new quotes. Share button." },
+    { v: "v42", date: "27 May 2026", note: "Random Additions 4." },
+    { v: "v41", date: "27 May 2026", note: "Random Additions 3." },
+    { v: "v40", date: "27 May 2026", note: "Essay filter added." },
+    { v: "v39", date: "27 May 2026", note: "Essay #3 tagged as code." },
+    { v: "v38", date: "26 May 2026", note: "Essay #3 published." },
+    { v: "v37", date: "26 May 2026", note: "Shortcut bar." },
+    { v: "v36", date: "26 May 2026", note: "Keyboard shortcuts (j/k/q) for essay navigation." },
+    { v: "v35", date: "26 May 2026", note: "Thinking rotator." },
+    { v: "v34", date: "26 May 2026", note: "Random additions 2." },
+    { v: "v33", date: "26 May 2026", note: "Random additions." },
     { v: "v32", date: "26 May 2026", note: "Share button added to footer." },
-    { v: "v31", date: "25 May 2026", note: "Right Now updated. Essay #3 in progress." },
+    { v: "v31", date: "25 May 2026", note: "Right Now updated" },
     { v: "v30", date: "25 May 2026", note: "All dates switched to Indian Standard Time." },
-    { v: "v29", date: "25 May 2026", note: "Related essays added. Changelog updated." },
-    { v: "v27", date: "25 May 2026", note: "Essay #2 published — The Biological Copy-Paste: CRISPR." },
-    { v: "v26", date: "25 May 2026", note: "Changelog added. Toward section updated. Footer improved. Fuel updated." },
-    { v: "v25", date: "25 May 2026", note: "Shelf updated — Code Breaker now reading. Three books finished." },
-    { v: "v24", date: "25 May 2026", note: "Man Who Knew Infinity, Crime and Punishment, How to Solve It marked done." },
-    { v: "v23", date: "25 May 2026", note: "Quotes section renamed to Nice Quotes." },
-    { v: "v21", date: "25 May 2026", note: "Date and page count made dynamic. arXiv header updated." },
-    { v: "v20", date: "25 May 2026", note: "Full codebase cleaned — dead files and components removed." },
-    { v: "v17", date: "24 May 2026", note: "Site launched on GitHub Pages." },
-    { v: "v15", date: "24 May 2026", note: "Working Toward section added. Reading notes on finished books." },
-    { v: "v12", date: "24 May 2026", note: "About section expanded. Right Now updated." },
-    { v: "v10", date: "24 May 2026", note: "Blueprint margin drawings added. Dark mode colours fixed." },
-    { v: "v9",  date: "24 May 2026", note: "59 quotes added across 7 categories with filter." },
-    { v: "v8",  date: "24 May 2026", note: "Thinking rotator, dark/light toggle, progress bar added." },
-    { v: "v1",  date: "23 May 2026", note: "First commit. Notebook site built from scratch." },
+    { v: "v29", date: "25 May 2026", note: "Essay Filter made." },
+    { v: "v27", date: "25 May 2026", note: "Essay #2 published." },
+    { v: "v26", date: "25 May 2026", note: "Changelog added." },
+    { v: "v25", date: "25 May 2026", note: "Shelf updated." },
+    { v: "v24", date: "25 May 2026", note: "Books marked done." },
+    { v: "v23", date: "25 May 2026", note: "Quotes updated." },
+    { v: "v21", date: "25 May 2026", note: "More Dynamic." },
+    { v: "v20", date: "25 May 2026", note: "Attempted Cleanup." },
+    { v: "v17", date: "24 May 2026", note: "Site launched on GitHub Pages. (Netlify ass)" },
+    { v: "v15", date: "24 May 2026", note: "Working Toward section added." },
+    { v: "v12", date: "24 May 2026", note: "About section updated." },
+    { v: "v10", date: "24 May 2026", note: "Drawings added." },
+    { v: "v9",  date: "24 May 2026", note: "More Quotes." },
+    { v: "v8",  date: "24 May 2026", note: "Heavy Rebuilding of the original site." },
+    { v: "v1",  date: "23 May 2026", note: "First commit." },
   ];
   return (
     <section id="changelog" style={{ padding: t.dense ? '40px 56px 40px 120px' : '64px 56px 56px 120px', position: 'relative' }}>
@@ -392,7 +392,7 @@ const Changelog = () => {
 };
 
 
-// ─── Share Button ─────────────────────────────────────────────────────
+// Share Button 
 const ShareButton = ({ t }) => {
   const [copied, setCopied] = React.useState(false);
   const share = () => {
@@ -422,7 +422,7 @@ const ShareButton = ({ t }) => {
   );
 };
 
-// ─── Contact ──────────────────────────────────────────────────────────
+// Contact
 const Contact = () => {
   const t = useT(); const c = V2;
   return (
@@ -449,7 +449,7 @@ const Contact = () => {
       </Reveal>
       <Reveal delay={300}>
         <div style={{ position: 'absolute', right: 80, bottom: 80, fontFamily: t.fonts.hand, fontSize: 24, color: t.accent, transform: 'rotate(-4deg)' }}>
-          p.s. tell me what you're building.
+          p.s. tell me what you're doing.
         </div>
       </Reveal>
       <Reveal delay={350}>
@@ -459,14 +459,14 @@ const Contact = () => {
       </Reveal>
       <Reveal delay={400}>
         <div style={{ marginTop: 40, fontFamily: MONO, fontSize: 10, color: t.palette.pencil, letterSpacing: 1, textTransform: 'uppercase' }}>
-          {`PAGE ∞ / ∞ · NOTEBOOK CLOSES · ${V2.location.toUpperCase()} · LAST UPDATED ${new Date().toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata', day:'2-digit', month:'short', year:'numeric' }).toUpperCase()}`}
+          {`PAGE ∞ / ∞ · SITE END · ${V2.location.toUpperCase()} · LAST UPDATED ${new Date().toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata', day:'2-digit', month:'short', year:'numeric' }).toUpperCase()}`}
         </div>
       </Reveal>
     </section>
   );
 };
 
-// ─── Easter egg ───────────────────────────────────────────────────────
+// Easter egg
 const FermatNote = ({ open, onClose }) => {
   const t = useT();
   if (!open) return null;
@@ -492,14 +492,14 @@ const FermatNote = ({ open, onClose }) => {
           "I have discovered a truly remarkable proof of this proposition, which this margin is too narrow to contain."
         </div>
         <div style={{ marginTop: 14, fontFamily: '"Newsreader", serif', fontSize: 14, color: '#5a6470', fontStyle: 'italic' }}>— Fermat, 1637</div>
-        <div style={{ marginTop: 18, fontFamily: '"Caveat", cursive', fontSize: 22, color: '#1e3a5f' }}>also — hi! you found the easter egg.</div>
+        <div style={{ marginTop: 18, fontFamily: '"Caveat", cursive', fontSize: 22, color: '#1e3a5f' }}> Good Job. You found the easter egg.</div>
         <div style={{ marginTop: 6, fontFamily: '"JetBrains Mono", monospace', fontSize: 11, color: '#5a6470' }}>(click anywhere to dismiss)</div>
       </div>
     </div>
   );
 };
 
-// ─── Coding Timeline ──────────────────────────────────────────────────
+// Coding Timeline
 const CodingTimeline = () => {
   const t = useT();
   const items = [
@@ -594,7 +594,7 @@ const CodingTimeline = () => {
 };
 
 
-// ─── Back to Top ──────────────────────────────────────────────────────
+// Back to Top 
 const BackToTop = () => {
   const t = useT();
   const [visible, setVisible] = React.useState(false);
