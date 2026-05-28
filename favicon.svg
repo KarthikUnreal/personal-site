@@ -1,12 +1,63 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0d1b2a"/>
-      <stop offset="100%" stop-color="#0a1f0f"/>
-    </linearGradient>
-  </defs>
-  <rect width="32" height="32" rx="6" fill="url(#g)"/>
-  <rect width="32" height="32" rx="6" fill="none" stroke="#89b4fa" stroke-width="1.5" opacity="0.4"/>
-  <text x="16" y="22" text-anchor="middle" font-family="Georgia, serif" font-size="16" font-weight="400" fill="#89b4fa">k</text>
-  <circle cx="22" cy="20" r="2" fill="#a6e3a1"/>
+<svg width="32" height="32" viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <radialGradient id="bg" cx="30%" cy="25%" r="85%">
+    <stop offset="0%" stop-color="#2a0a4a"/>
+    <stop offset="40%" stop-color="#150a38"/>
+    <stop offset="70%" stop-color="#081828"/>
+    <stop offset="100%" stop-color="#040e20"/>
+  </radialGradient>
+  <radialGradient id="nebula1" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#3a1060" stop-opacity="0.5"/>
+    <stop offset="100%" stop-color="#3a1060" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="nebula2" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#0a2060" stop-opacity="0.45"/>
+    <stop offset="100%" stop-color="#0a2060" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="680" height="680" fill="url(#bg)" rx="40"/>
+<ellipse cx="520" cy="140" rx="220" ry="160" fill="url(#nebula1)"/>
+<ellipse cx="140" cy="530" rx="200" ry="150" fill="url(#nebula2)"/>
+<g transform="translate(340,340)">
+<line fill="none" stroke="#5efff4" stroke-width="3.5" stroke-linecap="round" x1="0" y1="-215" x2="190" y2="-80"/>
+<line fill="none" stroke="#5efff4" stroke-width="3.5" stroke-linecap="round" x1="0" y1="-215" x2="59" y2="-180"/>
+<line fill="none" stroke="#5efff4" stroke-width="3.5" stroke-linecap="round" x1="0" y1="-215" x2="-154" y2="-111"/>
+<line fill="none" stroke="#5efff4" stroke-width="1.8" stroke-dasharray="6,5" opacity="0.35" x1="0" y1="-215" x2="-154" y2="0"/>
+<line fill="none" stroke="#5efff4" stroke-width="1.8" stroke-dasharray="6,5" opacity="0.35" x1="0" y1="-215" x2="59" y2="0"/>
+<line fill="none" stroke="#5efff4" stroke-width="3.5" stroke-linecap="round" x1="190" y1="-80" x2="59" y2="-180"/>
+<line fill="none" stroke="#5efff4" stroke-width="3.5" stroke-linecap="round" x1="59" y1="-180" x2="-154" y2="-111"/>
+<line fill="none" stroke="#5efff4" stroke-width="3.5" stroke-linecap="round" x1="-154" y1="-111" x2="-154" y2="0"/>
+<line fill="none" stroke="#5efff4" stroke-width="1.8" stroke-dasharray="6,5" opacity="0.35" x1="-154" y1="0" x2="59" y2="0"/>
+<line fill="none" stroke="#5efff4" stroke-width="1.8" stroke-dasharray="6,5" opacity="0.35" x1="59" y1="0" x2="190" y2="-80"/>
+<line fill="none" stroke="#5efff4" stroke-width="3.5" stroke-linecap="round" x1="190" y1="-80" x2="154" y2="111"/>
+<line fill="none" stroke="#5efff4" stroke-width="3.5" stroke-linecap="round" x1="190" y1="-80" x2="-59" y2="0"/>
+<line fill="none" stroke="#5efff4" stroke-width="3.5" stroke-linecap="round" x1="59" y1="-180" x2="-190" y2="80"/>
+<line fill="none" stroke="#5efff4" stroke-width="3.5" stroke-linecap="round" x1="-154" y1="-111" x2="-190" y2="80"/>
+<line fill="none" stroke="#5efff4" stroke-width="3.5" stroke-linecap="round" x1="-154" y1="-111" x2="-59" y2="180"/>
+<line fill="none" stroke="#5efff4" stroke-width="3.5" stroke-linecap="round" x1="-154" y1="0" x2="-59" y2="180"/>
+<line fill="none" stroke="#5efff4" stroke-width="1.8" stroke-dasharray="6,5" opacity="0.35" x1="-154" y1="0" x2="-190" y2="80"/>
+<line fill="none" stroke="#5efff4" stroke-width="3.5" stroke-linecap="round" x1="59" y1="0" x2="-59" y2="180"/>
+<line fill="none" stroke="#5efff4" stroke-width="3.5" stroke-linecap="round" x1="59" y1="0" x2="154" y2="111"/>
+<line fill="none" stroke="#5efff4" stroke-width="3.5" stroke-linecap="round" x1="154" y1="111" x2="-59" y2="180"/>
+<line fill="none" stroke="#5efff4" stroke-width="3.5" stroke-linecap="round" x1="-59" y1="180" x2="-190" y2="80"/>
+<line fill="none" stroke="#5efff4" stroke-width="1.8" stroke-dasharray="6,5" opacity="0.35" x1="-190" y1="80" x2="-59" y2="0"/>
+<line fill="none" stroke="#5efff4" stroke-width="1.8" stroke-dasharray="6,5" opacity="0.35" x1="-59" y1="0" x2="154" y2="111"/>
+<line fill="none" stroke="#5efff4" stroke-width="3.5" stroke-linecap="round" x1="0" y1="215" x2="154" y2="111"/>
+<line fill="none" stroke="#5efff4" stroke-width="3.5" stroke-linecap="round" x1="0" y1="215" x2="-59" y2="180"/>
+<line fill="none" stroke="#5efff4" stroke-width="3.5" stroke-linecap="round" x1="0" y1="215" x2="-190" y2="80"/>
+<line fill="none" stroke="#5efff4" stroke-width="1.8" stroke-dasharray="6,5" opacity="0.35" x1="0" y1="215" x2="-59" y2="0"/>
+<line fill="none" stroke="#5efff4" stroke-width="1.8" stroke-dasharray="6,5" opacity="0.35" x1="0" y1="215" x2="154" y2="0"/>
+<circle fill="#aafffa" cx="0" cy="-215" r="7"/>
+<circle fill="#aafffa" cx="190" cy="-80" r="6"/>
+<circle fill="#aafffa" cx="59" cy="-180" r="6"/>
+<circle fill="#aafffa" cx="-154" cy="-111" r="6"/>
+<circle fill="#aafffa" cx="154" cy="111" r="6"/>
+<circle fill="#aafffa" cx="-59" cy="180" r="6"/>
+<circle fill="#aafffa" cx="-190" cy="80" r="6"/>
+<circle fill="#aafffa" cx="0" cy="215" r="7"/>
+<circle fill="#5efff4" opacity="0.5" cx="-154" cy="0" r="5"/>
+<circle fill="#5efff4" opacity="0.5" cx="59" cy="0" r="5"/>
+<circle fill="#5efff4" opacity="0.5" cx="-59" cy="0" r="5"/>
+<circle fill="#5efff4" opacity="0.5" cx="154" cy="0" r="5"/>
+</g>
 </svg>
