@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>karthik.v48</title>
+  <title>karthik.v49</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -21,7 +21,7 @@
       --accent-dim: #3d5a6e;
       --green:      #3d7a5a;
       --green-soft: #2a5040;
-      --serif:      'Cormorant Garamond', Georgia, serif;
+      --serif:      'Inter', system-ui, sans-serif;
       --mono:       'JetBrains Mono', monospace;
       --gradient:   linear-gradient(135deg, #080c10 0%, #091420 35%, #081a12 70%, #060e08 100%);
     }
@@ -34,7 +34,7 @@
       background-attachment: fixed;
       color: var(--ink);
       font-family: var(--serif);
-      font-weight: 300;
+      font-weight: 400;
       min-height: 100vh;
     }
 
@@ -116,17 +116,17 @@
       margin-bottom: 20px;
     }
     .hero-name {
-      font-size: clamp(56px, 9vw, 96px);
+      font-size: clamp(40px, 7vw, 72px);
       font-weight: 300;
       line-height: 1;
-      letter-spacing: -1.5px;
+      letter-spacing: -2px;
       color: var(--ink);
     }
     .hero-name em { font-style: italic; color: var(--accent); }
     .hero-sub {
       margin-top: 24px;
-      font-size: 19px;
-      font-weight: 300;
+      font-size: 15px;
+      font-weight: 400;
       line-height: 1.7;
       color: var(--ink-soft);
       max-width: 540px;
@@ -157,9 +157,10 @@
     /* ── About ── */
     .about-section { margin-top: 72px; }
     .about-body {
-      font-size: 18px;
-      line-height: 1.8;
+      font-size: 16px;
+      line-height: 1.75;
       color: var(--ink);
+      font-weight: 400;
       max-width: 680px;
     }
     .about-body p + p { margin-top: 18px; }
@@ -320,10 +321,10 @@
       margin-bottom: 48px;
     }
     .modal-body {
-      font-size: 18px;
-      line-height: 1.9;
+      font-size: 16px;
+      line-height: 1.85;
       color: #b8c4bc;
-      font-weight: 300;
+      font-weight: 400;
     }
     .modal-body p + p { margin-top: 22px; }
 
@@ -345,7 +346,7 @@
 
 <!-- Nav -->
 <nav>
-  <div class="nav-logo">karthik<span>.v48</span></div>
+  <div class="nav-logo">karthik<span>.v49</span></div>
   <ul class="nav-links">
     <li><a href="#about">about</a></li>
     <li><a href="#essays">essays</a></li>
@@ -397,7 +398,7 @@
 
   <!-- Footer -->
   <footer class="fade d4">
-    <span>karthik · v48</span>
+    <span>karthik · v49</span>
     <span id="footer-year"></span>
   </footer>
 </main>
