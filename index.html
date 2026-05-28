@@ -3,40 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>karthik.v49</title>
+  <title>home · karthik</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:         #080c10;
-      --bg-card:    #0e1318;
-      --bg-card-h:  #121a20;
-      --ink:        #e2e8e4;
-      --ink-soft:   #7a8a82;
-      --ink-dim:    #2e3830;
-      --accent:     #7b9eb5;
-      --accent-dim: #3d5a6e;
-      --green:      #3d7a5a;
-      --green-soft: #2a5040;
-      --serif:      'Inter', system-ui, sans-serif;
-      --mono:       'JetBrains Mono', monospace;
-      --gradient:   linear-gradient(135deg, #080c10 0%, #091420 35%, #081a12 70%, #060e08 100%);
+      --bg:       #1a1a2e;
+      --bg-card:  #16213e;
+      --bg-card-h:#1a2a42;
+      --ink:      #cdd6f4;
+      --ink-soft: #7f849c;
+      --ink-dim:  #313244;
+      --accent:   #89b4fa;
+      --green:    #a6e3a1;
+      --mono:     'JetBrains Mono', monospace;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
-      background-image: var(--gradient);
+      background-image: linear-gradient(135deg, #0f0f1a 0%, #0d1b2a 40%, #0a1f0f 100%);
       background-attachment: fixed;
       color: var(--ink);
-      font-family: var(--serif);
+      font-family: var(--mono);
+      font-size: 14px;
       font-weight: 400;
+      line-height: 1.7;
       min-height: 100vh;
     }
+
+    a { color: inherit; text-decoration: none; }
 
     /* grain */
     body::before {
@@ -44,220 +44,141 @@
       position: fixed;
       inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.032;
+      opacity: 0.025;
       pointer-events: none;
       z-index: 9999;
     }
 
     /* ── Nav ── */
     nav {
+      border-bottom: 1px solid var(--ink-dim);
+      background: rgba(15,15,26,0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 18px 48px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 28px 48px;
-      border-bottom: 1px solid var(--ink-dim);
-      position: sticky;
-      top: 0;
-      background: rgba(8,12,16,0.88);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      z-index: 100;
     }
-    .nav-logo {
-      font-family: var(--mono);
-      font-size: 13px;
+    .nav-brand {
+      font-size: 14px;
       font-weight: 400;
       color: var(--ink);
-      letter-spacing: 0.04em;
     }
-    .nav-logo span { color: var(--accent); }
     .nav-links {
-      display: flex;
-      gap: 36px;
       list-style: none;
+      display: flex;
+      gap: 32px;
     }
     .nav-links a {
-      font-family: var(--mono);
-      font-size: 11px;
-      font-weight: 300;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      font-size: 13px;
       color: var(--ink-soft);
-      text-decoration: none;
-      transition: color .2s;
+      transition: color .15s;
     }
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--ink); }
 
     /* ── Layout ── */
-    main { max-width: 860px; margin: 0 auto; padding: 80px 48px 140px; }
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 48px 120px;
+    }
 
-    /* ── Fade-in ── */
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .fade { opacity: 0; animation: rise .7s ease forwards; }
-    .d1 { animation-delay: .06s; }
-    .d2 { animation-delay: .18s; }
-    .d3 { animation-delay: .32s; }
-    .d4 { animation-delay: .48s; }
-
-    /* ── Hero ── */
-    .hero {
-      padding-bottom: 72px;
-      border-bottom: 1px solid var(--ink-dim);
-    }
-    .hero-eyebrow {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 20px;
-    }
-    .hero-name {
-      font-size: clamp(40px, 7vw, 72px);
-      font-weight: 300;
-      line-height: 1;
-      letter-spacing: -2px;
-      color: var(--ink);
-    }
-    .hero-name em { font-style: italic; color: var(--accent); }
-    .hero-sub {
-      margin-top: 24px;
-      font-size: 15px;
+    /* ── Page header ── */
+    .page-title {
+      font-size: 28px;
       font-weight: 400;
-      line-height: 1.7;
-      color: var(--ink-soft);
-      max-width: 540px;
+      color: var(--ink);
+      margin-bottom: 16px;
     }
-
-    /* ── Section header ── */
-    .section-head {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
+    hr {
+      border: none;
+      border-top: 1px solid var(--ink-dim);
       margin-bottom: 32px;
     }
-    .section-head h2 {
-      font-family: var(--mono);
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent-dim);
-    }
-    .section-head::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--ink-dim);
-    }
 
-    /* ── About ── */
-    .about-section { margin-top: 72px; }
-    .about-body {
-      font-size: 16px;
-      line-height: 1.75;
-      color: var(--ink);
-      font-weight: 400;
-      max-width: 680px;
+    /* ── Fade in ── */
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: none; }
     }
-    .about-body p + p { margin-top: 18px; }
+    .fade { opacity: 0; animation: rise .5s ease forwards; }
+    .d1 { animation-delay: .05s; }
+    .d2 { animation-delay: .15s; }
+    .d3 { animation-delay: .25s; }
+    .d4 { animation-delay: .35s; }
 
-    .details {
-      margin-top: 36px;
+    /* ── Card grid ── */
+    .card-grid {
       display: grid;
-      grid-template-columns: 100px 1fr;
-      gap: 11px 0;
-      font-family: var(--mono);
-      font-size: 11px;
-      max-width: 480px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
     }
-    .dk { color: var(--ink-dim); padding-top: 1px; }
-    .dv { color: var(--ink-soft); }
-    .dv a {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid var(--accent-dim);
-      transition: border-color .2s;
-    }
-    .dv a:hover { border-color: var(--accent); }
-
-    /* ── Essays grid ── */
-    .essays-section { margin-top: 72px; }
-    .essay-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
-    }
-    .essay-card {
+    .card {
       background: var(--bg-card);
       border: 1px solid var(--ink-dim);
-      border-radius: 6px;
-      padding: 24px 26px 28px;
+      border-radius: 4px;
+      padding: 20px 22px 24px;
       cursor: pointer;
-      transition: background .2s, border-color .25s, transform .25s cubic-bezier(.2,.7,.3,1);
-      position: relative;
-      overflow: hidden;
+      transition: background .15s, border-color .15s;
     }
-    .essay-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(61,122,90,0.06) 0%, rgba(123,158,181,0.06) 100%);
-      opacity: 0;
-      transition: opacity .25s;
-    }
-    .essay-card:hover {
+    .card:hover {
       background: var(--bg-card-h);
-      border-color: var(--accent-dim);
-      transform: translateY(-2px);
+      border-color: var(--accent);
     }
-    .essay-card:hover::before { opacity: 1; }
-
     .card-date {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--green);
-      letter-spacing: 0.08em;
-      margin-bottom: 14px;
+      font-size: 11px;
+      color: var(--ink-soft);
+      margin-bottom: 10px;
     }
     .card-title {
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.35;
+      font-size: 14px;
       color: var(--ink);
-      transition: color .2s;
+      line-height: 1.5;
     }
-    .essay-card:hover .card-title { color: var(--accent); }
-    .card-read {
-      margin-top: 16px;
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--ink-dim);
-      letter-spacing: 0.06em;
+
+    /* ── About / Contact prose ── */
+    .prose p {
+      color: var(--ink-soft);
+      margin-bottom: 20px;
+      font-size: 14px;
+      line-height: 1.75;
     }
+    .prose p strong { color: var(--ink); font-weight: 400; }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 10px 0;
+      margin-top: 28px;
+    }
+    .dk { color: var(--ink-dim); font-size: 12px; }
+    .dv { color: var(--ink-soft); font-size: 12px; }
+    .dv a { color: var(--accent); border-bottom: 1px solid transparent; transition: border-color .15s; }
+    .dv a:hover { border-color: var(--accent); }
 
     /* ── Footer ── */
     footer {
-      margin-top: 100px;
-      padding-top: 28px;
+      margin-top: 80px;
+      padding-top: 24px;
       border-top: 1px solid var(--ink-dim);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: var(--mono);
-      font-size: 10px;
+      font-size: 12px;
       color: var(--ink-dim);
-      letter-spacing: 0.08em;
     }
 
     /* ── Modal ── */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(8,12,16,0.96);
+      background: rgba(10,10,20,0.97);
       z-index: 1000;
       display: flex;
       align-items: flex-start;
@@ -265,164 +186,84 @@
       overflow-y: auto;
       opacity: 0;
       pointer-events: none;
-      transition: opacity .28s ease;
-      backdrop-filter: blur(4px);
+      transition: opacity .2s ease;
     }
-    .modal-backdrop.open {
-      opacity: 1;
-      pointer-events: all;
-    }
+    .modal-backdrop.open { opacity: 1; pointer-events: all; }
     .modal {
       max-width: 680px;
       width: 100%;
-      padding: 64px 48px 120px;
-      transform: translateY(18px);
-      transition: transform .32s cubic-bezier(.2,.7,.3,1);
+      padding: 56px 48px 100px;
+      transform: translateY(12px);
+      transition: transform .25s ease;
     }
-    .modal-backdrop.open .modal { transform: translateY(0); }
+    .modal-backdrop.open .modal { transform: none; }
 
     .modal-topbar {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-bottom: 56px;
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      color: var(--ink-dim);
-    }
-    .modal-nav-btns { display: flex; gap: 20px; }
-    .modal-nav-btns span, .modal-close {
-      cursor: pointer;
-      transition: color .2s;
-      padding: 4px 0;
-    }
-    .modal-nav-btns span:hover, .modal-close:hover { color: var(--accent); }
-    .modal-nav-btns span.dimmed { opacity: 0.25; pointer-events: none; }
-
-    .modal-eyebrow {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      color: var(--green);
-      margin-bottom: 14px;
-    }
-    .modal-title {
-      font-size: clamp(26px, 4.5vw, 40px);
-      font-weight: 400;
-      line-height: 1.2;
-      color: var(--ink);
-      margin-bottom: 10px;
-    }
-    .modal-date {
-      font-family: var(--mono);
       font-size: 11px;
-      color: var(--ink-soft);
-      margin-bottom: 48px;
+      color: var(--ink-dim);
+      margin-bottom: 40px;
     }
-    .modal-body {
-      font-size: 16px;
-      line-height: 1.85;
-      color: #b8c4bc;
-      font-weight: 400;
-    }
-    .modal-body p + p { margin-top: 22px; }
+    .modal-nav { display: flex; gap: 20px; }
+    .modal-nav span, .modal-close { cursor: pointer; transition: color .15s; }
+    .modal-nav span:hover, .modal-close:hover { color: var(--ink); }
+    .modal-nav span.dimmed { opacity: 0.25; pointer-events: none; }
 
-    /* scrollbar */
+    .modal-date { font-size: 11px; color: var(--ink-soft); margin-bottom: 8px; }
+    .modal-title { font-size: 20px; color: var(--ink); margin-bottom: 32px; line-height: 1.4; }
+    .modal-body { font-size: 14px; line-height: 1.85; color: var(--ink-soft); }
+    .modal-body p + p { margin-top: 18px; }
+
+    @media (max-width: 600px) {
+      .nav-inner, main { padding-left: 20px; padding-right: 20px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .modal { padding: 40px 20px 80px; }
+    }
+
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--ink-dim); border-radius: 2px; }
-
-    /* mobile */
-    @media (max-width: 600px) {
-      nav { padding: 20px 24px; }
-      main { padding: 56px 24px 100px; }
-      .modal { padding: 40px 24px 80px; }
-      .essay-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+    ::-webkit-scrollbar-thumb { background: var(--ink-dim); }
+</style>
 </head>
 <body>
-
-<!-- Nav -->
-<nav>
-  <div class="nav-logo">karthik<span>.v49</span></div>
-  <ul class="nav-links">
-    <li><a href="#about">about</a></li>
-    <li><a href="#essays">essays</a></li>
-    <li><a href="mailto:karthikbkollabathula@gmail.com">contact</a></li>
-  </ul>
-</nav>
-
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">karthik's site</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">home</a></li>
+        <li><a href="about.html" class="">about</a></li>
+        <li><a href="contact.html" class="">contact</a></li>
+      </ul>
+    </div>
+  </nav>
 <main>
-  <!-- Hero -->
-  <div class="hero fade d1">
-    <p class="hero-eyebrow">personal site</p>
-    <h1 class="hero-name">Karthik<em>.</em></h1>
-    <p class="hero-sub">Class 9. Curious about everything. Betting on biology.</p>
+  <h1 class="page-title fade d1">home</h1>
+  <hr class="fade d1">
+  <div class="prose fade d2">
+    <p>Hi! I'm Karthik.</p>
+    <p>I write C++ for fun, fall asleep reading Feynman, and think biology is where the most interesting problems are. Class 9, Gurgaon.</p>
   </div>
-
-  <!-- About -->
-  <section class="about-section fade d2" id="about">
-    <div class="section-head"><h2>about</h2></div>
-    <div class="about-body">
-      <p>I write C++ for fun, fall asleep reading Feynman, and think biology is where the most interesting problems are — not because it's fashionable, but because the cell is the most complicated thing anyone has ever tried to understand.</p>
-      <p>Class 9 at DPS Sector 45, Gurgaon. Working toward IISc Bengaluru, BSc Research in Biological Sciences, 2030. Right now: teaching myself molecular biology, thinking on calculus, and still figuring out Gurgaon.</p>
-    </div>
-    <div class="details">
-      <span class="dk">location</span>
-      <span class="dv">Gurgaon, India</span>
-
-      <span class="dk">school</span>
-      <span class="dv">DPS Sector 45</span>
-
-      <span class="dk">stack</span>
-      <span class="dv">C, C++, Python, HTML, CSS</span>
-
-      <span class="dk">reading</span>
-      <span class="dv">The Code Breaker — Isaacson</span>
-
-      <span class="dk">github</span>
-      <span class="dv"><a href="https://github.com/KarthikUnreal" target="_blank">KarthikUnreal</a></span>
-
-      <span class="dk">email</span>
-      <span class="dv"><a href="mailto:karthikbkollabathula@gmail.com">karthikbkollabathula@gmail.com</a></span>
-    </div>
-  </section>
-
-  <!-- Essays -->
-  <section class="essays-section fade d3" id="essays">
-    <div class="section-head"><h2>essays</h2></div>
-    <div class="essay-grid" id="essay-grid"></div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="fade d4">
-    <span>karthik · v49</span>
-    <span id="footer-year"></span>
-  </footer>
+  <hr class="fade d2" style="margin-top:28px;">
+  <div class="card-grid fade d3" id="essay-grid"></div>
+  <footer class="fade d4">© 2026 · karthik · v50</footer>
 </main>
 
-<!-- Modal -->
 <div class="modal-backdrop" id="modal">
   <div class="modal">
     <div class="modal-topbar">
-      <div class="modal-nav-btns">
+      <div class="modal-nav">
         <span id="nav-prev">← prev</span>
         <span id="nav-next">next →</span>
       </div>
-      <span class="modal-close" id="nav-close">Q — close</span>
+      <span class="modal-close" id="nav-close">[ q ] close</span>
     </div>
-    <div class="modal-eyebrow" id="modal-num"></div>
-    <h2 class="modal-title" id="modal-title"></h2>
     <div class="modal-date" id="modal-date"></div>
+    <div class="modal-title" id="modal-title"></div>
     <div class="modal-body" id="modal-body"></div>
   </div>
 </div>
-
 <script>
-  document.getElementById('footer-year').textContent = new Date().getFullYear();
-
   const ESSAYS = [
     {
       num: 1,
@@ -489,48 +330,28 @@ The literalness of C is why I like it. It gives you full reins.`
     },
   ];
 
-  // Render cards
-  const grid = document.getElementById('essay-grid');
-  ESSAYS.forEach((e, i) => {
-    const card = document.createElement('div');
-    card.className = 'essay-card';
-    card.innerHTML = `
-      <div class="card-date">${e.date}</div>
-      <div class="card-title">${e.title}</div>
-      <div class="card-read">${e.read} read</div>
-    `;
-    card.addEventListener('click', () => openModal(i));
-    grid.appendChild(card);
-  });
-
-  // Modal
   let cur = 0;
   const backdrop = document.getElementById('modal');
 
   function openModal(idx) {
-    cur = idx;
-    render();
+    cur = idx; render();
     backdrop.classList.add('open');
     backdrop.scrollTop = 0;
     document.body.style.overflow = 'hidden';
   }
-
   function closeModal() {
     backdrop.classList.remove('open');
     document.body.style.overflow = '';
   }
-
   function render() {
     const e = ESSAYS[cur];
-    document.getElementById('modal-num').textContent   = `essay ${String(e.num).padStart(2,'0')} / ${String(ESSAYS.length).padStart(2,'0')}`;
+    document.getElementById('modal-date').textContent  = e.date + ' · ' + e.read + ' read';
     document.getElementById('modal-title').textContent = e.title;
-    document.getElementById('modal-date').textContent  = `${e.date} · ${e.read} read`;
     document.getElementById('modal-body').innerHTML    = e.body.split('\n\n').map(p => `<p>${p.trim()}</p>`).join('');
     backdrop.scrollTop = 0;
     document.getElementById('nav-prev').className = cur === 0 ? 'dimmed' : '';
     document.getElementById('nav-next').className = cur === ESSAYS.length - 1 ? 'dimmed' : '';
   }
-
   function prev() { if (cur > 0) { cur--; render(); } }
   function next() { if (cur < ESSAYS.length - 1) { cur++; render(); } }
 
@@ -538,12 +359,20 @@ The literalness of C is why I like it. It gives you full reins.`
   document.getElementById('nav-next').addEventListener('click', next);
   document.getElementById('nav-close').addEventListener('click', closeModal);
   backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
-
   document.addEventListener('keydown', e => {
     if (!backdrop.classList.contains('open')) return;
     if (e.key === 'q' || e.key === 'Q' || e.key === 'Escape') closeModal();
     if (e.key === 'a' || e.key === 'A' || e.key === 'ArrowLeft')  prev();
     if (e.key === 'd' || e.key === 'D' || e.key === 'ArrowRight') next();
+  });
+
+  const grid = document.getElementById('essay-grid');
+  ESSAYS.forEach((e, i) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `<div class="card-date">${e.date}</div><div class="card-title">${e.title}</div>`;
+    card.addEventListener('click', () => openModal(i));
+    grid.appendChild(card);
   });
 </script>
 </body>

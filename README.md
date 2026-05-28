@@ -4,7 +4,7 @@ This is my own website. A random mini-project that got out of hand.
 
 Built in JavaScript and HTML. I had to learn JS for this, and that's not a happy thing.
 
-I did put so much effort into this that it's on Version 49. 49. Yeah, 49.
+I did put so much effort into this that it's on Version 50. 50. Yeah, 50.
 
 ---
 
@@ -53,4 +53,4 @@ git push
 
 ---
 
-*Version 49. I don't know how it got here either.*
+*Version 50. I don't know how it got here either.*
