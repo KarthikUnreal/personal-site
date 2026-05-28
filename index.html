@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>karthik.v47</title>
+  <title>karthik.v48</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
@@ -11,156 +11,252 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #0d0d0d;
-      --ink:       #e8e8e3;
-      --ink-soft:  #8a8a84;
-      --ink-dim:   #3a3a36;
-      --accent:    #7b9eb5;
-      --accent-dim:#3d5a6e;
-      --serif:     'Cormorant Garamond', Georgia, serif;
-      --mono:      'JetBrains Mono', monospace;
+      --bg:         #080c10;
+      --bg-card:    #0e1318;
+      --bg-card-h:  #121a20;
+      --ink:        #e2e8e4;
+      --ink-soft:   #7a8a82;
+      --ink-dim:    #2e3830;
+      --accent:     #7b9eb5;
+      --accent-dim: #3d5a6e;
+      --green:      #3d7a5a;
+      --green-soft: #2a5040;
+      --serif:      'Cormorant Garamond', Georgia, serif;
+      --mono:       'JetBrains Mono', monospace;
+      --gradient:   linear-gradient(135deg, #080c10 0%, #091420 35%, #081a12 70%, #060e08 100%);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
+      background-image: var(--gradient);
+      background-attachment: fixed;
       color: var(--ink);
       font-family: var(--serif);
       font-weight: 300;
-      font-size: 18px;
-      line-height: 1.7;
       min-height: 100vh;
-      /* grain texture */
-      position: relative;
     }
 
-    /* grain overlay */
+    /* grain */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.028;
+      opacity: 0.032;
       pointer-events: none;
       z-index: 9999;
     }
 
-    /* ── Layout ── */
-    main {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 120px 32px 160px;
+    /* ── Nav ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 48px;
+      border-bottom: 1px solid var(--ink-dim);
+      position: sticky;
+      top: 0;
+      background: rgba(8,12,16,0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 100;
     }
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: 0.04em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── Layout ── */
+    main { max-width: 860px; margin: 0 auto; padding: 80px 48px 140px; }
 
     /* ── Fade-in ── */
     @keyframes rise {
-      from { opacity: 0; transform: translateY(12px); }
+      from { opacity: 0; transform: translateY(14px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .fade { opacity: 0; animation: rise .8s ease forwards; }
-    .fade:nth-child(1) { animation-delay: .05s; }
-    .fade:nth-child(2) { animation-delay: .18s; }
-    .fade:nth-child(3) { animation-delay: .32s; }
-    .fade:nth-child(4) { animation-delay: .48s; }
-    .fade:nth-child(5) { animation-delay: .64s; }
+    .fade { opacity: 0; animation: rise .7s ease forwards; }
+    .d1 { animation-delay: .06s; }
+    .d2 { animation-delay: .18s; }
+    .d3 { animation-delay: .32s; }
+    .d4 { animation-delay: .48s; }
 
     /* ── Hero ── */
+    .hero {
+      padding-bottom: 72px;
+      border-bottom: 1px solid var(--ink-dim);
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
     .hero-name {
-      font-size: clamp(52px, 10vw, 86px);
+      font-size: clamp(56px, 9vw, 96px);
       font-weight: 300;
-      letter-spacing: -1px;
       line-height: 1;
+      letter-spacing: -1.5px;
       color: var(--ink);
     }
-    .hero-name em {
-      font-style: italic;
-      color: var(--accent);
-    }
-    .hero-tagline {
-      margin-top: 18px;
-      font-size: 15px;
-      font-family: var(--mono);
+    .hero-name em { font-style: italic; color: var(--accent); }
+    .hero-sub {
+      margin-top: 24px;
+      font-size: 19px;
       font-weight: 300;
+      line-height: 1.7;
       color: var(--ink-soft);
-      letter-spacing: 0.04em;
+      max-width: 540px;
     }
 
-    /* ── Section ── */
-    section { margin-top: 96px; }
-
-    .section-label {
+    /* ── Section header ── */
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .section-head h2 {
       font-family: var(--mono);
       font-size: 10px;
       font-weight: 400;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent-dim);
-      margin-bottom: 28px;
+    }
+    .section-head::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--ink-dim);
     }
 
     /* ── About ── */
-    .about-text {
-      font-size: 19px;
-      line-height: 1.75;
+    .about-section { margin-top: 72px; }
+    .about-body {
+      font-size: 18px;
+      line-height: 1.8;
       color: var(--ink);
-      font-weight: 300;
+      max-width: 680px;
     }
-    .about-text + .about-text { margin-top: 20px; }
+    .about-body p + p { margin-top: 18px; }
 
     .details {
       margin-top: 36px;
       display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 10px 0;
+      grid-template-columns: 100px 1fr;
+      gap: 11px 0;
       font-family: var(--mono);
-      font-size: 12px;
-      font-weight: 300;
+      font-size: 11px;
+      max-width: 480px;
     }
-    .detail-key { color: var(--ink-dim); }
-    .detail-val { color: var(--ink-soft); }
-    .detail-val a {
+    .dk { color: var(--ink-dim); padding-top: 1px; }
+    .dv { color: var(--ink-soft); }
+    .dv a {
       color: var(--accent);
       text-decoration: none;
       border-bottom: 1px solid var(--accent-dim);
       transition: border-color .2s;
     }
-    .detail-val a:hover { border-color: var(--accent); }
+    .dv a:hover { border-color: var(--accent); }
 
-    /* ── Essays ── */
-    .essay-list { list-style: none; }
-    .essay-item {
-      padding: 18px 0;
-      border-bottom: 1px solid var(--ink-dim);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
+    /* ── Essays grid ── */
+    .essays-section { margin-top: 72px; }
+    .essay-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 16px;
-      transition: color .2s;
     }
-    .essay-item:first-child { border-top: 1px solid var(--ink-dim); }
-    .essay-item:hover .essay-title { color: var(--accent); }
-    .essay-title {
+    .essay-card {
+      background: var(--bg-card);
+      border: 1px solid var(--ink-dim);
+      border-radius: 6px;
+      padding: 24px 26px 28px;
+      cursor: pointer;
+      transition: background .2s, border-color .25s, transform .25s cubic-bezier(.2,.7,.3,1);
+      position: relative;
+      overflow: hidden;
+    }
+    .essay-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(61,122,90,0.06) 0%, rgba(123,158,181,0.06) 100%);
+      opacity: 0;
+      transition: opacity .25s;
+    }
+    .essay-card:hover {
+      background: var(--bg-card-h);
+      border-color: var(--accent-dim);
+      transform: translateY(-2px);
+    }
+    .essay-card:hover::before { opacity: 1; }
+
+    .card-date {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--green);
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+    .card-title {
       font-size: 18px;
       font-weight: 400;
+      line-height: 1.35;
       color: var(--ink);
       transition: color .2s;
-      line-height: 1.4;
     }
-    .essay-meta {
+    .essay-card:hover .card-title { color: var(--accent); }
+    .card-read {
+      margin-top: 16px;
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       color: var(--ink-dim);
-      white-space: nowrap;
-      flex-shrink: 0;
+      letter-spacing: 0.06em;
     }
 
-    /* ── Essay Modal ── */
+    /* ── Footer ── */
+    footer {
+      margin-top: 100px;
+      padding-top: 28px;
+      border-top: 1px solid var(--ink-dim);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-dim);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── Modal ── */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(13,13,13,0.96);
+      background: rgba(8,12,16,0.96);
       z-index: 1000;
       display: flex;
       align-items: flex-start;
@@ -168,136 +264,155 @@
       overflow-y: auto;
       opacity: 0;
       pointer-events: none;
-      transition: opacity .3s ease;
+      transition: opacity .28s ease;
+      backdrop-filter: blur(4px);
     }
     .modal-backdrop.open {
       opacity: 1;
       pointer-events: all;
     }
     .modal {
-      max-width: 640px;
+      max-width: 680px;
       width: 100%;
-      padding: 80px 32px 120px;
-      transform: translateY(16px);
-      transition: transform .35s ease;
+      padding: 64px 48px 120px;
+      transform: translateY(18px);
+      transition: transform .32s cubic-bezier(.2,.7,.3,1);
     }
     .modal-backdrop.open .modal { transform: translateY(0); }
 
-    .modal-nav {
+    .modal-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 56px;
       font-family: var(--mono);
       font-size: 10px;
       letter-spacing: 0.14em;
       color: var(--ink-dim);
-      margin-bottom: 48px;
-      display: flex;
-      gap: 24px;
-      align-items: center;
     }
-    .modal-nav span { cursor: pointer; transition: color .2s; }
-    .modal-nav span:hover { color: var(--accent); }
-    .modal-nav .close-hint { margin-left: auto; }
+    .modal-nav-btns { display: flex; gap: 20px; }
+    .modal-nav-btns span, .modal-close {
+      cursor: pointer;
+      transition: color .2s;
+      padding: 4px 0;
+    }
+    .modal-nav-btns span:hover, .modal-close:hover { color: var(--accent); }
+    .modal-nav-btns span.dimmed { opacity: 0.25; pointer-events: none; }
 
-    .modal-num {
+    .modal-eyebrow {
       font-family: var(--mono);
-      font-size: 11px;
-      color: var(--accent-dim);
-      letter-spacing: 0.1em;
-      margin-bottom: 16px;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      color: var(--green);
+      margin-bottom: 14px;
     }
     .modal-title {
-      font-size: clamp(28px, 5vw, 42px);
+      font-size: clamp(26px, 4.5vw, 40px);
       font-weight: 400;
       line-height: 1.2;
       color: var(--ink);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .modal-date {
       font-family: var(--mono);
       font-size: 11px;
       color: var(--ink-soft);
-      margin-bottom: 52px;
+      margin-bottom: 48px;
     }
     .modal-body {
       font-size: 18px;
-      line-height: 1.85;
-      color: #c8c8c3;
+      line-height: 1.9;
+      color: #b8c4bc;
       font-weight: 300;
     }
-    .modal-body p + p { margin-top: 24px; }
-
-    /* ── Footer ── */
-    footer {
-      margin-top: 96px;
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--ink-dim);
-      letter-spacing: 0.1em;
-    }
+    .modal-body p + p { margin-top: 22px; }
 
     /* scrollbar */
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--ink-dim); border-radius: 2px; }
+
+    /* mobile */
+    @media (max-width: 600px) {
+      nav { padding: 20px 24px; }
+      main { padding: 56px 24px 100px; }
+      .modal { padding: 40px 24px 80px; }
+      .essay-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
 
+<!-- Nav -->
+<nav>
+  <div class="nav-logo">karthik<span>.v48</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">about</a></li>
+    <li><a href="#essays">essays</a></li>
+    <li><a href="mailto:karthikbkollabathula@gmail.com">contact</a></li>
+  </ul>
+</nav>
+
 <main>
   <!-- Hero -->
-  <div class="fade">
+  <div class="hero fade d1">
+    <p class="hero-eyebrow">personal site</p>
     <h1 class="hero-name">Karthik<em>.</em></h1>
-    <p class="hero-tagline">class 9 · gurgaon · betting on biology</p>
+    <p class="hero-sub">Class 9. Curious about everything. Betting on biology.</p>
   </div>
 
   <!-- About -->
-  <section class="fade">
-    <p class="section-label">about</p>
-    <p class="about-text">
-      I write C++ for fun, fall asleep reading Feynman, and think biology is where the most interesting problems are — not because it's fashionable, but because the cell is the most complicated thing anyone has ever tried to understand.
-    </p>
-    <p class="about-text">
-      Class 9 at DPS Sector 45. Working toward IISc Bengaluru, BSc Research in Biological Sciences, 2030. Right now: teaching myself molecular biology, thinking on calculus, and still figuring out Gurgaon.
-    </p>
-
+  <section class="about-section fade d2" id="about">
+    <div class="section-head"><h2>about</h2></div>
+    <div class="about-body">
+      <p>I write C++ for fun, fall asleep reading Feynman, and think biology is where the most interesting problems are — not because it's fashionable, but because the cell is the most complicated thing anyone has ever tried to understand.</p>
+      <p>Class 9 at DPS Sector 45, Gurgaon. Working toward IISc Bengaluru, BSc Research in Biological Sciences, 2030. Right now: teaching myself molecular biology, thinking on calculus, and still figuring out Gurgaon.</p>
+    </div>
     <div class="details">
-      <span class="detail-key">location</span>
-      <span class="detail-val">Gurgaon, India</span>
+      <span class="dk">location</span>
+      <span class="dv">Gurgaon, India</span>
 
-      <span class="detail-key">stack</span>
-      <span class="detail-val">C, C++, Python, HTML, CSS</span>
+      <span class="dk">school</span>
+      <span class="dv">DPS Sector 45</span>
 
-      <span class="detail-key">reading</span>
-      <span class="detail-val">The Code Breaker — Walter Isaacson</span>
+      <span class="dk">stack</span>
+      <span class="dv">C, C++, Python, HTML, CSS</span>
 
-      <span class="detail-key">github</span>
-      <span class="detail-val"><a href="https://github.com/KarthikUnreal" target="_blank">KarthikUnreal</a></span>
+      <span class="dk">reading</span>
+      <span class="dv">The Code Breaker — Isaacson</span>
 
-      <span class="detail-key">email</span>
-      <span class="detail-val"><a href="mailto:karthikbkollabathula@gmail.com">karthikbkollabathula@gmail.com</a></span>
+      <span class="dk">github</span>
+      <span class="dv"><a href="https://github.com/KarthikUnreal" target="_blank">KarthikUnreal</a></span>
+
+      <span class="dk">email</span>
+      <span class="dv"><a href="mailto:karthikbkollabathula@gmail.com">karthikbkollabathula@gmail.com</a></span>
     </div>
   </section>
 
   <!-- Essays -->
-  <section class="fade">
-    <p class="section-label">essays</p>
-    <ul class="essay-list" id="essay-list"></ul>
+  <section class="essays-section fade d3" id="essays">
+    <div class="section-head"><h2>essays</h2></div>
+    <div class="essay-grid" id="essay-grid"></div>
   </section>
 
   <!-- Footer -->
-  <footer class="fade">
-    <span id="footer-version">v47</span> · <span id="footer-year"></span>
+  <footer class="fade d4">
+    <span>karthik · v48</span>
+    <span id="footer-year"></span>
   </footer>
 </main>
 
-<!-- Essay Modal -->
-<div class="modal-backdrop" id="modal" role="dialog" aria-modal="true">
+<!-- Modal -->
+<div class="modal-backdrop" id="modal">
   <div class="modal">
-    <div class="modal-nav">
-      <span id="nav-prev" title="previous (A or ←)">← prev</span>
-      <span id="nav-next" title="next (D or →)">next →</span>
-      <span class="close-hint" id="nav-close" title="close (Q or Esc)">Q — close</span>
+    <div class="modal-topbar">
+      <div class="modal-nav-btns">
+        <span id="nav-prev">← prev</span>
+        <span id="nav-next">next →</span>
+      </div>
+      <span class="modal-close" id="nav-close">Q — close</span>
     </div>
-    <div class="modal-num" id="modal-num"></div>
+    <div class="modal-eyebrow" id="modal-num"></div>
     <h2 class="modal-title" id="modal-title"></h2>
     <div class="modal-date" id="modal-date"></div>
     <div class="modal-body" id="modal-body"></div>
@@ -305,11 +420,7 @@
 </div>
 
 <script>
-  // ── Data ──
-  const C = {
-    name: "Karthik",
-    tagline: "class 9 · gurgaon · betting on biology",
-  };
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
 
   const ESSAYS = [
     {
@@ -377,33 +488,27 @@ The literalness of C is why I like it. It gives you full reins.`
     },
   ];
 
-  // ── Render essay list ──
-  const list = document.getElementById('essay-list');
+  // Render cards
+  const grid = document.getElementById('essay-grid');
   ESSAYS.forEach((e, i) => {
-    const li = document.createElement('li');
-    li.className = 'essay-item';
-    li.innerHTML = `
-      <span class="essay-title">${e.title}</span>
-      <span class="essay-meta">${e.date} · ${e.read}</span>
+    const card = document.createElement('div');
+    card.className = 'essay-card';
+    card.innerHTML = `
+      <div class="card-date">${e.date}</div>
+      <div class="card-title">${e.title}</div>
+      <div class="card-read">${e.read} read</div>
     `;
-    li.addEventListener('click', () => openModal(i));
-    list.appendChild(li);
+    card.addEventListener('click', () => openModal(i));
+    grid.appendChild(card);
   });
 
-  // ── Footer year ──
-  document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-  // ── Modal logic ──
-  let currentIdx = 0;
+  // Modal
+  let cur = 0;
   const backdrop = document.getElementById('modal');
-  const elNum    = document.getElementById('modal-num');
-  const elTitle  = document.getElementById('modal-title');
-  const elDate   = document.getElementById('modal-date');
-  const elBody   = document.getElementById('modal-body');
 
   function openModal(idx) {
-    currentIdx = idx;
-    renderModal();
+    cur = idx;
+    render();
     backdrop.classList.add('open');
     backdrop.scrollTop = 0;
     document.body.style.overflow = 'hidden';
@@ -414,35 +519,30 @@ The literalness of C is why I like it. It gives you full reins.`
     document.body.style.overflow = '';
   }
 
-  function renderModal() {
-    const e = ESSAYS[currentIdx];
-    elNum.textContent   = `essay ${String(e.num).padStart(2, '0')} / ${String(ESSAYS.length).padStart(2, '0')}`;
-    elTitle.textContent = e.title;
-    elDate.textContent  = `${e.date} · ${e.read} read`;
-    elBody.innerHTML    = e.body.split('\n\n').map(p => `<p>${p.trim()}</p>`).join('');
-    backdrop.scrollTop  = 0;
-
-    // dim nav buttons if at edges
-    document.getElementById('nav-prev').style.opacity = currentIdx === 0 ? '0.25' : '1';
-    document.getElementById('nav-next').style.opacity = currentIdx === ESSAYS.length - 1 ? '0.25' : '1';
+  function render() {
+    const e = ESSAYS[cur];
+    document.getElementById('modal-num').textContent   = `essay ${String(e.num).padStart(2,'0')} / ${String(ESSAYS.length).padStart(2,'0')}`;
+    document.getElementById('modal-title').textContent = e.title;
+    document.getElementById('modal-date').textContent  = `${e.date} · ${e.read} read`;
+    document.getElementById('modal-body').innerHTML    = e.body.split('\n\n').map(p => `<p>${p.trim()}</p>`).join('');
+    backdrop.scrollTop = 0;
+    document.getElementById('nav-prev').className = cur === 0 ? 'dimmed' : '';
+    document.getElementById('nav-next').className = cur === ESSAYS.length - 1 ? 'dimmed' : '';
   }
 
-  function prevEssay() { if (currentIdx > 0) { currentIdx--; renderModal(); } }
-  function nextEssay() { if (currentIdx < ESSAYS.length - 1) { currentIdx++; renderModal(); } }
+  function prev() { if (cur > 0) { cur--; render(); } }
+  function next() { if (cur < ESSAYS.length - 1) { cur++; render(); } }
 
-  document.getElementById('nav-prev').addEventListener('click', prevEssay);
-  document.getElementById('nav-next').addEventListener('click', nextEssay);
+  document.getElementById('nav-prev').addEventListener('click', prev);
+  document.getElementById('nav-next').addEventListener('click', next);
   document.getElementById('nav-close').addEventListener('click', closeModal);
+  backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
 
-  // click backdrop to close
-  backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeModal(); });
-
-  // keyboard nav
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', e => {
     if (!backdrop.classList.contains('open')) return;
     if (e.key === 'q' || e.key === 'Q' || e.key === 'Escape') closeModal();
-    if (e.key === 'a' || e.key === 'A' || e.key === 'ArrowLeft')  prevEssay();
-    if (e.key === 'd' || e.key === 'D' || e.key === 'ArrowRight') nextEssay();
+    if (e.key === 'a' || e.key === 'A' || e.key === 'ArrowLeft')  prev();
+    if (e.key === 'd' || e.key === 'D' || e.key === 'ArrowRight') next();
   });
 </script>
 </body>
