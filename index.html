@@ -6,6 +6,7 @@
   <title>karthik-v50</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -224,6 +225,18 @@
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--ink-dim); }
+
+    kbd {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim, #3d5a6e);
+      border-radius: 3px;
+      padding: 1px 5px;
+      line-height: 1.6;
+      background: rgba(137,180,250,0.06);
+    }
 </style>
 </head>
 <body>
@@ -248,17 +261,17 @@
   </div>
   <hr class="fade d2" style="margin-top:28px;">
   <div class="card-grid fade d3" id="essay-grid"></div>
-  <footer class="fade d4">© 2026 · karthik · v50</footer>
+  <footer class="fade d4">© 2026 · karthik · v51</footer>
 </main>
 
 <div class="modal-backdrop" id="modal">
   <div class="modal">
     <div class="modal-topbar">
       <div class="modal-nav">
-        <span id="nav-prev">← prev</span>
-        <span id="nav-next">next →</span>
+        <span id="nav-prev"><kbd>a</kbd> / <kbd>←</kbd> &nbsp;prev</span>
+        <span id="nav-next">next&nbsp; <kbd>d</kbd> / <kbd>→</kbd></span>
       </div>
-      <span class="modal-close" id="nav-close">[ q ] close</span>
+      <span class="modal-close" id="nav-close"><kbd>q</kbd> / esc &nbsp;close</span>
     </div>
     <div class="modal-date" id="modal-date"></div>
     <div class="modal-title" id="modal-title"></div>

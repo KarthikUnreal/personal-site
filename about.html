@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>about me</title>
+  <title>about · karthik</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
@@ -224,12 +225,47 @@
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--ink-dim); }
-</style>
+
+    /* ── Reading list ── */
+    .reading-section { margin-top: 40px; }
+    .reading-section h2 {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-dim);
+      margin-bottom: 16px;
+    }
+    .reading-list { list-style: none; }
+    .reading-item {
+      display: grid;
+      grid-template-columns: 28px 1fr auto;
+      gap: 0 10px;
+      align-items: baseline;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--ink-dim);
+      font-size: 12px;
+    }
+    .reading-item:first-child { border-top: 1px solid var(--ink-dim); }
+    .r-status { font-size: 11px; }
+    .r-status.done    { color: var(--green); }
+    .r-status.reading { color: var(--accent); }
+    .r-status.queued  { color: var(--ink-dim); }
+    .r-title  { color: var(--ink-soft); }
+    .r-author { color: var(--ink-dim); font-size: 11px; text-align: right; }
+    .r-note   {
+      grid-column: 2 / 4;
+      font-size: 11px;
+      color: var(--ink-dim);
+      padding-bottom: 2px;
+      font-style: italic;
+    }
+
+  </style>
 </head>
 <body>
   <nav>
     <div class="nav-inner">
-      <a class="nav-brand" href="index.html">v50</a>
+      <a class="nav-brand" href="index.html">karthik's site</a>
       <ul class="nav-links">
         <li><a href="index.html" class="">home</a></li>
         <li><a href="about.html" class="active">about</a></li>
@@ -251,7 +287,101 @@
     <span class="dk">reading</span><span class="dv">The Code Breaker — Walter Isaacson</span>
     <span class="dk">interests</span><span class="dv">Mathematics, Physics, CS, Biotechnology, Chemistry (Basically Maths, Science and CS)</span>
   </div>
-  <footer class="fade d4">© 2026 · karthik · v50</footer>
+
+  <div class="reading-section fade d4">
+    <h2>reading</h2>
+    <ul class="reading-list">
+      <li class="reading-item">
+        <span class="r-status reading" title="currently reading">r</span>
+        <span class="r-title">The Code Breaker</span>
+        <span class="r-author">Walter Isaacson</span>
+      </li>
+      <li class="reading-item">
+        <span class="r-status done" title="done">✓</span>
+        <span class="r-title">The Man Who Knew Infinity</span>
+        <span class="r-author">Robert Kanigel</span>
+        <span class="r-note">Ramanujan is proof that mathematics doesn't care where you're from.</span>
+      </li>
+      <li class="reading-item">
+        <span class="r-status done" title="done">✓</span>
+        <span class="r-title">Crime and Punishment</span>
+        <span class="r-author">Fyodor Dostoevsky</span>
+        <span class="r-note">A magnificent exploration of the human psyche.</span>
+      </li>
+      <li class="reading-item">
+        <span class="r-status done" title="done">✓</span>
+        <span class="r-title">How to Solve It</span>
+        <span class="r-author">George Pólya</span>
+        <span class="r-note">The best book on thinking I've read.</span>
+      </li>
+      <li class="reading-item">
+        <span class="r-status done" title="done">✓</span>
+        <span class="r-title">Project Hail Mary</span>
+        <span class="r-author">Andy Weir</span>
+        <span class="r-note">Rocky steals the show.</span>
+      </li>
+      <li class="reading-item">
+        <span class="r-status done" title="done">✓</span>
+        <span class="r-title">Surely You're Joking, Mr. Feynman!</span>
+        <span class="r-author">Richard Feynman</span>
+        <span class="r-note">Funny.</span>
+      </li>
+      <li class="reading-item">
+        <span class="r-status done" title="done">✓</span>
+        <span class="r-title">The C Programming Language</span>
+        <span class="r-author">Kernighan &amp; Ritchie</span>
+        <span class="r-note">The original and best C tutorial.</span>
+      </li>
+      <li class="reading-item">
+        <span class="r-status done" title="done">✓</span>
+        <span class="r-title">A Mathematician's Apology</span>
+        <span class="r-author">G. H. Hardy</span>
+        <span class="r-note">An interesting take.</span>
+      </li>
+      <li class="reading-item">
+        <span class="r-status queued" title="queued">q</span>
+        <span class="r-title">War and Peace</span>
+        <span class="r-author">Leo Tolstoy</span>
+      </li>
+      <li class="reading-item">
+        <span class="r-status queued" title="queued">q</span>
+        <span class="r-title">The Brothers Karamazov</span>
+        <span class="r-author">Fyodor Dostoevsky</span>
+      </li>
+      <li class="reading-item">
+        <span class="r-status queued" title="queued">q</span>
+        <span class="r-title">The Feynman Lectures on Physics</span>
+        <span class="r-author">Richard Feynman</span>
+      </li>
+      <li class="reading-item">
+        <span class="r-status queued" title="queued">q</span>
+        <span class="r-title">Gödel, Escher, Bach</span>
+        <span class="r-author">Douglas Hofstadter</span>
+      </li>
+      <li class="reading-item">
+        <span class="r-status queued" title="queued">q</span>
+        <span class="r-title">Regenesis</span>
+        <span class="r-author">George Church</span>
+      </li>
+      <li class="reading-item">
+        <span class="r-status queued" title="queued">q</span>
+        <span class="r-title">The Emperor of All Maladies</span>
+        <span class="r-author">Siddhartha Mukherjee</span>
+      </li>
+      <li class="reading-item">
+        <span class="r-status queued" title="queued">q</span>
+        <span class="r-title">What Is Life?</span>
+        <span class="r-author">Erwin Schrödinger</span>
+      </li>
+    </ul>
+    <div style="margin-top:12px; font-size:11px; color:var(--ink-dim);">
+      <span style="color:var(--green)">✓</span> done &nbsp;·&nbsp;
+      <span style="color:var(--accent)">r</span> reading &nbsp;·&nbsp;
+      <span style="color:var(--ink-dim)">q</span> queued
+    </div>
+  </div>
+
+  <footer class="fade d4">© 2026 · karthik · v51</footer>
 </main>
 
 
