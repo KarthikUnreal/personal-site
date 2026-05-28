@@ -10,7 +10,6 @@ I did put so much effort into this that it's on Version 50. 50. Yeah, 50.
 
 Live at [karthikunreal.github.io/personal-site](https://karthikunreal.github.io/personal-site)
 
----
 
 ## What's in it
 
