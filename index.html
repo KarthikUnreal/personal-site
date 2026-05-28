@@ -1,67 +1,449 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23c0392b'/%3E%3Ctext x='50' y='72' font-family='serif' font-size='72' fill='white' text-anchor='middle'%3E%E2%88%B4%3C/text%3E%3C/svg%3E">
-<title>karthik.v46</title>
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Patrick+Hand&family=Newsreader:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  html, body { margin: 0; padding: 0; background: #fefcf3; }
-  * { -webkit-font-smoothing: antialiased; }
-  a { color: inherit; text-decoration: none; }
-  html { scroll-behavior: smooth; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>karthik.v47</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  @font-face { font-family: 'Monaspace Radon'; font-display: swap; font-weight: 300;
-    src: url('https://cdn.jsdelivr.net/gh/githubnext/monaspace@main/fonts/webfonts/MonaspaceRadon-Light.woff2') format('woff2'); }
-  @font-face { font-family: 'Monaspace Radon'; font-display: swap; font-weight: 400;
-    src: url('https://cdn.jsdelivr.net/gh/githubnext/monaspace@main/fonts/webfonts/MonaspaceRadon-Regular.woff2') format('woff2'); }
-  @font-face { font-family: 'Monaspace Radon'; font-display: swap; font-weight: 500;
-    src: url('https://cdn.jsdelivr.net/gh/githubnext/monaspace@main/fonts/webfonts/MonaspaceRadon-Medium.woff2') format('woff2'); }
-  @font-face { font-family: 'Monaspace Radon'; font-display: swap; font-weight: 600;
-    src: url('https://cdn.jsdelivr.net/gh/githubnext/monaspace@main/fonts/webfonts/MonaspaceRadon-SemiBold.woff2') format('woff2'); }
-  @font-face { font-family: 'Monaspace Radon'; font-display: swap; font-weight: 700;
-    src: url('https://cdn.jsdelivr.net/gh/githubnext/monaspace@main/fonts/webfonts/MonaspaceRadon-Bold.woff2') format('woff2'); }
-  @font-face { font-family: 'Monaspace Radon'; font-display: swap; font-weight: 400; font-style: italic;
-    src: url('https://cdn.jsdelivr.net/gh/githubnext/monaspace@main/fonts/webfonts/MonaspaceRadon-Italic.woff2') format('woff2'); }
+    :root {
+      --bg:        #0d0d0d;
+      --ink:       #e8e8e3;
+      --ink-soft:  #8a8a84;
+      --ink-dim:   #3a3a36;
+      --accent:    #7b9eb5;
+      --accent-dim:#3d5a6e;
+      --serif:     'Cormorant Garamond', Georgia, serif;
+      --mono:      'JetBrains Mono', monospace;
+    }
 
-  @font-face { font-family: 'Maple Mono'; font-display: swap; font-weight: 400;
-    src: url('https://cdn.jsdelivr.net/gh/subframe7536/maple-font@latest/woff2/MapleMono-Regular.woff2') format('woff2'); }
-  @font-face { font-family: 'Maple Mono'; font-display: swap; font-weight: 500;
-    src: url('https://cdn.jsdelivr.net/gh/subframe7536/maple-font@latest/woff2/MapleMono-Medium.woff2') format('woff2'); }
-  @font-face { font-family: 'Maple Mono'; font-display: swap; font-weight: 700;
-    src: url('https://cdn.jsdelivr.net/gh/subframe7536/maple-font@latest/woff2/MapleMono-Bold.woff2') format('woff2'); }
-  @font-face { font-family: 'Maple Mono'; font-display: swap; font-weight: 400; font-style: italic;
-    src: url('https://cdn.jsdelivr.net/gh/subframe7536/maple-font@latest/woff2/MapleMono-Italic.woff2') format('woff2'); }
-</style>
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.7;
+      min-height: 100vh;
+      /* grain texture */
+      position: relative;
+    }
+
+    /* grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.028;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── Layout ── */
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 120px 32px 160px;
+    }
+
+    /* ── Fade-in ── */
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade { opacity: 0; animation: rise .8s ease forwards; }
+    .fade:nth-child(1) { animation-delay: .05s; }
+    .fade:nth-child(2) { animation-delay: .18s; }
+    .fade:nth-child(3) { animation-delay: .32s; }
+    .fade:nth-child(4) { animation-delay: .48s; }
+    .fade:nth-child(5) { animation-delay: .64s; }
+
+    /* ── Hero ── */
+    .hero-name {
+      font-size: clamp(52px, 10vw, 86px);
+      font-weight: 300;
+      letter-spacing: -1px;
+      line-height: 1;
+      color: var(--ink);
+    }
+    .hero-name em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-tagline {
+      margin-top: 18px;
+      font-size: 15px;
+      font-family: var(--mono);
+      font-weight: 300;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Section ── */
+    section { margin-top: 96px; }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 28px;
+    }
+
+    /* ── About ── */
+    .about-text {
+      font-size: 19px;
+      line-height: 1.75;
+      color: var(--ink);
+      font-weight: 300;
+    }
+    .about-text + .about-text { margin-top: 20px; }
+
+    .details {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 10px 0;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 300;
+    }
+    .detail-key { color: var(--ink-dim); }
+    .detail-val { color: var(--ink-soft); }
+    .detail-val a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-dim);
+      transition: border-color .2s;
+    }
+    .detail-val a:hover { border-color: var(--accent); }
+
+    /* ── Essays ── */
+    .essay-list { list-style: none; }
+    .essay-item {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--ink-dim);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      transition: color .2s;
+    }
+    .essay-item:first-child { border-top: 1px solid var(--ink-dim); }
+    .essay-item:hover .essay-title { color: var(--accent); }
+    .essay-title {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--ink);
+      transition: color .2s;
+      line-height: 1.4;
+    }
+    .essay-meta {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-dim);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── Essay Modal ── */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(13,13,13,0.96);
+      z-index: 1000;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      overflow-y: auto;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s ease;
+    }
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .modal {
+      max-width: 640px;
+      width: 100%;
+      padding: 80px 32px 120px;
+      transform: translateY(16px);
+      transition: transform .35s ease;
+    }
+    .modal-backdrop.open .modal { transform: translateY(0); }
+
+    .modal-nav {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: var(--ink-dim);
+      margin-bottom: 48px;
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+    .modal-nav span { cursor: pointer; transition: color .2s; }
+    .modal-nav span:hover { color: var(--accent); }
+    .modal-nav .close-hint { margin-left: auto; }
+
+    .modal-num {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent-dim);
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+    .modal-title {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .modal-date {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-soft);
+      margin-bottom: 52px;
+    }
+    .modal-body {
+      font-size: 18px;
+      line-height: 1.85;
+      color: #c8c8c3;
+      font-weight: 300;
+    }
+    .modal-body p + p { margin-top: 24px; }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 96px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-dim);
+      letter-spacing: 0.1em;
+    }
+
+    /* scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--ink-dim); border-radius: 2px; }
+  </style>
 </head>
 <body>
-<div id="root"></div>
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-<!--
-  LOAD ORDER MATTERS. Each file exposes globals the next one depends on:
-    content.jsx      → window.CONTENT (raw data)
-    essays.jsx       → window.ESSAYS  (essay text)
-    tweaks-panel.jsx → window.useTweaks, TweakSection, TweakRadio, etc.
-    v2-core.jsx      → window.V2, PALETTES, FONT_PAIRS, ThemeCtx, Reveal, H2, etc.
-                       (merges CONTENT + quotes + thinking into V2)
-    v2-sections-a.jsx → Nav, HeroEquation, About, Quotes
-    v2-sections-b.jsx → Writing, Reading, Now, Resume, WorkingToward, Changelog, Contact, etc.
-    v2-app.jsx       → App (root component, mounts everything)
-    margin-drawings.jsx → MarginDrawings (decorative, safe to load last)
-  Do not reorder these without tracing the dependency chain above.
--->
-<script type="text/babel" src="content.jsx"></script>
-<script type="text/babel" src="essays.jsx"></script>
-<script type="text/babel" src="tweaks-panel.jsx"></script>
-<script type="text/babel" src="v2-core.jsx"></script>
-<script type="text/babel" src="v2-sections-a.jsx"></script>
-<script type="text/babel" src="v2-sections-b.jsx"></script>
-<script type="text/babel" src="v2-app.jsx"></script>
-<script type="text/babel" src="margin-drawings.jsx"></script>
+
+<main>
+  <!-- Hero -->
+  <div class="fade">
+    <h1 class="hero-name">Karthik<em>.</em></h1>
+    <p class="hero-tagline">class 9 · gurgaon · betting on biology</p>
+  </div>
+
+  <!-- About -->
+  <section class="fade">
+    <p class="section-label">about</p>
+    <p class="about-text">
+      I write C++ for fun, fall asleep reading Feynman, and think biology is where the most interesting problems are — not because it's fashionable, but because the cell is the most complicated thing anyone has ever tried to understand.
+    </p>
+    <p class="about-text">
+      Class 9 at DPS Sector 45. Working toward IISc Bengaluru, BSc Research in Biological Sciences, 2030. Right now: teaching myself molecular biology, thinking on calculus, and still figuring out Gurgaon.
+    </p>
+
+    <div class="details">
+      <span class="detail-key">location</span>
+      <span class="detail-val">Gurgaon, India</span>
+
+      <span class="detail-key">stack</span>
+      <span class="detail-val">C, C++, Python, HTML, CSS</span>
+
+      <span class="detail-key">reading</span>
+      <span class="detail-val">The Code Breaker — Walter Isaacson</span>
+
+      <span class="detail-key">github</span>
+      <span class="detail-val"><a href="https://github.com/KarthikUnreal" target="_blank">KarthikUnreal</a></span>
+
+      <span class="detail-key">email</span>
+      <span class="detail-val"><a href="mailto:karthikbkollabathula@gmail.com">karthikbkollabathula@gmail.com</a></span>
+    </div>
+  </section>
+
+  <!-- Essays -->
+  <section class="fade">
+    <p class="section-label">essays</p>
+    <ul class="essay-list" id="essay-list"></ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="fade">
+    <span id="footer-version">v47</span> · <span id="footer-year"></span>
+  </footer>
+</main>
+
+<!-- Essay Modal -->
+<div class="modal-backdrop" id="modal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-nav">
+      <span id="nav-prev" title="previous (A or ←)">← prev</span>
+      <span id="nav-next" title="next (D or →)">next →</span>
+      <span class="close-hint" id="nav-close" title="close (Q or Esc)">Q — close</span>
+    </div>
+    <div class="modal-num" id="modal-num"></div>
+    <h2 class="modal-title" id="modal-title"></h2>
+    <div class="modal-date" id="modal-date"></div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+  // ── Data ──
+  const C = {
+    name: "Karthik",
+    tagline: "class 9 · gurgaon · betting on biology",
+  };
+
+  const ESSAYS = [
+    {
+      num: 1,
+      title: "Biology: The First Science that is our Future",
+      date: "23 May 2026",
+      read: "5 min",
+      body: `For the longest time, humanity has relied on machines. Physics gave us engines, rockets, computers, satellites — all the great inventions that define what we call modern civilisation. But despite all of this, the human body itself remained untouched. We still suffered from disease. We still aged. We still died from faults hidden deep within our own DNA.
+
+Every science before biology changed the world around us. Biology is the first one capable of changing us.
+
+I have always felt an urge to know more about how things worked — cells, the miniature replicas of us that compose our body, DNA, proteins, neurons and synapses, evolution and adaptation. The more I learned, the more one thing became obvious: biology is fundamentally the closest science to how everything actually works. Not mathematics, not physics. Biology. Because we are not machines. We are not equations. Biology is the study of living things — and we are living things.
+
+Biotechnology is where this gets serious. We are beginning to understand DNA not as some mysterious strand hidden in a nucleus, but as a biological program — one that can be read, edited and rewritten. And once humanity learns to rewrite life, everything changes. Diseases caused by genetics may disappear entirely. Aging itself, the oldest fear of mankind, may not remain permanent forever.
+
+Some people fear this future. I understand why. If humanity can alter intelligence, strength or lifespan, then where does humanity stop being natural? Could wealthy people engineer better children? Could governments weaponise biology itself? The same science capable of curing disease could create horrors beyond imagination.
+
+But every powerful science has always carried this weight. Physics created nuclear bombs, yet also nuclear energy. Chemistry produces medicine and poison from the same knowledge. Biology is no different. The problem is never the science itself — it is the unjust element of humanity. The answer is not to stop — it is to place biology in responsible hands.
+
+Physics helped humanity understand the universe. Chemistry helped humanity manipulate matter. Biology will allow humanity to manipulate life itself.
+
+It is not just the study of life. It is the study of us — what we are, why we exist, and what we may eventually become. And I believe, without hesitation, that it is our future.`
+    },
+    {
+      num: 2,
+      title: "The Biological Copy-Paste: CRISPR",
+      date: "25 May 2026",
+      read: "5 min",
+      body: `The greatest inventions in history were not always built from scratch like the Wheel and the Engine. Some were found in a lab by curious scientists, unaware of what they would discover.
+
+CRISPR was not invented by someone trying to edit genes. It was discovered in bacteria as a fighting mechanism against their greatest enemies — the bacteriophages. Bacteria literally developed their own biological program to survive, and we found it and fine-tuned it into gene editing, the discovery of the decade.
+
+Francisco Mojica, a Spanish scientist, was studying salt-tolerant bacteria in the early 1990s when he noticed something strange in their DNA — repeated sequences separated by short spacers. These were a brand-new discovery, unseen before. Years of work led him to a hypothesis: these spacers were memories. More specifically, fragments of viral DNA stored by the bacterium after surviving an attack.
+
+When a bacteriophage attacks and the bacterium survives, it cuts out a piece of the virus's DNA and stores it. The next time that phage shows up, the bacterium recognises it, deploys a protein called Cas9, and cuts the viral DNA apart. It is an immune system with memory, built entirely out of the power of evolution.
+
+Jennifer Doudna and Emmanuelle Charpentier saw something in this new discovery. If Cas9 could be guided to cut any sequence of DNA — not just viral DNA, but any DNA — then it could be used as a programmable editor. They worked on this and demonstrated it in 2012. This power was now with humanity.
+
+What this means is not small. Diseases written into DNA — such as sickle cell, cancer, hereditary conditions — are no longer necessarily permanent. We are seeing the earliest effects of this technology. This can be either our greatest triumph or our undoing.
+
+CRISPR does not distinguish between a disease and a trait someone decided they did not like. The same tool that could eliminate a genetic disorder could also be used to engineer something else entirely.
+
+Biology has always carried this weight. The discovery of how cells divide gave us chemotherapy and, in other hands, could have given us worse. The problem is never the science. It is the unjust element of humanity.
+
+CRISPR was found in bacteria fighting for survival. It became a tool for editing the genome. What it becomes next depends on what we use it for.`
+    },
+    {
+      num: 3,
+      title: "C Takes You Literally",
+      date: "26 May 2026",
+      read: "4 min",
+      body: `Most programming languages are, well, forgiving. They'll assume that you made a silly little mistake, then fix it quietly, and move on. Python will manage your memory, JavaScript will coerce your types, and Java will catch your exceptions before they do harm. They are designed to protect you from yourself.
+
+C takes you literally. And I mean literally. If you tell it to allocate 10 bytes, it allocates exactly 10 bytes. If you write past the end of that array, it writes past the end. If you forget to free memory, it stays allocated. If you dereference a null pointer, it crashes. No warning, correction or any hope of a second chance. Exactly what you asked for.
+
+When I started learning C, the first thing I noticed was that thinking and common sense became part of the requirements. Not that it troubled me to think carefully — it made the job more fun. Every variable has a type and a size. Every pointer points to some place specific. The machine doesn't try to guess if you're correct or wrong, or if you meant to do something. It takes you to be a genius who does nothing wrong, a prodigy, and gives you full reins.
+
+This might be uncomfortable for some, but it is a very interesting affair to sort out your own problems. Some say that C error statements are cryptic, but I never found any problem with them. What's the harm in opening a search engine and typing out 'What does this mean'?
+
+Other languages hide the actual machine from you. C, being pretty low-level compared to its rivals, is a learning experience in what things actually are. You learn that a string is just a char array with a null terminator at the end. You learn that memory is just addresses. None of this is magic. The real magic, according to me, is how the first programmers actually managed to make computers work with their resources.
+
+Most tools try to be convenient, which is good for beginners. C was never recommended for beginners — whoever said that is slightly off the mark. It trusts you to know what you are doing, and if you do not know yet, it teaches you — painfully.
+
+The literalness of C is why I like it. It gives you full reins.`
+    },
+  ];
+
+  // ── Render essay list ──
+  const list = document.getElementById('essay-list');
+  ESSAYS.forEach((e, i) => {
+    const li = document.createElement('li');
+    li.className = 'essay-item';
+    li.innerHTML = `
+      <span class="essay-title">${e.title}</span>
+      <span class="essay-meta">${e.date} · ${e.read}</span>
+    `;
+    li.addEventListener('click', () => openModal(i));
+    list.appendChild(li);
+  });
+
+  // ── Footer year ──
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+  // ── Modal logic ──
+  let currentIdx = 0;
+  const backdrop = document.getElementById('modal');
+  const elNum    = document.getElementById('modal-num');
+  const elTitle  = document.getElementById('modal-title');
+  const elDate   = document.getElementById('modal-date');
+  const elBody   = document.getElementById('modal-body');
+
+  function openModal(idx) {
+    currentIdx = idx;
+    renderModal();
+    backdrop.classList.add('open');
+    backdrop.scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    backdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function renderModal() {
+    const e = ESSAYS[currentIdx];
+    elNum.textContent   = `essay ${String(e.num).padStart(2, '0')} / ${String(ESSAYS.length).padStart(2, '0')}`;
+    elTitle.textContent = e.title;
+    elDate.textContent  = `${e.date} · ${e.read} read`;
+    elBody.innerHTML    = e.body.split('\n\n').map(p => `<p>${p.trim()}</p>`).join('');
+    backdrop.scrollTop  = 0;
+
+    // dim nav buttons if at edges
+    document.getElementById('nav-prev').style.opacity = currentIdx === 0 ? '0.25' : '1';
+    document.getElementById('nav-next').style.opacity = currentIdx === ESSAYS.length - 1 ? '0.25' : '1';
+  }
+
+  function prevEssay() { if (currentIdx > 0) { currentIdx--; renderModal(); } }
+  function nextEssay() { if (currentIdx < ESSAYS.length - 1) { currentIdx++; renderModal(); } }
+
+  document.getElementById('nav-prev').addEventListener('click', prevEssay);
+  document.getElementById('nav-next').addEventListener('click', nextEssay);
+  document.getElementById('nav-close').addEventListener('click', closeModal);
+
+  // click backdrop to close
+  backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeModal(); });
+
+  // keyboard nav
+  document.addEventListener('keydown', (e) => {
+    if (!backdrop.classList.contains('open')) return;
+    if (e.key === 'q' || e.key === 'Q' || e.key === 'Escape') closeModal();
+    if (e.key === 'a' || e.key === 'A' || e.key === 'ArrowLeft')  prevEssay();
+    if (e.key === 'd' || e.key === 'D' || e.key === 'ArrowRight') nextEssay();
+  });
+</script>
 </body>
 </html>
