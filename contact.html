@@ -3,436 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Get in touch with Karthik — email, GitHub, Discord, and more." />
   <title>contact · karthik</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:       #1a1a2e;
-      --bg-card:  #16213e;
-      --bg-card-h:#1a2a42;
-      --ink:      #cdd6f4;
-      --ink-soft: #7f849c;
-      --ink-dim:  #313244;
-      --accent:   #89b4fa;
-      --green:    #a6e3a1;
-      --mono:     'JetBrains Mono', monospace;
+    @keyframes glitch-text {
+      0%,100%{transform:translate(0,0);filter:drop-shadow(0 0 16px #cc0000);}
+      18%{transform:translate(-5px,0);filter:drop-shadow(5px 0 0 #00ffff) drop-shadow(-5px 0 0 #ff0000);}
+      20%{transform:translate(5px,0);filter:drop-shadow(-5px 0 0 #00ffff) drop-shadow(5px 0 0 #ff0000);}
+      22%{transform:translate(0,0);filter:drop-shadow(0 0 16px #cc0000);}
+      60%{transform:translate(-3px,1px) skewX(3deg);}
+      62%{transform:translate(3px,-1px) skewX(-2deg);}
+      64%{transform:translate(0,0);}
     }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      background-image: linear-gradient(135deg, #0f0f1a 0%, #0d1b2a 30%, #1a0a2e 60%, #0a1f0f 100%);
-      background-attachment: fixed;
-      color: var(--ink);
-      font-family: var(--mono);
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 1.7;
-      min-height: 100vh;
+    @keyframes bg-flicker {
+      0%,100%{background:#000;}
+      91%{background:#000;}92%{background:#0d0000;}93%{background:#000;}
+      97%{background:#060000;}98%{background:#000;}
     }
-
-    a { color: inherit; text-decoration: none; }
-
-    /* grain */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.025;
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    /* ── Nav ── */
-    nav {
-      border-bottom: 1px solid var(--ink-dim);
-      background: rgba(15,15,26,0.85);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .nav-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 18px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-brand {
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--ink);
-    }
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 32px;
-    }
-    .nav-links a {
-      font-size: 13px;
-      color: var(--ink-soft);
-      transition: color .15s;
-    }
-    .nav-links a:hover,
-    .nav-links a.active { color: var(--ink); }
-
-    /* ── Layout ── */
-    main {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 56px 48px 120px;
-    }
-
-    /* ── Page header ── */
-    .page-title {
-      font-size: 28px;
-      font-weight: 400;
-      color: var(--ink);
-      margin-bottom: 16px;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid var(--ink-dim);
-      margin-bottom: 32px;
-    }
-
-    /* ── Fade in ── */
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: none; }
-    }
-    .fade { opacity: 0; animation: rise .5s ease forwards; }
-    .d1 { animation-delay: .05s; }
-    .d2 { animation-delay: .15s; }
-    .d3 { animation-delay: .25s; }
-    .d4 { animation-delay: .35s; }
-
-    /* ── Card grid ── */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--ink-dim);
-      border-radius: 4px;
-      padding: 20px 22px 24px;
-      cursor: pointer;
-      transition: background .15s, border-color .15s;
-    }
-    .card:hover {
-      background: var(--bg-card-h);
-      border-color: var(--accent);
-    }
-    .card-date {
-      font-size: 11px;
-      color: var(--ink-soft);
-      margin-bottom: 10px;
-    }
-    .card-title {
-      font-size: 14px;
-      color: var(--ink);
-      line-height: 1.5;
-    }
-
-    /* ── About / Contact prose ── */
-    .prose p {
-      color: var(--ink-soft);
-      margin-bottom: 20px;
-      font-size: 14px;
-      line-height: 1.75;
-    }
-    .prose p strong { color: var(--ink); font-weight: 400; }
-
-    .detail-grid {
-      display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 10px 0;
-      margin-top: 28px;
-    }
-    .dk { color: var(--ink-dim); font-size: 12px; }
-    .dv { color: var(--ink-soft); font-size: 12px; }
-    .dv a { color: var(--accent); border-bottom: 1px solid transparent; transition: border-color .15s; }
-    .dv a:hover { border-color: var(--accent); }
-
-    /* ── Footer ── */
-    footer {
-      margin-top: 80px;
-      padding-top: 24px;
-      border-top: 1px solid var(--ink-dim);
-      font-size: 12px;
-      color: var(--ink-dim);
-    }
-
-    /* ── Modal ── */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(10,10,20,0.97);
-      z-index: 1000;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      overflow-y: auto;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .2s ease;
-    }
-    .modal-backdrop.open { opacity: 1; pointer-events: all; }
-    .modal {
-      max-width: 680px;
-      width: 100%;
-      padding: 56px 48px 100px;
-      transform: translateY(12px);
-      transition: transform .25s ease;
-    }
-    .modal-backdrop.open .modal { transform: none; }
-
-    .modal-topbar {
-      display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-      color: var(--ink-dim);
-      margin-bottom: 40px;
-    }
-    .modal-nav { display: flex; gap: 20px; }
-    .modal-nav span, .modal-close { cursor: pointer; transition: color .15s; }
-    .modal-nav span:hover, .modal-close:hover { color: var(--ink); }
-    .modal-nav span.dimmed { opacity: 0.25; pointer-events: none; }
-
-    .modal-date { font-size: 11px; color: var(--ink-soft); margin-bottom: 8px; }
-    .modal-title { font-size: 20px; color: var(--ink); margin-bottom: 32px; line-height: 1.4; }
-    .modal-body { font-size: 14px; line-height: 1.85; color: var(--ink-soft); }
-    .modal-body p + p { margin-top: 18px; }
-
-    @media (max-width: 600px) {
-      .nav-inner, main { padding-left: 20px; padding-right: 20px; }
-      .card-grid { grid-template-columns: 1fr; }
-      .modal { padding: 40px 20px 80px; }
-    }
-
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--ink-dim); }
-</style>
+    #eye-overlay{animation:bg-flicker 4s infinite;}
+    #eye-text{animation:glitch-text 3s ease-in-out infinite;}
+  </style>
 </head>
 <body>
   <nav>
     <div class="nav-inner">
       <ul class="nav-links">
-        <li><a href="index.html" class="">home</a></li>
-        <li><a href="about.html" class="">about</a></li>
+        <li><a href="index.html">home</a></li>
+        <li><a href="about.html">about</a></li>
         <li><a href="contact.html" class="active">contact</a></li>
       </ul>
     </div>
   </nav>
-<main>
-  <h1 class="page-title fade d1">contact me here</h1>
-  <hr class="fade d1">
-  <div class="prose fade d2">
-    <p>Guys reach out if you want to lose your brain. (Or if you like Science, CS, and Maths, and want to discuss.)</p>
-    <p><strong>email</strong><br>
-    <a href="mailto:karthikbkollabathula@gmail.com" style="color:var(--accent)">karthikbkollabathula@gmail.com</a></p>
-    <p><strong>github</strong><br>
-    <a href="https://github.com/KarthikUnreal" target="_blank" style="color:var(--accent)">github.com/KarthikUnreal</a></p>
-    <p><strong>discord</strong><br>
-    <a href="https://discord.com/users/null_value_" target="_blank" style="color:var(--accent)">null_value_</a></p>
-    <p><strong>instagram</strong><br>
-    <a href="https://www.instagram.com/tovarich_zenend/" target="_blank" style="color:var(--accent)">tovarich_zenend</a></p>
-    <p><strong>spotify</strong><br>
-    <a href="https://open.spotify.com/user/tovarich_zenend" target="_blank" style="color:var(--accent)">tovarich_zenend</a></p>
+  <main>
+    <h1 class="page-title fade d1">contact me here</h1>
+    <hr class="fade d1">
+    <div class="prose fade d2">
+      <p>Guys reach out if you want to lose your brain. (Or if you like Science, CS, and Maths, and want to discuss.)</p>
+      <p><strong>email</strong> — for anything, essays, ideas, random thoughts<br>
+      <a href="mailto:karthikbkollabathula@gmail.com" style="color:var(--accent)">karthikbkollabathula@gmail.com</a></p>
+      <p><strong>github</strong> — projects and code<br>
+      <a href="https://github.com/KarthikUnreal" target="_blank" style="color:var(--accent)">github.com/KarthikUnreal</a></p>
+      <p><strong>discord</strong> — fastest way to reach me<br>
+      <a href="https://discord.com/users/null_value_" target="_blank" style="color:var(--accent)">null_value_</a></p>
+      <p><strong>instagram</strong><br>
+      <a href="https://www.instagram.com/tovarich_zenend/" target="_blank" style="color:var(--accent)">tovarich_zenend</a></p>
+      <p><strong>spotify</strong> — if you want to see what I'm listening to<br>
+      <a href="https://open.spotify.com/user/tovarich_zenend" target="_blank" style="color:var(--accent)">tovarich_zenend</a></p>
+    </div>
+  </main>
+
+  <!-- secret eye -->
+  <div id="eye-overlay" style="position:fixed;inset:0;z-index:99999;background:#000;display:none;align-items:center;justify-content:center;flex-direction:column;cursor:pointer;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.45) 2px,rgba(0,0,0,0.45) 4px);pointer-events:none;z-index:2;"></div>
+    <div id="eye-wrap" style="position:relative;z-index:4;display:flex;flex-direction:column;align-items:center;">
+      <canvas id="eye-canvas" width="560" height="320" style="filter:drop-shadow(0 0 60px #cc0000) drop-shadow(0 0 120px #550000);"></canvas>
+      <div id="eye-text" style="font-family:'JetBrains Mono',monospace;font-size:30px;color:#cc0000;margin-top:32px;letter-spacing:0.22em;text-transform:uppercase;">i can see you</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#330000;margin-top:16px;letter-spacing:0.1em;">[ click or esc to run ]</div>
+    </div>
   </div>
-</main>
 
-
-
-
-<!-- secret eye -->
-<div id="eye-overlay" style="position:fixed;inset:0;z-index:99999;background:#000;display:none;align-items:center;justify-content:center;flex-direction:column;cursor:pointer;overflow:hidden;">
-  <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.45) 2px,rgba(0,0,0,0.45) 4px);pointer-events:none;z-index:2;"></div>
-  <div id="eye-wrap" style="position:relative;z-index:4;display:flex;flex-direction:column;align-items:center;">
-    <canvas id="eye-canvas" width="560" height="320" style="filter:drop-shadow(0 0 60px #cc0000) drop-shadow(0 0 120px #550000);"></canvas>
-    <div id="eye-text" style="font-family:'JetBrains Mono',monospace;font-size:30px;color:#cc0000;margin-top:32px;letter-spacing:0.22em;text-transform:uppercase;">i can see you</div>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#330000;margin-top:16px;letter-spacing:0.1em;">[ click or esc to run ]</div>
-  </div>
-</div>
-
-<style>
-@keyframes glitch-text {
-  0%,100%{transform:translate(0,0);filter:drop-shadow(0 0 16px #cc0000);}
-  18%{transform:translate(-5px,0);filter:drop-shadow(5px 0 0 #00ffff) drop-shadow(-5px 0 0 #ff0000);}
-  20%{transform:translate(5px,0);filter:drop-shadow(-5px 0 0 #00ffff) drop-shadow(5px 0 0 #ff0000);}
-  22%{transform:translate(0,0);filter:drop-shadow(0 0 16px #cc0000);}
-  60%{transform:translate(-3px,1px) skewX(3deg);}
-  62%{transform:translate(3px,-1px) skewX(-2deg);}
-  64%{transform:translate(0,0);}
-}
-@keyframes bg-flicker {
-  0%,100%{background:#000;}
-  91%{background:#000;}92%{background:#0d0000;}93%{background:#000;}
-  97%{background:#060000;}98%{background:#000;}
-}
-#eye-overlay{animation:bg-flicker 4s infinite;}
-#eye-text{animation:glitch-text 3s ease-in-out infinite;}
-</style>
-
-<script>
-(function(){
-  const overlay = document.getElementById('eye-overlay');
-  const canvas  = document.getElementById('eye-canvas');
-  const ctx     = canvas.getContext('2d');
-  const W = 560, H = 320, CX = W/2, CY = H/2;
-
-  let blinkT = 0, blinkDir = 1, blinkOpen = 1;
-  let jitterX = 0, jitterY = 0, jitterTimer = 0;
-  let running = false;
-
-  function drawEye(open) {
-    ctx.clearRect(0,0,W,H);
-
-    // glow bg
-    const bg = ctx.createRadialGradient(CX,CY,10,CX,CY,200);
-    bg.addColorStop(0,'rgba(140,0,0,0.18)');
-    bg.addColorStop(1,'rgba(0,0,0,0)');
-    ctx.fillStyle = bg;
-    ctx.fillRect(0,0,W,H);
-
-    // eye shape clip
-    ctx.save();
-    ctx.beginPath();
-    ctx.ellipse(CX, CY, 185, 85 * open, 0, 0, Math.PI*2);
-    ctx.clip();
-
-    // sclera
-    const scl = ctx.createRadialGradient(CX,CY,60,CX,CY,185);
-    scl.addColorStop(0,'#0a0000');
-    scl.addColorStop(1,'#000');
-    ctx.fillStyle = scl;
-    ctx.fillRect(0,0,W,H);
-
-    // veins
-    const veins = [
-      [20,CY,130,CY-8],[22,CY-28,118,CY-6],[24,CY+28,116,CY+8],
-      [40,CY-55,120,CY-14],[42,CY+55,118,CY+16],
-      [W-20,CY,W-130,CY-8],[W-22,CY-28,W-118,CY-6],[W-24,CY+28,W-116,CY+8],
-      [W-40,CY-55,W-120,CY-14],[W-42,CY+55,W-118,CY+16],
-    ];
-    ctx.strokeStyle='#6a0000'; ctx.lineWidth=1.1;
-    veins.forEach(([x1,y1,x2,y2])=>{
-      ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
-    });
-
-    // iris
-    const iris = ctx.createRadialGradient(CX,CY,5,CX,CY,76);
-    iris.addColorStop(0,'#0a0000');
-    iris.addColorStop(0.28,'#7a0000');
-    iris.addColorStop(0.58,'#cc1100');
-    iris.addColorStop(0.82,'#800000');
-    iris.addColorStop(1,'#2a0000');
-    ctx.fillStyle = iris;
-    ctx.beginPath(); ctx.arc(CX,CY,76,0,Math.PI*2); ctx.fill();
-
-    // iris lines
-    ctx.strokeStyle='rgba(255,30,0,0.45)'; ctx.lineWidth=0.8;
-    for(let a=0;a<Math.PI*2;a+=Math.PI/8){
-      ctx.beginPath();
-      ctx.moveTo(CX+30*Math.cos(a),CY+30*Math.sin(a));
-      ctx.lineTo(CX+74*Math.cos(a),CY+74*Math.sin(a));
-      ctx.stroke();
-    }
-
-    // pupil
-    const pup = ctx.createRadialGradient(CX,CY,0,CX,CY,34);
-    pup.addColorStop(0,'#000'); pup.addColorStop(1,'#0a0000');
-    ctx.fillStyle=pup;
-    ctx.beginPath(); ctx.arc(CX,CY,34,0,Math.PI*2); ctx.fill();
-    ctx.fillStyle='#000';
-    ctx.beginPath(); ctx.arc(CX,CY,26,0,Math.PI*2); ctx.fill();
-
-    // glint
-    ctx.fillStyle='rgba(255,255,255,0.13)';
-    ctx.beginPath(); ctx.ellipse(CX+14,CY-12,7,4,-0.4,0,Math.PI*2); ctx.fill();
-
-    ctx.restore();
-
-    // eyelids
-    ctx.fillStyle='#000';
-    // top lid
-    ctx.beginPath();
-    ctx.moveTo(CX-185,CY);
-    ctx.quadraticCurveTo(CX, CY - 90*open - (1-open)*10, CX+185, CY);
-    ctx.lineTo(CX+185, 0); ctx.lineTo(CX-185, 0); ctx.closePath(); ctx.fill();
-    // bottom lid
-    ctx.beginPath();
-    ctx.moveTo(CX-185,CY);
-    ctx.quadraticCurveTo(CX, CY + 90*open + (1-open)*10, CX+185, CY);
-    ctx.lineTo(CX+185, H); ctx.lineTo(CX-185, H); ctx.closePath(); ctx.fill();
-
-    // lashes (top)
-    if(open > 0.3){
-      const lashX = [75,105,140,170,200,230,260,295,325,355,385];
-      const lashA = [-0.5,-0.35,-0.2,-0.1,0,0.1,0.2,0.35,0.5,0.6,0.7];
-      ctx.strokeStyle='rgba(20,20,20,0.9)'; ctx.lineWidth=2.5;
-      lashX.forEach((x,i)=>{
-        const eyeTop = CY - 85*open * Math.sin(Math.acos((x-CX)/185));
-        ctx.beginPath();
-        ctx.moveTo(x, eyeTop);
-        ctx.lineTo(x + Math.sin(lashA[i])*14*open, eyeTop - 18*open);
-        ctx.stroke();
-      });
-    }
-  }
-
-  function loop() {
-    if(!running) return;
-
-    // blink cycle
-    blinkT += 0.012;
-    if(blinkT > 1){ blinkT=0; }
-    // mostly open, fast blink
-    if(blinkT < 0.85) { blinkOpen = 1; }
-    else if(blinkT < 0.9) { blinkOpen = 1 - (blinkT-0.85)/0.05; }
-    else if(blinkT < 0.93) { blinkOpen = 0; }
-    else { blinkOpen = (blinkT-0.93)/0.07; }
-
-    // occasional jitter
-    jitterTimer--;
-    if(jitterTimer < 0){ jitterX=(Math.random()-0.5)*6; jitterY=(Math.random()-0.5)*3; jitterTimer=Math.random()*40+10; }
-    else { jitterX*=0.85; jitterY*=0.85; }
-
-    canvas.style.transform = `translate(${jitterX}px,${jitterY}px)`;
-    drawEye(blinkOpen);
-    requestAnimationFrame(loop);
-  }
-
-  function openEye(){
-    overlay.style.display='flex';
-    running=true; blinkT=0;
-    loop();
-  }
-  function closeEye(){
-    overlay.style.display='none';
-    running=false;
-  }
-
-  document.addEventListener('keydown', e=>{
-    if((e.key==='f'||e.key==='F') && document.activeElement.tagName!=='INPUT') openEye();
-    if(e.key==='Escape') closeEye();
-  });
-  overlay.addEventListener('click', closeEye);
-})();
-</script>
-
+  <script src="eye.js"></script>
 </body>
 </html>
