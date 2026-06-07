@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>karthik-v59</title>
+  <title>karthik-v60</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -413,135 +413,180 @@ A country of 1.5 billion can't keep racing toward the same two doors, when there
 </script>
 
 
+
 <!-- secret eye -->
-<div id="eye-overlay" style="
-  position:fixed;inset:0;z-index:99999;
-  background:#000;
-  display:none;
-  align-items:center;justify-content:center;
-  flex-direction:column;
-  cursor:pointer;
-  overflow:hidden;
-">
-  <!-- scanlines -->
-  <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.4) 2px,rgba(0,0,0,0.4) 4px);pointer-events:none;z-index:2;"></div>
-  <!-- noise flicker -->
-  <div id="eye-noise" style="position:absolute;inset:0;opacity:0.06;pointer-events:none;z-index:3;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");"></div>
-
+<div id="eye-overlay" style="position:fixed;inset:0;z-index:99999;background:#000;display:none;align-items:center;justify-content:center;flex-direction:column;cursor:pointer;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.45) 2px,rgba(0,0,0,0.45) 4px);pointer-events:none;z-index:2;"></div>
   <div id="eye-wrap" style="position:relative;z-index:4;display:flex;flex-direction:column;align-items:center;">
-    <svg id="eye-svg" viewBox="0 0 400 220" width="560" style="filter:drop-shadow(0 0 40px #cc0000) drop-shadow(0 0 80px #660000);">
-      <defs>
-        <radialGradient id="iris" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#0a0000"/>
-          <stop offset="30%" stop-color="#6b0000"/>
-          <stop offset="60%" stop-color="#cc1100"/>
-          <stop offset="85%" stop-color="#7a0000"/>
-          <stop offset="100%" stop-color="#2a0000"/>
-        </radialGradient>
-        <radialGradient id="pupil-g" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#000"/>
-          <stop offset="80%" stop-color="#0a0000"/>
-          <stop offset="100%" stop-color="#1a0000"/>
-        </radialGradient>
-        <filter id="glow-f" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="8" result="blur"/>
-          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-        <filter id="distort">
-          <feTurbulence id="turb" type="turbulence" baseFrequency="0.015" numOctaves="3" result="noise" seed="2"/>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" xChannelSelector="R" yChannelSelector="G"/>
-        </filter>
-      </defs>
-
-      <!-- dark sclera -->
-      <ellipse cx="200" cy="110" rx="190" ry="90" fill="#050000"/>
-      <!-- veins lots -->
-      <g stroke="#5a0000" stroke-width="1" opacity="0.9" filter="url(#glow-f)">
-        <line x1="15" y1="110" x2="128" y2="109"/><line x1="18" y1="85" x2="120" y2="104"/>
-        <line x1="20" y1="135" x2="118" y2="114"/><line x1="35" y1="65" x2="110" y2="98"/>
-        <line x1="40" y1="150" x2="112" y2="120"/><line x1="60" y1="55" x2="128" y2="95"/>
-        <line x1="385" y1="110" x2="272" y2="109"/><line x1="382" y1="85" x2="280" y2="104"/>
-        <line x1="380" y1="135" x2="282" y2="114"/><line x1="365" y1="65" x2="290" y2="98"/>
-        <line x1="360" y1="150" x2="288" y2="120"/><line x1="340" y1="55" x2="272" y2="95"/>
-        <line x1="128" y1="109" x2="160" y2="110"/><line x1="272" y1="109" x2="240" y2="110"/>
-        <line x1="120" y1="104" x2="150" y2="108"/><line x1="280" y1="104" x2="250" y2="108"/>
-      </g>
-      <!-- iris -->
-      <circle cx="200" cy="110" r="74" fill="url(#iris)" filter="url(#distort)"/>
-      <!-- iris lines -->
-      <g stroke="#ff1100" stroke-width="0.7" opacity="0.5">
-        <line x1="200" y1="36" x2="200" y2="184"/>
-        <line x1="126" y1="47" x2="274" y2="173"/><line x1="274" y1="47" x2="126" y2="173"/>
-        <line x1="126" y1="110" x2="274" y2="110"/>
-        <line x1="143" y1="57" x2="257" y2="163"/><line x1="257" y1="57" x2="143" y2="163"/>
-        <line x1="160" y1="43" x2="240" y2="177"/><line x1="240" y1="43" x2="160" y2="177"/>
-      </g>
-      <!-- pupil -->
-      <circle cx="200" cy="110" r="38" fill="url(#pupil-g)" filter="url(#glow-f)"/>
-      <circle cx="200" cy="110" r="28" fill="#000"/>
-      <!-- glint -->
-      <ellipse cx="214" cy="97" rx="7" ry="4" fill="white" opacity="0.12" transform="rotate(-25,214,97)"/>
-      <!-- top lid / lashes -->
-      <path d="M10,110 Q200,10 390,110" fill="#000" stroke="none"/>
-      <g stroke="#0a0000" stroke-width="3" stroke-linecap="round">
-        <line x1="75" y1="58" x2="65" y2="38"/><line x1="105" y1="40" x2="99" y2="20"/>
-        <line x1="140" y1="27" x2="138" y2="7"/><line x1="175" y1="20" x2="175" y2="1"/>
-        <line x1="200" y1="18" x2="200" y2="0"/><line x1="225" y1="20" x2="225" y2="1"/>
-        <line x1="260" y1="27" x2="262" y2="7"/><line x1="295" y1="40" x2="301" y2="20"/>
-        <line x1="325" y1="58" x2="335" y2="38"/>
-      </g>
-      <!-- bottom lid -->
-      <path d="M10,110 Q200,200 390,110" fill="#000" stroke="none"/>
-    </svg>
-
-    <div id="eye-text" style="
-      font-family:'JetBrains Mono',monospace;
-      font-size:32px;
-      color:#cc0000;
-      margin-top:36px;
-      letter-spacing:0.2em;
-      text-transform:uppercase;
-      filter:drop-shadow(0 0 16px #cc0000) drop-shadow(0 0 32px #660000);
-    ">i can see you</div>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#330000;margin-top:18px;letter-spacing:0.12em;">[ click anywhere or esc to run ]</div>
+    <canvas id="eye-canvas" width="560" height="320" style="filter:drop-shadow(0 0 60px #cc0000) drop-shadow(0 0 120px #550000);"></canvas>
+    <div id="eye-text" style="font-family:'JetBrains Mono',monospace;font-size:30px;color:#cc0000;margin-top:32px;letter-spacing:0.22em;text-transform:uppercase;">i can see you</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#330000;margin-top:16px;letter-spacing:0.1em;">[ click or esc to run ]</div>
   </div>
 </div>
 
 <style>
-@keyframes eyeblink {
-  0%,48%,52%,100% { transform: scaleY(1); }
-  50% { transform: scaleY(0.04); }
-}
 @keyframes glitch-text {
-  0%,100% { transform:translate(0,0); filter:drop-shadow(0 0 16px #cc0000); }
-  20% { transform:translate(-4px,0); filter:drop-shadow(4px 0 0 #00ffff) drop-shadow(-4px 0 0 #ff0000); }
-  40% { transform:translate(4px,0); filter:drop-shadow(-4px 0 0 #00ffff) drop-shadow(4px 0 0 #ff0000); }
-  60% { transform:translate(-2px,1px) skewX(2deg); }
-  80% { transform:translate(2px,-1px) skewX(-1deg); }
+  0%,100%{transform:translate(0,0);filter:drop-shadow(0 0 16px #cc0000);}
+  18%{transform:translate(-5px,0);filter:drop-shadow(5px 0 0 #00ffff) drop-shadow(-5px 0 0 #ff0000);}
+  20%{transform:translate(5px,0);filter:drop-shadow(-5px 0 0 #00ffff) drop-shadow(5px 0 0 #ff0000);}
+  22%{transform:translate(0,0);filter:drop-shadow(0 0 16px #cc0000);}
+  60%{transform:translate(-3px,1px) skewX(3deg);}
+  62%{transform:translate(3px,-1px) skewX(-2deg);}
+  64%{transform:translate(0,0);}
 }
 @keyframes bg-flicker {
-  0%,100% { background:#000; }
-  92% { background:#000; }
-  93% { background:#0a0000; }
-  94% { background:#000; }
-  97% { background:#050000; }
-  98% { background:#000; }
+  0%,100%{background:#000;}
+  91%{background:#000;}92%{background:#0d0000;}93%{background:#000;}
+  97%{background:#060000;}98%{background:#000;}
 }
-#eye-overlay { animation: bg-flicker 3s infinite; }
-#eye-svg { animation: eyeblink 4s ease-in-out infinite; transform-origin: center 110px; }
-#eye-text { animation: glitch-text 2.5s ease-in-out infinite; }
+#eye-overlay{animation:bg-flicker 4s infinite;}
+#eye-text{animation:glitch-text 3s ease-in-out infinite;}
 </style>
 
 <script>
 (function(){
-  const el = document.getElementById('eye-overlay');
-  document.addEventListener('keydown', e => {
-    if ((e.key === 'f' || e.key === 'F') && document.activeElement.tagName !== 'INPUT') {
-      el.style.display = 'flex';
+  const overlay = document.getElementById('eye-overlay');
+  const canvas  = document.getElementById('eye-canvas');
+  const ctx     = canvas.getContext('2d');
+  const W = 560, H = 320, CX = W/2, CY = H/2;
+
+  let blinkT = 0, blinkDir = 1, blinkOpen = 1;
+  let jitterX = 0, jitterY = 0, jitterTimer = 0;
+  let running = false;
+
+  function drawEye(open) {
+    ctx.clearRect(0,0,W,H);
+
+    // glow bg
+    const bg = ctx.createRadialGradient(CX,CY,10,CX,CY,200);
+    bg.addColorStop(0,'rgba(140,0,0,0.18)');
+    bg.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0,0,W,H);
+
+    // eye shape clip
+    ctx.save();
+    ctx.beginPath();
+    ctx.ellipse(CX, CY, 185, 85 * open, 0, 0, Math.PI*2);
+    ctx.clip();
+
+    // sclera
+    const scl = ctx.createRadialGradient(CX,CY,60,CX,CY,185);
+    scl.addColorStop(0,'#0a0000');
+    scl.addColorStop(1,'#000');
+    ctx.fillStyle = scl;
+    ctx.fillRect(0,0,W,H);
+
+    // veins
+    const veins = [
+      [20,CY,130,CY-8],[22,CY-28,118,CY-6],[24,CY+28,116,CY+8],
+      [40,CY-55,120,CY-14],[42,CY+55,118,CY+16],
+      [W-20,CY,W-130,CY-8],[W-22,CY-28,W-118,CY-6],[W-24,CY+28,W-116,CY+8],
+      [W-40,CY-55,W-120,CY-14],[W-42,CY+55,W-118,CY+16],
+    ];
+    ctx.strokeStyle='#6a0000'; ctx.lineWidth=1.1;
+    veins.forEach(([x1,y1,x2,y2])=>{
+      ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+    });
+
+    // iris
+    const iris = ctx.createRadialGradient(CX,CY,5,CX,CY,76);
+    iris.addColorStop(0,'#0a0000');
+    iris.addColorStop(0.28,'#7a0000');
+    iris.addColorStop(0.58,'#cc1100');
+    iris.addColorStop(0.82,'#800000');
+    iris.addColorStop(1,'#2a0000');
+    ctx.fillStyle = iris;
+    ctx.beginPath(); ctx.arc(CX,CY,76,0,Math.PI*2); ctx.fill();
+
+    // iris lines
+    ctx.strokeStyle='rgba(255,30,0,0.45)'; ctx.lineWidth=0.8;
+    for(let a=0;a<Math.PI*2;a+=Math.PI/8){
+      ctx.beginPath();
+      ctx.moveTo(CX+30*Math.cos(a),CY+30*Math.sin(a));
+      ctx.lineTo(CX+74*Math.cos(a),CY+74*Math.sin(a));
+      ctx.stroke();
     }
-    if (e.key === 'Escape') el.style.display = 'none';
+
+    // pupil
+    const pup = ctx.createRadialGradient(CX,CY,0,CX,CY,34);
+    pup.addColorStop(0,'#000'); pup.addColorStop(1,'#0a0000');
+    ctx.fillStyle=pup;
+    ctx.beginPath(); ctx.arc(CX,CY,34,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='#000';
+    ctx.beginPath(); ctx.arc(CX,CY,26,0,Math.PI*2); ctx.fill();
+
+    // glint
+    ctx.fillStyle='rgba(255,255,255,0.13)';
+    ctx.beginPath(); ctx.ellipse(CX+14,CY-12,7,4,-0.4,0,Math.PI*2); ctx.fill();
+
+    ctx.restore();
+
+    // eyelids
+    ctx.fillStyle='#000';
+    // top lid
+    ctx.beginPath();
+    ctx.moveTo(CX-185,CY);
+    ctx.quadraticCurveTo(CX, CY - 90*open - (1-open)*10, CX+185, CY);
+    ctx.lineTo(CX+185, 0); ctx.lineTo(CX-185, 0); ctx.closePath(); ctx.fill();
+    // bottom lid
+    ctx.beginPath();
+    ctx.moveTo(CX-185,CY);
+    ctx.quadraticCurveTo(CX, CY + 90*open + (1-open)*10, CX+185, CY);
+    ctx.lineTo(CX+185, H); ctx.lineTo(CX-185, H); ctx.closePath(); ctx.fill();
+
+    // lashes (top)
+    if(open > 0.3){
+      const lashX = [75,105,140,170,200,230,260,295,325,355,385];
+      const lashA = [-0.5,-0.35,-0.2,-0.1,0,0.1,0.2,0.35,0.5,0.6,0.7];
+      ctx.strokeStyle='rgba(20,20,20,0.9)'; ctx.lineWidth=2.5;
+      lashX.forEach((x,i)=>{
+        const eyeTop = CY - 85*open * Math.sin(Math.acos((x-CX)/185));
+        ctx.beginPath();
+        ctx.moveTo(x, eyeTop);
+        ctx.lineTo(x + Math.sin(lashA[i])*14*open, eyeTop - 18*open);
+        ctx.stroke();
+      });
+    }
+  }
+
+  function loop() {
+    if(!running) return;
+
+    // blink cycle
+    blinkT += 0.012;
+    if(blinkT > 1){ blinkT=0; }
+    // mostly open, fast blink
+    if(blinkT < 0.85) { blinkOpen = 1; }
+    else if(blinkT < 0.9) { blinkOpen = 1 - (blinkT-0.85)/0.05; }
+    else if(blinkT < 0.93) { blinkOpen = 0; }
+    else { blinkOpen = (blinkT-0.93)/0.07; }
+
+    // occasional jitter
+    jitterTimer--;
+    if(jitterTimer < 0){ jitterX=(Math.random()-0.5)*6; jitterY=(Math.random()-0.5)*3; jitterTimer=Math.random()*40+10; }
+    else { jitterX*=0.85; jitterY*=0.85; }
+
+    canvas.style.transform = `translate(${jitterX}px,${jitterY}px)`;
+    drawEye(blinkOpen);
+    requestAnimationFrame(loop);
+  }
+
+  function openEye(){
+    overlay.style.display='flex';
+    running=true; blinkT=0;
+    loop();
+  }
+  function closeEye(){
+    overlay.style.display='none';
+    running=false;
+  }
+
+  document.addEventListener('keydown', e=>{
+    if((e.key==='f'||e.key==='F') && document.activeElement.tagName!=='INPUT') openEye();
+    if(e.key==='Escape') closeEye();
   });
-  el.addEventListener('click', () => { el.style.display = 'none'; });
+  overlay.addEventListener('click', closeEye);
 })();
 </script>
 

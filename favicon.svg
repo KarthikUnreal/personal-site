@@ -60,4 +60,5 @@
 <circle fill="#5efff4" opacity="0.5" cx="-59" cy="0" r="5"/>
 <circle fill="#5efff4" opacity="0.5" cx="154" cy="0" r="5"/>
 </g>
+<text x="590" y="650" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="90" font-weight="400" fill="#89b4fa" opacity="0.7">v60</text>
 </svg>
