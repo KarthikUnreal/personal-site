@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Karthik's personal site — essays on biology, CS, and whatever else." />
-  <title>karthik-v62</title>
+  <title>karthik-v63</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -190,8 +190,34 @@ India produces a massive number of engineers every year. A very very small numbe
 
 A country of 1.5 billion can't keep racing toward the same two doors, when there are hundreds. Most of them who want to won't get through, and the ones who do get through aren't always those who wanted to.`
       },
+      {
+        num: 6,
+        title: "What Was Ramanujan On?",
+        date: "8 Jun 2026",
+        read: "5 min",
+        body: `What was Ramanujan on?
+
+No offense to the guy, of course, man was a genius.
+
+But where did he get such random constant numbers in his theorems from? I mean, I don't think I've seen another famous mathematician who gave such a precise formula for the digits of Pi that an adaptation of it is still used today. But where did he get 9801, 1103 + 26390n, 396 to the power 4n? They probably do have some reason (otherwise how would the formula work?), but it just feels so random and arbitrary to keep such weird constant numbers and then get such a good result (8 digits of pi for each increasing value of n).
+
+It took mathematicians over 80 years to fully figure out his theorems. That's how far ahead he was, 80 years. No one still knows how he got those theorems either. He was convinced it was his family deity, Namagiri, who gave him equations which he noted down. Most mathematicians and historians don't really think too much of that idea, but it could very well just be his subconsciousness solving equations and problems in the form of Namagiri. Things like that happen and are verified by Science.
+
+He also was basically a genius in continued fractions, elliptical integrals, and modular functions, which basically let him figure out relationships between different structures, which other mathematicians took decades and advanced machinery to figure out.
+
+He didn't even have any true formal education. He learned from A Synopsis of Elementary Results in Pure and Applied Mathematics, by George Carr, which itself was outdated.
+
+He also might have had a serious shame issue. The story goes that when he was a kid, he worked out a result and then found out that it had been discovered a long time back. He then burned his notes on the result due to the shame of the situation. I still can't really understand what was so shameful about it. Sure, you might have accidentally just rediscovered something, but that doesn't mean it's something to be ashamed of to be replicating the work of genius mathematicians.
+
+After he went to London, G.H. Hardy, another renowned mathematician with whom most of his best work happened, tried to make him give proofs that his equations worked. Ramanujan didn't have any proofs of the sort, and just tried to convince Hardy that they worked, because he believed they worked and they, in fact, most of the time did work. This also put a lot of headache on Hardy, because to publish the equations, he also needed the proof, when there was no proof in sight and the only man who could give it also believed that his equations came from his family deity. Many mathematicians took it upon themselves to figure out the proofs, which did take a lot of time and many dead mathematicians.
+
+His love for mathematics didn't really extend to his health, and he died most probably of tuberculosis at the age of 32, which is an actual shame, because who knows what he could have discovered.
+
+Another thing that is clear is that whatever Ramanujan was on, it quite probably was in very limited supply.`
+      },
     ];
 
+    const DISPLAY = [...ESSAYS].reverse();
     let cur = 0;
     const backdrop = document.getElementById('modal');
 
@@ -206,16 +232,16 @@ A country of 1.5 billion can't keep racing toward the same two doors, when there
       document.body.style.overflow = '';
     }
     function render() {
-      const e = ESSAYS[cur];
+      const e = DISPLAY[cur];
       document.getElementById('modal-date').textContent  = e.date + ' · ' + e.read + ' read';
       document.getElementById('modal-title').textContent = e.title;
       document.getElementById('modal-body').innerHTML    = e.body.split('\n\n').map(p => `<p>${p.trim()}</p>`).join('');
       backdrop.scrollTop = 0;
       document.getElementById('nav-prev').className = cur === 0 ? 'dimmed' : '';
-      document.getElementById('nav-next').className = cur === ESSAYS.length - 1 ? 'dimmed' : '';
+      document.getElementById('nav-next').className = cur === DISPLAY.length - 1 ? 'dimmed' : '';
     }
     function prev() { if (cur > 0) { cur--; render(); } }
-    function next() { if (cur < ESSAYS.length - 1) { cur++; render(); } }
+    function next() { if (cur < DISPLAY.length - 1) { cur++; render(); } }
 
     document.getElementById('nav-prev').addEventListener('click', prev);
     document.getElementById('nav-next').addEventListener('click', next);
@@ -229,7 +255,7 @@ A country of 1.5 billion can't keep racing toward the same two doors, when there
     });
 
     const grid = document.getElementById('essay-grid');
-    ESSAYS.forEach((e, i) => {
+    DISPLAY.forEach((e, i) => {
       const card = document.createElement('div');
       card.className = 'card';
       card.innerHTML = `<div class="card-date">${e.date}</div><div class="card-title">${e.title}</div><div class="card-read">${e.read} read</div>`;
